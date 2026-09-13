@@ -195,11 +195,63 @@ export default function App() {
         <div className="map-floating-actions">
           <button 
             type="button" 
+            className="floating-action-btn"
+            onClick={async () => {
+              const apiBase = import.meta.env.VITE_API_URL || 'https://orca-marine-xu7i.onrender.com';
+              try {
+                const res = await fetch(`${apiBase}/api/ocean/sst`);
+                const data = await res.json();
+                setLayers(prev => {
+                  const filtered = prev.filter(l => l.id !== 'isro-sst');
+                  return [...filtered, {
+                    id: 'isro-sst',
+                    type: 'circle',
+                    label: '📡 Live ISRO SST (MOSDAC)',
+                    data: data,
+                    style: { color: '#E74C3C', width: 6, opacity: 0.8 }
+                  }];
+                });
+              } catch(e) { console.error(e); }
+            }}
+            title="Load Live Sea Surface Temperature from MOSDAC"
+            style={{background: 'rgba(231, 76, 60, 0.2)', border: '1px solid #E74C3C'}}
+          >
+            🌡️ Live ISRO SST
+          </button>
+          
+          <button 
+            type="button" 
+            className="floating-action-btn"
+            onClick={async () => {
+              const apiBase = import.meta.env.VITE_API_URL || 'https://orca-marine-xu7i.onrender.com';
+              try {
+                const res = await fetch(`${apiBase}/api/ocean/pfz`);
+                const data = await res.json();
+                setLayers(prev => {
+                  const filtered = prev.filter(l => l.id !== 'isro-pfz');
+                  return [...filtered, {
+                    id: 'isro-pfz',
+                    type: 'fill',
+                    label: '🐟 Live ISRO PFZ (Bhuvan)',
+                    data: data,
+                    style: { color: '#2ECC71', opacity: 0.6, width: 2 }
+                  }];
+                });
+              } catch(e) { console.error(e); }
+            }}
+            title="Load Live Potential Fishing Zones from Bhuvan"
+            style={{background: 'rgba(46, 204, 113, 0.2)', border: '1px solid #2ECC71'}}
+          >
+            🎣 Live ISRO PFZ
+          </button>
+
+          <button 
+            type="button" 
             className="floating-action-btn territory-btn"
             onClick={() => setIsTerritoryMapOpen(true)}
             title="Open India, Lakshadweep & Andaman Map"
           >
-            🗺️ India &amp; Island Territories
+            🗺️ India & Island Territories
           </button>
           <button 
             type="button" 

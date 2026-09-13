@@ -21,6 +21,9 @@ from agents.mock_orchestrator import mock_orchestrate
 from agents.graph import run_agent
 from agents.groq_agent import run_groq_agent
 
+from api.ocean_routes import router as ocean_router
+from ingestion.scheduler import start_scheduler
+
 # Load environment variables
 load_dotenv()
 
@@ -34,6 +37,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(ocean_router)
 
 translator = TranslationMiddleware()
 
@@ -67,8 +72,13 @@ VOICE_MAP = {
 
 @app.on_event("startup")
 async def startup_event():
+ main
+    start_scheduler()
+    
+=======
     groq_key = os.getenv("GROQ_API_KEY", "")
     google_key = os.getenv("GOOGLE_API_KEY", "")
+main
     mock_mode = os.getenv("MOCK_MODE", "true").lower() == "true"
 
     if groq_key:

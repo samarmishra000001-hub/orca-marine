@@ -308,7 +308,70 @@ export default function MapView({ layers }) {
         }
       });
 
-      // Add or update ORCA data layers
+      main
+      // --- OFFICIAL BOUNDARY OVERLAY INJECTION ---
+      // This ensures the official Indian boundary (including Aksai Chin) is 
+      // dynamically rendered over the default OSM de-facto boundaries.
+      if (!map.getSource('india-official-boundary')) {
+        map.addSource('india-official-boundary', {
+          type: 'geojson',
+          data: '/data/india_political_boundary.geojson'
+        });
+        
+        map.addLayer({
+          id: 'india-official-fill',
+          type: 'fill',
+          source: 'india-official-boundary',
+          paint: {
+            'fill-color': '#00d4ff',
+            'fill-opacity': 0.03
+          }
+        });
+
+        map.addLayer({
+          id: 'india-official-line',
+          type: 'line',
+          source: 'india-official-boundary',
+          paint: {
+            'line-color': '#e74c3c', // Distinct red to differentiate from default OSM borders
+            'line-width': 2.5,
+            'line-dasharray': [3, 2] // Dashed visual indicator for the overlay
+          }
+        });
+
+        // Aksai Chin Explicit Label Marker
+        map.addSource('aksai-chin-label', {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [{
+              type: 'Feature',
+              geometry: { type: 'Point', coordinates: [79.2, 35.2] },
+              properties: { name: 'Aksai Chin (India)' }
+            }]
+          }
+        });
+        
+        map.addLayer({
+          id: 'aksai-chin-text',
+          type: 'symbol',
+          source: 'aksai-chin-label',
+          layout: {
+            'text-field': ['get', 'name'],
+            'text-size': 13,
+            'text-offset': [0, 1.5]
+          },
+          paint: {
+            'text-color': '#e74c3c',
+            'text-halo-color': '#ffffff',
+            'text-halo-width': 2
+          }
+        });
+      }
+      // --- END OFFICIAL BOUNDARY ---
+
+      // 2. Add or update new layer
+      // Add or update ORCA data layers main
       layers.forEach(layer => {
         const sourceId = `orca-${layer.id}`;
         if (!map.getSource(sourceId)) {
