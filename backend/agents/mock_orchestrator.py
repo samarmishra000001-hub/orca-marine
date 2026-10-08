@@ -101,6 +101,32 @@ COASTAL_LOCATIONS = {
 async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
     msg = request.message.lower()
 
+    # OUT OF SCOPE CHECK — reject non-marine queries
+    OUT_OF_SCOPE_KW = ['code', 'python', 'javascript', 'programming', 'cricket', 'football',
+                       'relationship', 'dating', 'boyfriend', 'girlfriend', 'medical', 'doctor',
+                       'stock', 'bitcoin', 'crypto', 'shopping', 'recipe', 'cooking',
+                       'movie', 'song', 'lyrics', 'game', 'sports', 'politics', 'election',
+                       'homework', 'math problem', 'calculate integral', 'solve equation',
+                       'write me', 'generate code', 'explain javascript', 'sort a list']
+    MARINE_KW = ['sea', 'ocean', 'marine', 'fish', 'wave', 'wind', 'weather', 'sst', 'chlorophyll',
+                 'pfz', 'port', 'coast', 'ship', 'boat', 'sail', 'navigate', 'tide', 'current',
+                 'cyclone', 'storm', 'swell', 'temperature', 'forecast', 'safe', 'risk', 'imbl',
+                 'route', 'catch', 'tuna', 'sardine', 'mackerel', 'zone', 'fishing', 'orca',
+                 'warning', 'boundary', 'danger', 'anchor', 'harbor', 'harbour', 'depth',
+                 'salinity', 'upwelling', 'eddy', 'plankton', 'coral', 'reef', 'mangrove',
+                 'hi', 'hello', 'help', 'what can you do', 'who are you', 'namaste',
+                 'good morning', 'good evening', 'thank', 'thanks', 'how are you']
+    
+    is_out = any(kw in msg for kw in OUT_OF_SCOPE_KW)
+    is_marine = any(kw in msg for kw in MARINE_KW)
+    
+    if is_out and not is_marine:
+        return ChatResponse(
+            text_response="That's outside ORCA's scope. I can help with marine weather, ocean conditions, fishing intelligence, marine safety, warnings, and navigation.",
+            agent_reasoning=[AgentStep(agent_name="Scope Filter", action="reject_out_of_scope", result_summary="Query outside marine intelligence domain")],
+            geojson_layers=[],
+        )
+
     # Default center if no location identified
     lat, lon = 18.92, 72.82 # Default Mumbai
     detected_loc = "Indian Coastal Waters"
@@ -215,18 +241,24 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
         res = await assess_safety_risk.ainvoke({"lat": lat, "lon": lon})
         layers_raw.extend(res.get("geojson_layers", []))
 
+        imbl = res.get('imbl_distance_nm', 'N/A')
+        bnd = res.get('nearest_boundary', 'Unknown')
+        r_lvl = res.get('risk_level', 'UNAVAILABLE').upper()
+        r_score = res.get('risk_score', 'N/A')
+        warnings = res.get('warnings', [])
+
         steps.append(AgentStep(
             agent_name="Safety Agent",
             action="geofence_and_weather_risk_audit",
-            result_summary=f"Nearest IMBL: {res['imbl_distance_nm']} NM ({res['nearest_boundary']}). Risk Level: {res['risk_level'].upper()}"
+            result_summary=f"Nearest IMBL: {imbl} NM ({bnd}). Risk Level: {r_lvl}"
         ))
 
-        warnings_text = "\n".join([f"• ⚠️ {w}" for w in res['warnings']])
+        warnings_text = "\n".join([f"• ⚠️ {w}" for w in warnings]) if warnings else "• No active bulletins."
         text_response = (
             f"{greeting}\n\n"
             f"🛡️ **Maritime Safety & Border Geofence Audit**:\n"
-            f"• **Assessed Risk Level**: **{res['risk_level'].upper()}** (Threat Index: {res['risk_score']}/100)\n"
-            f"• **Distance to Nearest IMBL**: **{res['imbl_distance_nm']} Nautical Miles** ({res['nearest_boundary']})\n\n"
+            f"• **Assessed Risk Level**: **{r_lvl}** (Threat Index: {r_score}/100)\n"
+            f"• **Distance to Nearest IMBL**: **{imbl} Nautical Miles** ({bnd})\n\n"
             f"**Active Bulletins**:\n{warnings_text}\n\n"
             f"📍 *Notice: Maintain active VHF watch and stay clear of purple International Boundary Lines.*"
         )
@@ -239,34 +271,39 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
         layers_raw.extend(res_data.get("geojson_layers", []))
         layers_raw.extend(res_safe.get("geojson_layers", []))
 
+        sst_avg = res_data.get('sst_summary', {}).get('avg', 'N/A') if isinstance(res_data.get('sst_summary'), dict) else 'N/A'
+        r_lvl = res_safe.get('risk_level', 'UNAVAILABLE').upper() if isinstance(res_safe, dict) else 'UNAVAILABLE'
+        imbl = res_safe.get('imbl_distance_nm', 'N/A') if isinstance(res_safe, dict) else 'N/A'
+        bnd = res_safe.get('nearest_boundary', 'Unknown') if isinstance(res_safe, dict) else 'Unknown'
+
         steps.append(AgentStep(
             agent_name="Data Discovery Agent",
             action="gather_coastal_telemetry",
-            result_summary=f"Retrieved SST ({res_data['sst_summary']['avg']}°C), Chlorophyll, and Weather for {detected_loc}"
+            result_summary=f"Retrieved SST ({sst_avg}°C), Chlorophyll, and Weather for {detected_loc}"
         ))
         steps.append(AgentStep(
             agent_name="Synthesis Agent",
             action="generate_personalized_brief",
-            result_summary=f"Compiled multi-source marine brief. Safety index: {res_safe['risk_level'].upper()}"
+            result_summary=f"Compiled multi-source marine brief. Safety index: {r_lvl}"
         ))
 
         text_response = (
             f"{greeting}\n\n"
             f"🌊 **Current Oceanographic Conditions off {detected_loc}**:\n"
-            f"• **Sea Surface Temperature**: Average **{res_data.get('sst_summary', {}).get('avg', 'N/A')}°C**\n"
+            f"• **Sea Surface Temperature**: Average **{sst_avg}°C**\n"
             f"• **Productivity**: {res_data.get('chlorophyll_summary', 'N/A')}\n"
             f"• **Weather & Sea State**: {res_data.get('weather_summary', 'N/A')}\n"
-            f"• **Border Proximity**: {res_safe.get('imbl_distance_nm', 'N/A')} NM from {res_safe.get('nearest_boundary', 'Unknown')}\n\n"
+            f"• **Border Proximity**: {imbl} NM from {bnd}\n\n"
             f"💬 *Ask me for Potential Fishing Zones (PFZ), a safe routing corridor, or a detailed weather bulletin!*"
         )
 
     # Deduplicate layers by ID to avoid overlapping layers
     unique_raw = list({l["id"]: l for l in layers_raw}.values())
 
-    # Build simulated/derived chart and risk assessment
+    # Build chart and risk assessment
     from models import ChartData, Citation, RiskAssessmentResponse
     
-    # 24-hr wave forecast chart
+    # 24-hr wave forecast chart (estimated model, NOT live)
     charts = [
         ChartData(
             chart_type="line",
@@ -277,29 +314,49 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
                 {"name": "Significant Wave", "data": [1.1, 1.3, 1.5, 1.8, 1.4], "color": "#00e5ff"},
                 {"name": "Swell Height", "data": [0.8, 0.9, 1.1, 1.2, 1.0], "color": "#00e676"}
             ],
-            source="Open-Meteo Marine Global Model",
-            timestamp="Live"
+            source="Open-Meteo Marine Model (Estimated)",
+            timestamp="Estimated"
         )
     ]
 
-    # Explicit risk assessment
-    risk_level_str = "MODERATE" if "risk_level" not in locals() else (res.get("risk_level", "MODERATE").upper())
+    # Risk assessment — use real data from res_safe if available, else mark as estimated
+    risk_level_str = "MODERATE"
+    risk_score_val = 45.0
+    risk_factors = [
+        {"factor": "wave_height", "value": "N/A", "unit": "m", "threshold": 2.0, "severity": "UNKNOWN", "description": "Estimated conditions"},
+        {"factor": "wind_speed", "value": "N/A", "unit": "km/h", "threshold": 40.0, "severity": "UNKNOWN", "description": "Estimated conditions"}
+    ]
+    risk_explanation = f"Estimated conditions for {detected_loc}. Check official advisories."
+    risk_recs = ["Check official marine advisories before departure."]
+
+    try:
+        if 'res_safe' in dir() and isinstance(res_safe, dict) and res_safe.get('risk_level') not in (None, 'UNAVAILABLE'):
+            risk_level_str = res_safe.get('risk_level', 'MODERATE').upper()
+            risk_score_val = res_safe.get('risk_score', 45.0)
+            lm = res_safe.get('live_metrics', {})
+            if lm:
+                risk_factors = [
+                    {"factor": "wave_height", "value": lm.get('wave_height_m', 0), "unit": "m", "threshold": 2.0, "severity": risk_level_str, "description": f"Wave height: {lm.get('wave_height_m', 'N/A')}m"},
+                    {"factor": "wind_speed", "value": lm.get('wind_speed_kmh', 0), "unit": "km/h", "threshold": 40.0, "severity": "LOW", "description": f"Wind: {lm.get('wind_speed_kmh', 'N/A')} km/h"}
+                ]
+            risk_explanation = res_safe.get('explanation', risk_explanation)
+            risk_recs = res_safe.get('warnings', risk_recs)
+    except Exception:
+        pass
+
     risk_assessment = RiskAssessmentResponse(
         risk_level=risk_level_str,
-        score=45.0,
-        factors=[
-            {"factor": "wave_height", "value": 1.4, "unit": "m", "threshold": 1.6, "severity": "MODERATE", "description": "Wave height: 1.4m"},
-            {"factor": "wind_speed", "value": 18.0, "unit": "km/h", "threshold": 32.0, "severity": "LOW", "description": "Wind: 18.0 km/h"}
-        ],
-        confidence=0.88,
-        explanation=f"Operational conditions evaluated for {detected_loc} shelf.",
-        recommendations=["Maintain regular VHF channel 16 listening watch.", "Inspect rigging and bilges prior to offshore transit."]
+        score=risk_score_val,
+        factors=risk_factors,
+        confidence=0.7,
+        explanation=risk_explanation,
+        recommendations=risk_recs
     )
 
     citations = [
-        Citation(source="Open-Meteo Marine Forecast", freshness="live", timestamp="2026-10-08T15:30:00Z"),
-        Citation(source="NOAA ERDDAP Global SST", freshness="live", timestamp="2026-10-08T15:00:00Z"),
-        Citation(source="INCOIS PFZ & Hydrographic Office", freshness="verified")
+        Citation(source="Open-Meteo Marine Forecast", freshness="model"),
+        Citation(source="NOAA ERDDAP Global SST", freshness="latest-available"),
+        Citation(source="INCOIS PFZ Advisory", freshness="historical-model")
     ]
 
     return ChatResponse(

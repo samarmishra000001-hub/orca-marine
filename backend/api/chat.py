@@ -95,7 +95,7 @@ async def chat(request: ChatRequest):
         return response
     except Exception as e:
         print(f"[Error in /api/chat]: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Marine intelligence service encountered an error. Please try again.")
 
 
 @router.post("/chat/stream")
@@ -144,4 +144,4 @@ async def chat_stream(request: ChatRequest):
 
     except Exception as e:
         print(f"[Error in /api/chat/stream]: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Marine intelligence service encountered an error. Please try again.")
