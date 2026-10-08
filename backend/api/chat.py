@@ -115,6 +115,12 @@ async def chat_stream(request: ChatRequest):
         if mock_mode or not api_key:
             # Mock mode: no streaming available, return full response as a single SSE event
             response = await mock_orchestrate(internal_request)
+            
+            if target_lang and target_lang != 'en':
+                translated_text = await translator.translate_from_english(response.text_response, target_lang)
+                if translated_text:
+                    response.text_response = translated_text
+                    
             memory_store.update_topic(session_id, topic="marine_intel", query=request.message)
             response.session_id = session_id
 
