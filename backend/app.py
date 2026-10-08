@@ -125,3 +125,18 @@ async def get_neural_tts(text: str, language: str = 'en'):
     except Exception as e:
         print(f"[TTS Error]: {e}")
         raise HTTPException(status_code=500, detail="Text-to-speech service is temporarily unavailable.")
+
+@app.get("/api/tts_debug")
+async def get_neural_tts_debug(text: str, language: str = 'en'):
+    try:
+        if edge_tts is None:
+            return {"error": "edge_tts module is not installed"}
+        voice = VOICE_MAP.get(language, 'en-IN-NeerjaExpressiveNeural')
+        communicate = edge_tts.Communicate(text[:100], voice)
+        stream = bytearray()
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                stream.extend(chunk["data"])
+        return {"status": "ok", "bytes": len(stream)}
+    except Exception as e:
+        return {"error": str(e), "type": str(type(e))}
