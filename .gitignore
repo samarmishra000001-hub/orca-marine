@@ -12,6 +12,9 @@ env/
 .env
 .env.*
 !.env.example
+backend/data/chroma_db/
+backend/data/users.db
+*.db
 
 # Node.js
 frontend/node_modules/
@@ -25,3 +28,4 @@ yarn-error.log*
 .idea/
 .DS_Store
 Thumbs.db
+.vercel

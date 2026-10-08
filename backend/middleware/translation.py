@@ -37,14 +37,22 @@ class TranslationMiddleware:
         cleaned = re.sub(r'[*_#`]', '', cleaned)
         return cleaned
 
+    _cache_to_en = {}
+    _cache_from_en = {}
+
     def _sync_translate_to_en(self, text: str, source_lang: str) -> str:
         if source_lang == 'en' or not text.strip():
             return text
+        cache_key = f"{source_lang}:{text.strip()}"
+        if cache_key in self._cache_to_en:
+            return self._cache_to_en[cache_key]
         try:
             target_source = self.GOOGLE_LANG_MAP.get(source_lang, 'auto')
             clean_text = self._clean_for_translation(text)
             translated = GoogleTranslator(source=target_source, target='en').translate(clean_text)
-            return translated if translated else text
+            res = translated if translated else text
+            self._cache_to_en[cache_key] = res
+            return res
         except Exception as e:
             print(f"[Translation] Error translating to EN ({source_lang}): {e}")
             return text
@@ -52,6 +60,9 @@ class TranslationMiddleware:
     def _sync_translate_from_en(self, text: str, target_lang: str) -> str:
         if target_lang == 'en' or not text.strip():
             return text
+        cache_key = f"{target_lang}:{text.strip()}"
+        if cache_key in self._cache_from_en:
+            return self._cache_from_en[cache_key]
         try:
             target = self.GOOGLE_LANG_MAP.get(target_lang, 'en')
             if target == 'en':
@@ -59,31 +70,15 @@ class TranslationMiddleware:
 
             # Clean markdown formatting
             clean_text = self._clean_for_translation(text)
-            lines = [l.strip() for l in clean_text.split('\n') if l.strip()]
-
-            if not lines:
+            if not clean_text.strip():
                 return text
 
-            # Translate paragraph-by-paragraph for reliable results
+            # Single-call translation for ultra-fast response
             translator = GoogleTranslator(source='en', target=target)
-            translated_lines = []
-            for line in lines:
-                # Keep short bullet prefixes
-                prefix = ""
-                if line.startswith("•"):
-                    prefix = "• "
-                    line = line[1:].strip()
-                elif line.startswith("-"):
-                    prefix = "- "
-                    line = line[1:].strip()
-
-                try:
-                    res = translator.translate(line)
-                    translated_lines.append(f"{prefix}{res}" if res else f"{prefix}{line}")
-                except Exception:
-                    translated_lines.append(f"{prefix}{line}")
-
-            return "\n\n".join(translated_lines)
+            translated = translator.translate(clean_text)
+            res = translated if translated else text
+            self._cache_from_en[cache_key] = res
+            return res
         except Exception as e:
             print(f"[Translation] Error translating from EN ({target_lang}): {e}")
             return text

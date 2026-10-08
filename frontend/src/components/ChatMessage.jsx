@@ -1,9 +1,12 @@
 import { useState, useRef } from 'react';
 import AgentReasoning from './AgentReasoning';
+import ChartRenderer from './Charts/ChartRenderer';
+import RiskIndicator from './Dashboard/RiskIndicator';
+import SourceBadge from './Dashboard/SourceBadge';
 import { useSpeech } from '../hooks/useSpeech';
 
 export default function ChatMessage({ message, language = 'en' }) {
-  const { role, content, reasoning, timestamp } = message;
+  const { role, content, reasoning, timestamp, charts = [], risk_assessment, citations = [] } = message;
   const isUser = role === 'user';
   const { speak } = useSpeech(language);
 
@@ -12,7 +15,6 @@ export default function ChatMessage({ message, language = 'en' }) {
   const audioRef = useRef(null);
 
   const handleTogglePlay = async () => {
-    // If currently playing, stop it
     if (isPlaying) {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -25,7 +27,6 @@ export default function ChatMessage({ message, language = 'en' }) {
       return;
     }
 
-    // Try high-quality Neural AI Voice from backend first
     setIsLoadingAudio(true);
     try {
       if (audioRef.current) {
@@ -65,13 +66,48 @@ export default function ChatMessage({ message, language = 'en' }) {
     }
   };
 
-  // Basic markdown bold formatting
-  const formatText = (text) => {
+  // Enhanced Markdown Formatter
+  const renderFormattedLine = (line, index) => {
+    if (!line) return <div key={index} style={{ height: '0.6em' }} />;
+
+    // Headers (###, ##, #)
+    if (line.startsWith('### ')) {
+      return <h4 key={index} className="chat-md-h3">{formatInline(line.slice(4))}</h4>;
+    }
+    if (line.startsWith('## ')) {
+      return <h3 key={index} className="chat-md-h2">{formatInline(line.slice(3))}</h3>;
+    }
+    if (line.startsWith('# ')) {
+      return <h2 key={index} className="chat-md-h1">{formatInline(line.slice(2))}</h2>;
+    }
+
+    // Bullet points
+    if (line.trim().startsWith('- ') || line.trim().startsWith('* ')) {
+      return (
+        <div key={index} className="chat-md-bullet">
+          <span className="bullet-dot">•</span>
+          <span>{formatInline(line.trim().slice(2))}</span>
+        </div>
+      );
+    }
+
+    return (
+      <div key={index} className="chat-md-line">
+        {formatInline(line)}
+      </div>
+    );
+  };
+
+  const formatInline = (text) => {
     if (!text) return '';
-    const parts = text.split(/(\*\*.*?\*\*)/g);
+    // Format bold (**...**) and inline code (`...`)
+    const parts = text.split(/(\*\*.*?\*\*|`.*?`)/g);
     return parts.map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return <strong key={i}>{part.slice(2, -2)}</strong>;
+      }
+      if (part.startsWith('`') && part.endsWith('`')) {
+        return <code key={i} className="inline-code-badge">{part.slice(1, -1)}</code>;
       }
       return <span key={i}>{part}</span>;
     });
@@ -82,14 +118,36 @@ export default function ChatMessage({ message, language = 'en' }) {
   return (
     <div className={`message-wrapper ${isUser ? 'user' : 'assistant'}`}>
       <div className="message-bubble">
-        {content.split('\n').map((line, i) => (
-          <div key={i} style={{ minHeight: '1.2em' }}>
-            {formatText(line)}
+        {/* Render text content */}
+        <div className="message-content-flow">
+          {content.split('\n').map((line, i) => renderFormattedLine(line, i))}
+        </div>
+
+        {/* Structured Risk Assessment Indicator */}
+        {risk_assessment && (
+          <RiskIndicator assessment={risk_assessment} />
+        )}
+
+        {/* Structured SVG Charts */}
+        {charts && charts.length > 0 && (
+          <div className="message-charts-stack">
+            {charts.map((chart, idx) => (
+              <ChartRenderer key={idx} chart={chart} />
+            ))}
           </div>
-        ))}
+        )}
+
+        {/* Multi-Agent Reasoning Trace */}
         {reasoning && reasoning.length > 0 && (
           <AgentReasoning steps={reasoning} />
         )}
+
+        {/* Data Source Citations */}
+        {citations && citations.length > 0 && (
+          <SourceBadge citations={citations} />
+        )}
+
+        {/* Audio Action Trigger */}
         {!isUser && content && (
           <div className="message-actions">
             <button
@@ -99,13 +157,12 @@ export default function ChatMessage({ message, language = 'en' }) {
               type="button"
               disabled={isLoadingAudio}
             >
-              {isLoadingAudio ? (
-                <span>⏳ Loading voice...</span>
-              ) : isPlaying ? (
-                <span>⏹️ Stop Voice</span>
-              ) : (
-                <span>🎙️ Natural AI Voice</span>
-              )}
+              <span className="material-symbols-outlined speak-icon">
+                {isLoadingAudio ? 'hourglass_top' : isPlaying ? 'stop_circle' : 'volume_up'}
+              </span>
+              <span>
+                {isLoadingAudio ? 'Loading...' : isPlaying ? 'Stop Voice' : 'Natural Voice'}
+              </span>
             </button>
           </div>
         )}
