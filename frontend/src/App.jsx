@@ -298,6 +298,8 @@ export default function App() {
       sector: preset.name,
       state: preset.state,
       advisory: preset.advisory || 'Optimal Catch',
+      lat: preset.coords[1],
+      lon: preset.coords[0],
       vis: preset.vis || '14 NM',
       swell: preset.swell || '1.1m',
       temp: preset.temp || '29°C',
@@ -412,6 +414,13 @@ export default function App() {
           onToggleChat={() => setIsChatOpen(!isChatOpen)}
           onLocationSelect={handleLocationSelect}
           onMapClickCoordinates={(lat, lon) => {
+            setCurrentLocation(prev => ({
+              ...prev,
+              name: `Pinned Coordinates (${lat}°N, ${lon}°E)`,
+              sector: 'Custom Point',
+              lat: lat,
+              lon: lon
+            }));
             handleSend(`Analyze marine conditions at coordinates ${lat}°N, ${lon}°E`);
           }}
           onTriggerZoneQuery={(zoneType, preset) => {
