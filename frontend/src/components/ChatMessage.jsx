@@ -147,25 +147,7 @@ export default function ChatMessage({ message, language = 'en' }) {
           <SourceBadge citations={citations} />
         )}
 
-        {/* Audio Action Trigger */}
-        {!isUser && content && (
-          <div className="message-actions">
-            <button
-              className={`speak-btn ${isPlaying ? 'playing' : ''}`}
-              onClick={handleTogglePlay}
-              title={isPlaying ? "Click to stop" : "Listen in natural AI voice"}
-              type="button"
-              disabled={isLoadingAudio}
-            >
-              <span className="material-symbols-outlined speak-icon">
-                {isLoadingAudio ? 'hourglass_top' : isPlaying ? 'stop_circle' : 'volume_up'}
-              </span>
-              <span>
-                {isLoadingAudio ? 'Loading...' : isPlaying ? 'Stop Voice' : 'Natural Voice'}
-              </span>
-            </button>
-          </div>
-        )}
+
       </div>
       <div className="message-time">{formattedTime}</div>
     </div>
