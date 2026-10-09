@@ -144,12 +144,14 @@ export default function App() {
     <div className="app-container">
       <AnimatePresence mode="wait">
       {showIntro && (
-        <React.Suspense fallback={<div className="splash-screen" style={{ background: '#020617' }}>Loading...</div>}>
+        <React.Suspense fallback={<div className="splash-screen" style={{ background: '#071D29' }}>Loading...</div>}>
           <IntroScene onFinish={dismissIntro} />
         </React.Suspense>
       )}
       </AnimatePresence>
 
+      {!showIntro && (
+      <>
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, ease: 'circOut', delay: 0.2 }} className="main-content">
         {/* Coastal Telemetry Live Ribbon */}
         {telemetry && (
@@ -232,6 +234,8 @@ export default function App() {
         isOpen={isQuizOpen}
         onClose={() => setIsQuizOpen(false)}
       />
+      </>
+      )}
     </div>
   );
 }
