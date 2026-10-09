@@ -117,6 +117,7 @@ export default function ChatMessage({ message, language = 'en' }) {
               </span>
             </button>
           </div>
+        )}
       </div>
       <div className="message-time">{formattedTime}</div>
     </div>
