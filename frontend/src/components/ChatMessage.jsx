@@ -147,7 +147,32 @@ export default function ChatMessage({ message, language = 'en' }) {
           <SourceBadge citations={citations} />
         )}
 
-
+        {/* Audio Action Trigger */}
+        {!isUser && content && (
+          <div className="message-actions" style={{ marginTop: '8px' }}>
+            <button
+              onClick={handleTogglePlay}
+              title={isPlaying ? "Stop audio" : "Listen to response"}
+              type="button"
+              disabled={isLoadingAudio}
+              style={{ 
+                background: 'transparent', 
+                border: 'none', 
+                cursor: 'pointer', 
+                color: isPlaying ? '#D97706' : '#718277', 
+                display: 'flex', 
+                alignItems: 'center',
+                padding: '4px',
+                borderRadius: '50%',
+                transition: 'all 0.2s'
+              }}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                {isLoadingAudio ? 'hourglass_top' : isPlaying ? 'stop_circle' : 'volume_up'}
+              </span>
+            </button>
+          </div>
+        )}
       </div>
       <div className="message-time">{formattedTime}</div>
     </div>
