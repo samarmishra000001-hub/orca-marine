@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ORCA Marine Intelligence</title>
+    <title>ORCA — Marine Intelligence</title>
     <link href="https://unpkg.com/maplibre-gl@4.7.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root">
-      <div id="initial-loader" style="height:100vh;width:100vw;background:#0a1628;color:#00d4ff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Inter',-apple-system,sans-serif;">
-        <div style="font-size:3.5rem;margin-bottom:1rem;animation:pulse 1.8s infinite ease-in-out;">🐋</div>
-        <div style="font-size:1.25rem;font-weight:700;letter-spacing:0.05em;color:#ffffff;">ORCA Marine Intelligence</div>
-        <div style="font-size:0.85rem;color:#94a3b8;margin-top:0.5rem;letter-spacing:0.03em;">ISRO SIH26176 · Loading ocean swarm telemetry...</div>
+      <div id="initial-loader" style="height:100vh;width:100vw;background:#071D29;color:#D4E7E2;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',-apple-system,sans-serif;">
+        <div style="font-size:2rem;font-weight:700;letter-spacing:0.08em;color:#F1EFE8;margin-bottom:0.5rem;">ORCA</div>
+        <div style="font-size:0.85rem;color:#9DB4BE;letter-spacing:0.12em;text-transform:uppercase;">Marine Intelligence</div>
+        <div style="width:120px;height:2px;background:#123B49;margin-top:1.5rem;border-radius:1px;overflow:hidden;">
+          <div style="width:40%;height:100%;background:#E6A448;animation:loader 1.2s ease-in-out infinite alternate;"></div>
+        </div>
       </div>
     </div>
+    <style>
+      @keyframes loader { from { transform: translateX(0); } to { transform: translateX(200%); } }
+    </style>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
