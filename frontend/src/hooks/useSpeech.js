@@ -100,7 +100,7 @@ export function useSpeech(language = 'en') {
       const targetLocale = (langMap[targetLang] || 'en-IN').toLowerCase();
 
       // Pick best natural voice from available browser voices
-      const voices = window.speechSynthesis.getVoices();
+
       const naturalVoice = voices.find(v => 
         v.lang.toLowerCase().replace('_', '-') === targetLocale && 
         (v.name.includes('Natural') || v.name.includes('Neural') || v.name.includes('Online') || v.name.includes('Google'))
@@ -117,7 +117,7 @@ export function useSpeech(language = 'en') {
     } catch (err) {
       console.error("Text to speech error:", err);
     }
-  }, [language]);
+  }, [language, voices]);
 
   return {
     transcript,
