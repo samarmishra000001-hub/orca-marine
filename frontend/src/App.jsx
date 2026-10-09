@@ -1,4 +1,4 @@
-import React, { useState, useCallback, lazy } from 'react';
+import React, { useState, useCallback, useEffect, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatSidebar from './components/ChatSidebar';
 import MapView from './components/MapView';
@@ -13,13 +13,34 @@ export default function App() {
   const [isTerritoryMapOpen, setIsTerritoryMapOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [telemetry, setTelemetry] = useState({
-    location: "Indian Coastal Waters",
-    sea_state: "State 3 (Slight / Moderate)",
-    wave_height_m: 1.4,
-    wind_speed_kmh: 18.5,
-    tide_summary: "High Tide at 06:15 AM (2.8m)",
-    alert_level: "NORMAL"
+    location: "Loading...",
+    sea_state: "--",
+    wave_height_m: 0,
+    wind_speed_kmh: 0,
+    tide_summary: "--",
+    alert_level: "UNKNOWN"
   });
+
+  const fetchDashboardData = async (lat, lon) => {
+    try {
+      setTelemetry(prev => ({...prev, location: "Updating..."}));
+      const queryParams = (lat && lon) ? `?lat=${lat}&lon=${lon}` : '';
+      const response = await fetch(`/api/dashboard${queryParams}`);
+      if (response.ok) {
+        const data = await response.json();
+        setTelemetry(data);
+      } else {
+        setTelemetry(prev => ({...prev, location: "Unavailable", sea_state: "UNAVAILABLE", alert_level: "ERROR"}));
+      }
+    } catch (e) {
+      console.error("Failed to fetch dashboard data", e);
+      setTelemetry(prev => ({...prev, location: "Offline", sea_state: "UNAVAILABLE", alert_level: "ERROR"}));
+    }
+  };
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -129,20 +150,6 @@ export default function App() {
       )}
       </AnimatePresence>
 
-      <motion.div initial={{ x: -300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5, ease: 'circOut' }} className="motion-sidebar-wrapper">
-        <ChatSidebar
-          messages={messages}
-          isLoading={isLoading}
-          language={language}
-          setLanguage={setLanguage}
-          vesselType={vesselType}
-          setVesselType={setVesselType}
-          onSend={handleSend}
-          onOpenTerritoryMap={() => setIsTerritoryMapOpen(true)}
-          onOpenQuiz={() => setIsQuizOpen(true)}
-        />
-      </motion.div>
-
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, ease: 'circOut', delay: 0.2 }} className="main-content">
         {/* Coastal Telemetry Live Ribbon */}
         {telemetry && (
@@ -198,6 +205,20 @@ export default function App() {
 
         <MapView layers={layers} />
       </motion.main>
+
+      <motion.div initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5, ease: 'circOut' }} className="motion-sidebar-wrapper">
+        <ChatSidebar
+          messages={messages}
+          isLoading={isLoading}
+          language={language}
+          setLanguage={setLanguage}
+          vesselType={vesselType}
+          setVesselType={setVesselType}
+          onSend={handleSend}
+          onOpenTerritoryMap={() => setIsTerritoryMapOpen(true)}
+          onOpenQuiz={() => setIsQuizOpen(true)}
+        />
+      </motion.div>
 
       {/* Interactive India, Lakshadweep (SW) & Andaman & Nicobar (SE) Territory Map */}
       <IndiaTerritoryMap
