@@ -8,12 +8,15 @@ if hasattr(sys.stdout, 'reconfigure'):
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
-from fastapi import FastAPI, HTTPException, Response
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Response, Request
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import edge_tts
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 from models import ChatRequest, ChatResponse
 from middleware.translation import TranslationMiddleware
@@ -24,14 +27,17 @@ from agents.groq_agent import run_groq_agent
 # Load environment variables
 load_dotenv()
 
+limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(title='ORCA Marine Intelligence API', version='1.3.0')
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=[os.getenv("FRONTEND_URL", "http://localhost:3000")],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -122,7 +128,8 @@ async def get_neural_tts(text: str, language: str = 'en'):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest):
+@limiter.limit("20/minute")
+async def chat(request: ChatRequest, fast_req: Request):
     try:
         # Step 1: Language Detection & Translation to English
         detected_lang = translator.detect_language(request.message)
@@ -162,7 +169,7 @@ async def chat(request: ChatRequest):
         return response
     except Exception as e:
         print(f"[Error in /api/chat]: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        return JSONResponse(status_code=500, content={"detail": "Internal Server Error"})
 
 # Static Asset Serving for production
 FRONTEND_DIST = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "dist"))
