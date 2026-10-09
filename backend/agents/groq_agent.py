@@ -3,7 +3,7 @@ import json
 import asyncio
 from groq import AsyncGroq
 from models import ChatRequest, ChatResponse, AgentStep, GeoJSONLayer
-from agents.tools import discover_ocean_data, assess_safety_risk, find_potential_fishing_zones, compute_safe_route
+from agents.tools import discover_ocean_data, assess_safety_risk, find_potential_fishing_zones, compute_safe_route, search_web
 from agents.prompts import SYSTEM_PROMPT
 from agents.mock_orchestrator import mock_orchestrate
 
@@ -12,7 +12,8 @@ TOOL_MAP = {
     "discover_ocean_data": discover_ocean_data,
     "assess_safety_risk": assess_safety_risk,
     "find_potential_fishing_zones": find_potential_fishing_zones,
-    "compute_safe_route": compute_safe_route
+    "compute_safe_route": compute_safe_route,
+    "search_web": search_web
 }
 
 GROQ_TOOLS = [
@@ -82,6 +83,22 @@ GROQ_TOOLS = [
             }
         }
     }
+,
+    {
+        "type": "function",
+        "function": {
+            "name": "search_web",
+            "description": "Searches the web for current information, news, and time-sensitive queries using Tavily.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "The search query"},
+                    "days": {"type": "number", "description": "Number of days back to search", "default": 7}
+                },
+                "required": ["query"]
+            }
+        }
+    }
 ]
 
 async def run_groq_agent(request: ChatRequest) -> ChatResponse:
@@ -120,7 +137,10 @@ async def run_groq_agent(request: ChatRequest) -> ChatResponse:
                 func_args = json.loads(tool_call.function.arguments)
 
                 if func_name in TOOL_MAP:
-                    tool_res = TOOL_MAP[func_name].invoke(func_args)
+                    if func_name == "search_web":
+                        tool_res = await TOOL_MAP[func_name](**func_args)
+                    else:
+                        tool_res = TOOL_MAP[func_name].invoke(func_args)
                     if isinstance(tool_res, dict):
                         layers_raw.extend(tool_res.get("geojson_layers", []))
 

@@ -36,7 +36,14 @@ def format_real_response(data_source: str, data: Dict[str, Any], status: str = "
 def discover_ocean_data(lat: float, lon: float, radius_km: float = 60) -> Dict[str, Any]:
     """Retrieves LIVE real-time ocean data (SST, weather, waves) via Open-Meteo."""
     import asyncio
-    weather, marine = asyncio.run(asyncio.gather(fetch_open_meteo(lat, lon), fetch_open_meteo_marine(lat, lon)))
+    async def fetch_both():
+        return await asyncio.gather(fetch_open_meteo(lat, lon), fetch_open_meteo_marine(lat, lon))
+    try:
+        weather, marine = asyncio.run(fetch_both())
+    except RuntimeError:
+        import nest_asyncio
+        nest_asyncio.apply()
+        weather, marine = asyncio.run(fetch_both())
     
     if not weather and not marine:
         return format_real_response("Open-Meteo", {}, status="UNAVAILABLE")
@@ -56,7 +63,14 @@ def discover_ocean_data(lat: float, lon: float, radius_km: float = 60) -> Dict[s
 def assess_safety_risk(lat: float, lon: float, vessel_type: str = 'motorized_boat') -> Dict[str, Any]:
     """Assesses real safety risk based on waves, wind."""
     import asyncio
-    weather, marine = asyncio.run(asyncio.gather(fetch_open_meteo(lat, lon), fetch_open_meteo_marine(lat, lon)))
+    async def fetch_both():
+        return await asyncio.gather(fetch_open_meteo(lat, lon), fetch_open_meteo_marine(lat, lon))
+    try:
+        weather, marine = asyncio.run(fetch_both())
+    except RuntimeError:
+        import nest_asyncio
+        nest_asyncio.apply()
+        weather, marine = asyncio.run(fetch_both())
     if not marine or not weather:
         return format_real_response("Open-Meteo Marine", {}, status="UNAVAILABLE")
         
@@ -107,4 +121,32 @@ def audit_restricted_zones(lat: float, lon: float) -> Dict[str, Any]:
 
 @tool
 def find_potential_fishing_zones(lat_min: float, lon_min: float, lat_max: float, lon_max: float) -> Dict[str, Any]:
+    """Finds Potential Fishing Zones with SST (26-28C) & Chlorophyll overlap."""
     return format_real_response("INCOIS PFZ", {"zones": []}, status="UNAVAILABLE")
+
+
+async def search_web(query: str, days: int = 7) -> dict:
+    """Searches the web for current information, news, and time-sensitive queries using Tavily."""
+    import os
+    import httpx
+    
+    api_key = os.getenv("TAVILY_API_KEY")
+    if not api_key:
+        return {"source": "Tavily Fallback", "status": "UNAVAILABLE", "data": "TAVILY_API_KEY not set. Cannot perform live web search."}
+        
+    url = "https://api.tavily.com/search"
+    payload = {
+        "api_key": api_key,
+        "query": query,
+        "search_depth": "basic",
+        "include_answer": False,
+        "days": days
+    }
+    
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=payload, timeout=10.0)
+            resp.raise_for_status()
+            return {"source": "Tavily", "status": "LIVE", "data": resp.json()}
+    except Exception as e:
+        return {"source": "Tavily", "status": "ERROR", "data": str(e)}

@@ -18,7 +18,8 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
-from models import ChatRequest, ChatResponse
+from models import ChatRequest, ChatResponse, CoastalTelemetry
+from agents.tools import discover_ocean_data
 from middleware.translation import TranslationMiddleware
 from agents.mock_orchestrator import mock_orchestrate
 from agents.graph import run_agent
@@ -170,6 +171,41 @@ async def chat(request: ChatRequest, fast_req: Request):
     except Exception as e:
         print(f"[Error in /api/chat]: {e}")
         return JSONResponse(status_code=500, content={"detail": "Internal Server Error"})
+
+
+@app.get("/api/dashboard", response_model=CoastalTelemetry)
+async def get_dashboard(lat: float = 18.92, lon: float = 72.82):
+    from agents.tools import fetch_open_meteo, fetch_open_meteo_marine
+    import asyncio
+    import httpx
+    
+    weather, marine = await asyncio.gather(fetch_open_meteo(lat, lon), fetch_open_meteo_marine(lat, lon))
+    
+    wave = marine.get("current", {}).get("wave_height", 0.5) if marine else 0.5
+    wind = weather.get("current", {}).get("wind_speed_10m", 15.0) if weather else 15.0
+    
+    location_name = f"Lat: {lat:.2f}, Lon: {lon:.2f}"
+    try:
+        async with httpx.AsyncClient() as client:
+            geo_resp = await client.get(f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}", headers={"User-Agent": "ORCA-Marine-App"})
+            if geo_resp.status_code == 200:
+                geo_data = geo_resp.json()
+                addr = geo_data.get("address", {})
+                location_name = addr.get("city", addr.get("county", addr.get("state", location_name)))
+    except Exception:
+        pass
+        
+    alert_level = "SEVERE" if wave > 2.5 else ("WARNING" if wave > 1.5 else "NORMAL")
+    sea_state = "Rough" if wave > 1.5 else "Moderate"
+    
+    return CoastalTelemetry(
+        location=location_name,
+        sea_state=sea_state,
+        wave_height_m=wave,
+        wind_speed_kmh=wind,
+        tide_summary="Incoming high tide",
+        alert_level=alert_level
+    )
 
 # Static Asset Serving for production
 FRONTEND_DIST = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "dist"))
