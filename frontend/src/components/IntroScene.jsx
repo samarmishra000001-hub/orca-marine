@@ -1,6 +1,27 @@
-import React, { Suspense, useRef, useState, useEffect } from 'react';
+import React, { Suspense, useRef, useState, useEffect, Component } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Text, Float } from '@react-three/drei';
+
+class WebGLErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#e0f2fe' }}>
+          <h1 style={{ fontSize: '3rem', margin: 0, letterSpacing: '2px' }}>ORCA</h1>
+          <p style={{ color: '#7dd3fc', letterSpacing: '1px' }}>Marine Intelligence Assistant</p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function Earth() {
   const earthRef = useRef();
@@ -39,35 +60,37 @@ function CinematicScene({ onFinish }) {
 
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 9999, background: '#020617' }}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1.5} />
-        <directionalLight position={[-10, -10, -5]} color="#0ea5e9" intensity={0.5} />
-        <Suspense fallback={null}>
-          <Earth />
-          <Text
-            position={[0, 0, 2.5]}
-            fontSize={0.4}
-            color="#e0f2fe"
-            anchorX="center"
-            anchorY="middle"
-            font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZhrib2Bg-4.ttf"
-          >
-            ORCA
-          </Text>
-          <Text
-            position={[0, -0.4, 2.5]}
-            fontSize={0.15}
-            color="#7dd3fc"
-            anchorX="center"
-            anchorY="middle"
-            font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZhrib2Bg-4.ttf"
-          >
-            Marine Intelligence Assistant
-          </Text>
-        </Suspense>
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-      </Canvas>
+      <WebGLErrorBoundary>
+        <Canvas camera={{ position: [0, 0, 5], fov: 45 }} fallback={<div>WebGL not supported.</div>}>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[10, 10, 5]} intensity={1.5} />
+          <directionalLight position={[-10, -10, -5]} color="#0ea5e9" intensity={0.5} />
+          <Suspense fallback={null}>
+            <Earth />
+            <Text
+              position={[0, 0, 2.5]}
+              fontSize={0.4}
+              color="#e0f2fe"
+              anchorX="center"
+              anchorY="middle"
+              font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZhrib2Bg-4.ttf"
+            >
+              ORCA
+            </Text>
+            <Text
+              position={[0, -0.4, 2.5]}
+              fontSize={0.15}
+              color="#7dd3fc"
+              anchorX="center"
+              anchorY="middle"
+              font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZhrib2Bg-4.ttf"
+            >
+              Marine Intelligence Assistant
+            </Text>
+          </Suspense>
+          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        </Canvas>
+      </WebGLErrorBoundary>
       <div style={{ position: 'absolute', bottom: '10%', left: '0', width: '100%', display: 'flex', justifyContent: 'center', gap: '20px', zIndex: 10000 }}>
         <button
           onClick={onFinish}
