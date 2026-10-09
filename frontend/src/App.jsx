@@ -1,4 +1,5 @@
 import React, { useState, useCallback, lazy } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ChatSidebar from './components/ChatSidebar';
 import MapView from './components/MapView';
 import IndiaTerritoryMap from './components/IndiaTerritoryMap';
@@ -120,25 +121,29 @@ export default function App() {
 
   return (
     <div className="app-container">
+      <AnimatePresence mode="wait">
       {showIntro && (
         <React.Suspense fallback={<div className="splash-screen" style={{ background: '#020617' }}>Loading...</div>}>
           <IntroScene onFinish={dismissIntro} />
         </React.Suspense>
       )}
+      </AnimatePresence>
 
-      <ChatSidebar
-        messages={messages}
-        isLoading={isLoading}
-        language={language}
-        setLanguage={setLanguage}
-        vesselType={vesselType}
-        setVesselType={setVesselType}
-        onSend={handleSend}
-        onOpenTerritoryMap={() => setIsTerritoryMapOpen(true)}
-        onOpenQuiz={() => setIsQuizOpen(true)}
-      />
+      <motion.div initial={{ x: -300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5, ease: 'circOut' }} className="motion-sidebar-wrapper">
+        <ChatSidebar
+          messages={messages}
+          isLoading={isLoading}
+          language={language}
+          setLanguage={setLanguage}
+          vesselType={vesselType}
+          setVesselType={setVesselType}
+          onSend={handleSend}
+          onOpenTerritoryMap={() => setIsTerritoryMapOpen(true)}
+          onOpenQuiz={() => setIsQuizOpen(true)}
+        />
+      </motion.div>
 
-      <main className="main-content">
+      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, ease: 'circOut', delay: 0.2 }} className="main-content">
         {/* Coastal Telemetry Live Ribbon */}
         {telemetry && (
           <div className="coastal-telemetry-banner">
@@ -192,7 +197,7 @@ export default function App() {
         </div>
 
         <MapView layers={layers} />
-      </main>
+      </motion.main>
 
       {/* Interactive India, Lakshadweep (SW) & Andaman & Nicobar (SE) Territory Map */}
       <IndiaTerritoryMap
