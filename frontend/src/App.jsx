@@ -1,8 +1,10 @@
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback, lazy } from 'react';
 import ChatSidebar from './components/ChatSidebar';
 import MapView from './components/MapView';
 import IndiaTerritoryMap from './components/IndiaTerritoryMap';
 import MarineQuizModal from './components/MarineQuizModal';
+
+const IntroScene = lazy(() => import('./components/IntroScene'));
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -118,32 +120,10 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* Aesthetic Hero Modal Overlay (dismissible on click) */}
       {showIntro && (
-        <div className="splash-screen" onClick={dismissIntro}>
-          <div className="splash-content" onClick={(e) => e.stopPropagation()}>
-            <div className="splash-logo">🐋</div>
-            <div className="splash-tagline">ISRO SIH26176 · ORCA</div>
-            <h1 className="splash-title">Marine Ecosystem Reasoning with Collaborative Agents</h1>
-            <p className="splash-subtitle">
-              Agentic AI decision-support platform for India's blue economy &amp; coastal communities.<br />
-              Correlating Earth Observation (Oceansat-3, INSAT-3D) with multi-agent spatial-temporal reasoning.
-            </p>
-            <div className="splash-features">
-              <div className="splash-feature"><span>🎣</span><span>Potential Fishing Zones</span></div>
-              <div className="splash-feature"><span>⚡</span><span>Cyclone &amp; Lightning</span></div>
-              <div className="splash-feature"><span>🌊</span><span>Tides &amp; Sea State</span></div>
-              <div className="splash-feature"><span>🛡️</span><span>MPA &amp; IMBL Geofencing</span></div>
-              <div className="splash-feature"><span>🗣️</span><span>11 Indian Languages</span></div>
-            </div>
-            <button className="splash-btn" onClick={dismissIntro} type="button">
-              🚀 Explore Marine Swarm Map
-            </button>
-            <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#94a3b8', cursor: 'pointer' }} onClick={dismissIntro}>
-              (Click anywhere to start)
-            </div>
-          </div>
-        </div>
+        <React.Suspense fallback={<div className="splash-screen" style={{ background: '#020617' }}>Loading...</div>}>
+          <IntroScene onFinish={dismissIntro} />
+        </React.Suspense>
       )}
 
       <ChatSidebar
@@ -163,27 +143,27 @@ export default function App() {
         {telemetry && (
           <div className="coastal-telemetry-banner">
             <div className="telemetry-item">
-              <span className="telemetry-label">📍 Coastal Sector</span>
+              <span className="telemetry-label">Coastal Sector</span>
               <span className="telemetry-value">{telemetry.location}</span>
             </div>
             <div className="telemetry-item">
-              <span className="telemetry-label">🌊 Sea State</span>
+              <span className="telemetry-label">Sea State</span>
               <span className="telemetry-value">{telemetry.sea_state}</span>
             </div>
             <div className="telemetry-item">
-              <span className="telemetry-label">〰️ Significant Wave</span>
+              <span className="telemetry-label">Significant Wave</span>
               <span className="telemetry-value">{telemetry.wave_height_m}m</span>
             </div>
             <div className="telemetry-item">
-              <span className="telemetry-label">💨 Wind Velocity</span>
+              <span className="telemetry-label">Wind Velocity</span>
               <span className="telemetry-value">{telemetry.wind_speed_kmh} km/h</span>
             </div>
             <div className="telemetry-item">
-              <span className="telemetry-label">🕒 Tide Schedule</span>
+              <span className="telemetry-label">Tide Schedule</span>
               <span className="telemetry-value">{telemetry.tide_summary}</span>
             </div>
             <div className="telemetry-item">
-              <span className="telemetry-label">⚠️ Threat Level</span>
+              <span className="telemetry-label">Threat Level</span>
               <span className={`alert-badge ${alertClass}`}>
                 {telemetry.alert_level || 'NORMAL'}
               </span>
@@ -199,7 +179,7 @@ export default function App() {
             onClick={() => setIsTerritoryMapOpen(true)}
             title="Open India, Lakshadweep & Andaman Map"
           >
-            🗺️ India &amp; Island Territories
+            India &amp; Island Territories
           </button>
           <button 
             type="button" 
@@ -207,7 +187,7 @@ export default function App() {
             onClick={() => setIsQuizOpen(true)}
             title="Open Marine Practice Quiz"
           >
-            📚 Practice Quiz
+            Practice Quiz
           </button>
         </div>
 

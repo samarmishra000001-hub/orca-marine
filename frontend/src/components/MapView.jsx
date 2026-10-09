@@ -234,11 +234,11 @@ export default function MapView({ layers }) {
         container: mapContainer.current,
         style: BASEMAP_STYLES.voyager.url,
         center: [78.9629, 20.5937],
-        zoom: 4.2,
-        maxBounds: [[60, 0], [100, 40]],
+        zoom: 3.5,
         attributionControl: false
       });
 
+      map.setProjection({ type: 'globe' }); // Globe projection for modern maplibre
       map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
       map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
 
