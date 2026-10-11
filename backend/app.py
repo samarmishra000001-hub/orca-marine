@@ -34,9 +34,23 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Configure CORS
+ALLOWED_ORIGINS = [
+    "https://orca-marine-alpha.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:8000",
+]
+frontend_env = os.getenv("FRONTEND_URL")
+if frontend_env and frontend_env not in ALLOWED_ORIGINS:
+    ALLOWED_ORIGINS.append(frontend_env)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("FRONTEND_URL", "http://localhost:3000")],
+    allow_origins=ALLOWED_ORIGINS,
+    allow_origin_regex=r"https:\/\/.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
@@ -130,23 +144,23 @@ async def get_neural_tts(text: str, language: str = 'en'):
 
 @app.post("/api/chat", response_model=ChatResponse)
 @limiter.limit("20/minute")
-async def chat(request: ChatRequest, fast_req: Request):
+async def chat(request: Request, body: ChatRequest):
     try:
         # Step 1: Language Detection & Translation to English
-        detected_lang = translator.detect_language(request.message)
-        target_lang = request.language if (request.language and request.language != 'en') else detected_lang
+        detected_lang = translator.detect_language(body.message)
+        target_lang = body.language if (body.language and body.language != 'en') else detected_lang
 
-        processed_message = request.message
+        processed_message = body.message
         if detected_lang != 'en':
-            processed_message = await translator.translate_to_english(request.message, detected_lang)
+            processed_message = await translator.translate_to_english(body.message, detected_lang)
 
         internal_request = ChatRequest(
             message=processed_message,
-            location=request.location,
+            location=body.location,
             language=target_lang,
-            vessel_type=getattr(request, 'vessel_type', 'motorized'),
-            time_horizon=getattr(request, 'time_horizon', 'now'),
-            conversation_history=getattr(request, 'conversation_history', [])
+            vessel_type=getattr(body, 'vessel_type', 'motorized'),
+            time_horizon=getattr(body, 'time_horizon', 'now'),
+            conversation_history=getattr(body, 'conversation_history', [])
         )
 
         groq_key = os.getenv("GROQ_API_KEY", "")
@@ -181,29 +195,59 @@ async def get_dashboard(lat: float = 18.92, lon: float = 72.82):
     
     weather, marine = await asyncio.gather(fetch_open_meteo(lat, lon), fetch_open_meteo_marine(lat, lon))
     
-    wave = marine.get("current", {}).get("wave_height", 0.5) if marine else 0.5
-    wind = weather.get("current", {}).get("wind_speed_10m", 15.0) if weather else 15.0
-    
-    location_name = f"Lat: {lat:.2f}, Lon: {lon:.2f}"
+    wave = None
+    if marine and "current" in marine:
+        wave = marine["current"].get("wave_height")
+        
+    wind = None
+    if weather and "current" in weather:
+        wind = weather["current"].get("wind_speed_10m")
+        
+    # Reverse geocode or coordinate fallback
+    location_name = f"Coastal Sector ({lat:.2f}°N, {lon:.2f}°E)"
     try:
         async with httpx.AsyncClient() as client:
-            geo_resp = await client.get(f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}", headers={"User-Agent": "ORCA-Marine-App"})
+            geo_resp = await client.get(
+                f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}",
+                headers={"User-Agent": "ORCA-Marine-Platform/1.3"},
+                timeout=3.0
+            )
             if geo_resp.status_code == 200:
                 geo_data = geo_resp.json()
                 addr = geo_data.get("address", {})
-                location_name = addr.get("city", addr.get("county", addr.get("state", location_name)))
+                found = addr.get("city") or addr.get("town") or addr.get("county") or addr.get("state")
+                if found:
+                    location_name = f"{found} Coastal Sector"
     except Exception:
         pass
         
-    alert_level = "SEVERE" if wave > 2.5 else ("WARNING" if wave > 1.5 else "NORMAL")
-    sea_state = "Rough" if wave > 1.5 else "Moderate"
-    
+    if wave is not None:
+        if wave > 2.5:
+            alert_level = "SEVERE"
+            sea_state = "Rough (High Sea State)"
+        elif wave > 1.5:
+            alert_level = "WARNING"
+            sea_state = "Moderate (Moderate Waves)"
+        elif wave > 0.5:
+            alert_level = "NORMAL"
+            sea_state = "Slight / Smooth"
+        else:
+            alert_level = "NORMAL"
+            sea_state = "Calm (Favorable)"
+    else:
+        alert_level = "UNKNOWN"
+        sea_state = "OFFSHORE DATA UNAVAILABLE"
+        wave = 0.0
+        
+    if wind is None:
+        wind = 0.0
+
     return CoastalTelemetry(
         location=location_name,
         sea_state=sea_state,
-        wave_height_m=wave,
-        wind_speed_kmh=wind,
-        tide_summary="Incoming high tide",
+        wave_height_m=round(wave, 2),
+        wind_speed_kmh=round(wind, 1),
+        tide_summary="Realtime Forecast Active",
         alert_level=alert_level
     )
 
