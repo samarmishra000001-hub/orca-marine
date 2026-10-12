@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ORCA Marine Intelligence - ISRO SIH26176 Oceanic Geospatial Command</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#dfe4de",
+            "secondary-container": "#d4e3d9",
+            "secondary-fixed-dim": "#bbcac0",
+            "on-error": "#ffffff",
+            "surface-container": "#e6f1e8",
+            "tertiary-fixed": "#ffdcc3",
+            "tertiary": "#000000",
+            "secondary": "#54625a",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-secondary-fixed-variant": "#3c4a42",
+            "on-primary-fixed-variant": "#434844",
+            "on-error-container": "#93000a",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#e0ebe3",
+            "surface-container-highest": "#dae5dd",
+            "surface": "#f1fcf4",
+            "inverse-surface": "#29332d",
+            "on-background": "#141e19",
+            "surface-variant": "#dae5dd",
+            "on-tertiary-container": "#c76c00",
+            "surface-container-low": "#ebf6ee",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#2f1500",
+            "on-surface-variant": "#444844",
+            "on-primary-container": "#808581",
+            "error": "#ba1a1a",
+            "surface-tint": "#5a605c",
+            "primary": "#000000",
+            "primary-fixed-dim": "#c3c8c3",
+            "outline": "#747874",
+            "inverse-primary": "#c3c8c3",
+            "outline-variant": "#c4c7c3",
+            "on-surface": "#141e19",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#d2ddd5",
+            "background": "#f1fcf4",
+            "tertiary-fixed-dim": "#ffb77d",
+            "on-secondary-fixed": "#111e18",
+            "inverse-on-surface": "#e8f3eb",
+            "surface-bright": "#f1fcf4",
+            "secondary-fixed": "#d7e6dc",
+            "primary-container": "#181d1a",
+            "on-secondary-container": "#58665e",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#181d1a",
+            "tertiary-container": "#2f1500"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.25rem"
+          },
+          "fontFamily": {
+            "telemetry-mono": ["JetBrains Mono"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "telemetry-mono": ["0.8125rem", { "lineHeight": "1rem", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-sm": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+            "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-md": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }],
+            "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-lg-mobile": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "body-lg": ["1rem", { "lineHeight": "1.625rem", "letterSpacing": "-0.005em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Oceanic Glowing Custom Utilities */
+    .ocean-glass {
+      background: rgba(7, 29, 41, 0.82);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(0, 212, 255, 0.22);
+    }
+    .ocean-glass-light {
+      background: rgba(18, 59, 73, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 212, 255, 0.18);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 20px -2px rgba(0, 212, 255, 0.35);
+    }
+    .glow-cyan-sm {
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.25);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(7, 29, 41, 0.4);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.3);
+      border-radius: 9999px;
+    }
+    @keyframes radarSweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-radar {
+      animation: radarSweep 6s linear infinite;
+    }
+    @keyframes pulseCyan {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.25); }
+    }
+    .pulse-live {
+      animation: pulseCyan 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#041119] text-[#F1EFE8] font-body-md text-body-md antialiased overflow-hidden select-none h-screen w-screen relative">
+<!-- Interactive 3D Geospatial Background Scene -->
+<!-- STITCH_THREEJS_START:ANIMATION_10 class="absolute inset-0 w-full h-full bg-transparent z-0" -->
+<div class="absolute inset-0 w-full h-full bg-transparent z-0" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_10" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_10');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js 3D Interactive Indian Ocean Basin Digital Twin for ISRO SIH26176
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_INDIAN_OCEAN');
+  if (!container) return;
+
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 1000);
+  camera.position.set(0, 0.5, 4.2);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+  container.appendChild(renderer.domElement);
+
+  // Group for Earth globe + telemetry layers + satellites
+  const globeGroup = new THREE.Group();
+  // Tilt to center India and the Indian Ocean Basin (Lat ~15°N, Lon ~78°E)
+  globeGroup.rotation.x = 0.35;
+  globeGroup.rotation.y = -1.82;
+  scene.add(globeGroup);
+
+  // Procedural Canvas Texture for Globe Surface:
+  // Indian Ocean, Arabian Sea, Bay of Bengal, Indian Subcontinent coastline, Lakshadweep, Andaman & Nicobar
+  const canvas = document.createElement('canvas');
+  canvas.width = 4096;
+  canvas.height = 2048;
+  const ctx = canvas.getContext('2d');
+
+  // Midnight abyss navy base (#071D29)
+  ctx.fillStyle = '#061722';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Bathymetric Depth Gradients in the Indian Ocean Basin
+  const oceanGrad = ctx.createRadialGradient(
+    canvas.width * 0.71, canvas.height * 0.54, 50,
+    canvas.width * 0.71, canvas.height * 0.54, 850
+  );
+  oceanGrad.addColorStop(0, '#0f3241');
+  oceanGrad.addColorStop(0.35, '#0a232f');
+  oceanGrad.addColorStop(0.7, '#071b26');
+  oceanGrad.addColorStop(1, '#05131b');
+  ctx.fillStyle = oceanGrad;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Subtle Navigational & Bathymetric Grid Lines
+  ctx.strokeStyle = 'rgba(0, 212, 255, 0.08)';
+  ctx.lineWidth = 1.2;
+  for (let lat = 0; lat < canvas.height; lat += 128) {
+    ctx.beginPath();
+    ctx.moveTo(0, lat);
+    ctx.lineTo(canvas.width, lat);
+    ctx.stroke();
+  }
+  for (let lon = 0; lon < canvas.width; lon += 128) {
+    ctx.beginPath();
+    ctx.moveTo(lon, 0);
+    ctx.lineTo(lon, canvas.height);
+    ctx.stroke();
+  }
+
+  // Draw land polygon helper
+  function drawLand(points, fillColor, strokeColor) {
+    if (!points.length) return;
+    ctx.beginPath();
+    ctx.moveTo(points[0][0], points[0][1]);
+    for (let i = 1; i < points.length; i++) {
+      ctx.lineTo(points[i][0], points[i][1]);
+    }
+    ctx.closePath();
+    ctx.fillStyle = fillColor || '#102733';
+    ctx.fill();
+    ctx.strokeStyle = strokeColor || '#00d4ff44';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+  }
+
+  // 1. Indian Subcontinent (Center Stage: Lon ~68°E to 89°E, Lat ~8°N to 36°N)
+  // Scaled coordinates on 4096x2048:
+  // Lon: (lon + 180)/360 * 4096. Lon 78°E = 2935.
+  // Lat: (90 - lat)/180 * 2048. Lat 20°N = 796.
+  const indiaPolygon = [
+    [2820, 630], [2860, 610], [2940, 620], [2990, 680], [3040, 710], // North / Himalaya base
+    [3030, 780], [2990, 830], [2980, 890], // Bengal / Odisha coast
+    [2950, 950], [2920, 1010], [2890, 1070], // Andhra / Tamil Nadu coast (Chennai)
+    [2865, 1105], // Kanyakumari / Cape Comorin tip
+    [2850, 1070], [2835, 1000], [2810, 930], // Malabar coast / Kerala / Goa / Maharashtra
+    [2790, 870], [2760, 820], // Gujarat / Saurashtra peninsula
+    [2740, 800], [2750, 760], [2780, 740], [2800, 680]
+  ];
+  drawLand(indiaPolygon, '#0d222e', '#00d4ff88');
+
+  // Sri Lanka
+  const sriLanka = [
+    [2895, 1120], [2915, 1130], [2910, 1165], [2890, 1155]
+  ];
+  drawLand(sriLanka, '#0e2634', '#00d4ff99');
+
+  // Arabian Peninsula / Middle East Coastline
+  const arabia = [
+    [2580, 700], [2660, 710], [2710, 750], [2680, 850],
+    [2620, 900], [2570, 870], [2520, 790]
+  ];
+  drawLand(arabia, '#0b1d28', '#00d4ff33');
+
+  // Horn of Africa & East African Coastline
+  const africaEast = [
+    [2520, 900], [2580, 920], [2610, 1010], [2600, 1120],
+    [2550, 1260], [2490, 1370], [2440, 1420], [2400, 1360],
+    [2430, 1150], [2470, 990]
+  ];
+  drawLand(africaEast, '#0a1922', '#00d4ff25');
+
+  // Madagascar
+  drawLand([[2620, 1280], [2650, 1310], [2630, 1400], [2600, 1370]], '#0a1922', '#00d4ff33');
+
+  // Southeast Asia / Bay of Bengal Eastern Rim (Myanmar, Thailand, Malacca)
+  const seAsia = [
+    [3070, 760], [3120, 790], [3160, 870], [3150, 980],
+    [3130, 1080], [3090, 1070], [3070, 970], [3040, 880]
+  ];
+  drawLand(seAsia, '#0c202a', '#00d4ff40');
+
+  // Sumatra & Indonesian Archipelago
+  drawLand([[3120, 1100], [3180, 1140], [3270, 1180], [3240, 1220], [3140, 1160]], '#0c202a', '#00d4ff40');
+
+  // Lakshadweep Atoll Archipelago (Glowing dots & reefs west of Kerala)
+  const lakshadweepIslands = [
+    [2825, 1025], [2828, 1045], [2832, 1065], [2830, 1085]
+  ];
+  lakshadweepIslands.forEach(pt => {
+    ctx.fillStyle = '#00f0ff';
+    ctx.beginPath();
+    ctx.arc(pt[0], pt[1], 4.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0, 240, 255, 0.6)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+
+  // Andaman & Nicobar Archipelago (Arc in the eastern Bay of Bengal)
+  const andamanNicobar = [
+    [3055, 960], [3058, 985], [3062, 1010], [3065, 1035], [3070, 1060], [3075, 1090]
+  ];
+  andamanNicobar.forEach(pt => {
+    ctx.fillStyle = '#00f0ff';
+    ctx.beginPath();
+    ctx.arc(pt[0], pt[1], 4.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0, 240, 255, 0.6)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+
+  // Bathymetric Mid-Ocean Ridges (Ninety East Ridge, Central Indian Ridge, Carlsberg Ridge)
+  ctx.strokeStyle = 'rgba(0, 212, 255, 0.35)';
+  ctx.setLineDash([8, 12]);
+  ctx.lineWidth = 2.5;
+
+  // Ninety East Ridge
+  ctx.beginPath();
+  ctx.moveTo(3000, 920);
+  ctx.bezierCurveTo(3020, 1120, 3040, 1380, 3030, 1540);
+  ctx.stroke();
+
+  // Central Indian Ridge
+  ctx.beginPath();
+  ctx.moveTo(2740, 960);
+  ctx.bezierCurveTo(2810, 1180, 2850, 1370, 2800, 1580);
+  ctx.stroke();
+
+  // Carlsberg Ridge (Arabian Sea to Central Indian Ridge)
+  ctx.beginPath();
+  ctx.moveTo(2680, 870);
+  ctx.bezierCurveTo(2710, 920, 2760, 980, 2790, 1060);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Major Indian Coastal Ports & Scientific Mooring Stations
+  const ports = [
+    { name: 'MUMBAI', x: 2795, y: 885, code: 'IN-BOM' },
+    { name: 'KOCHI', x: 2845, y: 1065, code: 'IN-COK' },
+    { name: 'CHENNAI', x: 2920, y: 1010, code: 'IN-MAA' },
+    { name: 'VIZAG', x: 2955, y: 925, code: 'IN-VTZ' },
+    { name: 'PORT BLAIR', x: 3060, y: 995, code: 'IN-IXZ' },
+    { name: 'KAVARATTI', x: 2828, y: 1045, code: 'IN-KVT' },
+    { name: 'EQUATORIAL BUOY-04', x: 2900, y: 1240, code: 'INCOIS-EQ4' }
+  ];
+
+  ports.forEach(port => {
+    // Concentric glowing observation beacon
+    ctx.fillStyle = '#00d4ff';
+    ctx.beginPath();
+    ctx.arc(port.x, port.y, 6, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = '#00d4ff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(port.x, port.y, 16, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = '#F1EFE8';
+    ctx.font = 'bold 20px monospace';
+    ctx.fillText(port.name, port.x + 22, port.y + 6);
+
+    ctx.fillStyle = '#00d4ff';
+    ctx.font = '14px monospace';
+    ctx.fillText(port.code, port.x + 22, port.y + 22);
+  });
+
+  // Sea Surface Current Vectors (Bay of Bengal Gyre & Somali Current)
+  ctx.strokeStyle = 'rgba(212, 231, 226, 0.28)';
+  ctx.lineWidth = 1.8;
+  const currentFlows = [
+    // Bay of Bengal cyclonic flow
+    [[2970, 900], [2990, 950], [2970, 1030], [2920, 1050]],
+    [[3020, 850], [3040, 930], [3020, 1020], [2960, 1070]],
+    // Arabian Sea West India Coastal Current
+    [[2800, 830], [2820, 930], [2840, 1030], [2870, 1120]]
+  ];
+  currentFlows.forEach(curve => {
+    ctx.beginPath();
+    ctx.moveTo(curve[0][0], curve[0][1]);
+    for (let i = 1; i < curve.length; i++) {
+      ctx.lineTo(curve[i][0], curve[i][1]);
+    }
+    ctx.stroke();
+  });
+
+  const earthTexture = new THREE.CanvasTexture(canvas);
+  earthTexture.anisotropy = 8;
+
+  // Globe Mesh
+  const sphereGeo = new THREE.SphereGeometry(1.68, 64, 64);
+  const sphereMat = new THREE.MeshStandardMaterial({
+    map: earthTexture,
+    roughness: 0.82,
+    metalness: 0.12,
+    bumpScale: 0.04
+  });
+  const earthMesh = new THREE.Mesh(sphereGeo, sphereMat);
+  globeGroup.add(earthMesh);
+
+  // Atmospheric Halo Layer (Restrained Electric Cyan & Sea Glass Fresnel)
+  const atmosGeo = new THREE.SphereGeometry(1.725, 48, 48);
+  const atmosMat = new THREE.ShaderMaterial({
+    vertexShader: `
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+    fragmentShader: `
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      void main() {
+        vec3 viewDir = normalize(-vPosition);
+        float edge = dot(viewDir, vNormal);
+        float intensity = pow(1.0 - abs(edge), 2.7) * 0.85;
+        // Cyan-teal luminous atmosphere
+        vec3 atmosColor = vec3(0.0, 0.83, 1.0);
+        gl_FragColor = vec4(atmosColor, intensity);
+      }
+    `,
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide,
+    transparent: true,
+    depthWrite: false
+  });
+  const atmosMesh = new THREE.Mesh(atmosGeo, atmosMat);
+  globeGroup.add(atmosMesh);
+
+  // ISRO Satellite Orbit Trajectories (Oceansat-3 / EOS-06 & GISAT-1 orbital rings)
+  // Orbit 1: Polar Sun-Synchronous (Oceansat-3 / EOS-06)
+  const orbitCurve1 = new THREE.EllipseCurve(0, 0, 2.05, 2.05, 0, 2 * Math.PI, false, 0);
+  const points1 = orbitCurve1.getPoints(120);
+  const orbitGeo1 = new THREE.BufferGeometry().setFromPoints(points1.map(p => new THREE.Vector3(p.x, 0, p.y)));
+  const orbitMat1 = new THREE.LineBasicMaterial({
+    color: 0x00d4ff,
+    transparent: true,
+    opacity: 0.45
+  });
+  const orbitMesh1 = new THREE.Line(orbitGeo1, orbitMat1);
+  orbitMesh1.rotation.x = Math.PI / 2.35;
+  orbitMesh1.rotation.z = Math.PI / 4.5;
+  globeGroup.add(orbitMesh1);
+
+  // Satellite Mesh on Orbit 1
+  const satGeo = new THREE.BoxGeometry(0.04, 0.02, 0.03);
+  const satMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff });
+  const satMesh1 = new THREE.Mesh(satGeo, satMat);
+  globeGroup.add(satMesh1);
+
+  // Orbit 2: Geostationary / Inclined Telemetry Track (INSAT-3DR / SARAL-AltiKa)
+  const orbitCurve2 = new THREE.EllipseCurve(0, 0, 2.32, 2.32, 0, 2 * Math.PI, false, 0);
+  const points2 = orbitCurve2.getPoints(140);
+  const orbitGeo2 = new THREE.BufferGeometry().setFromPoints(points2.map(p => new THREE.Vector3(p.x, 0, p.y)));
+  const orbitMat2 = new THREE.LineDashedMaterial({
+    color: 0xe6a448, // Alert amber telemetry
+    dashSize: 0.08,
+    gapSize: 0.04,
+    transparent: true,
+    opacity: 0.55
+  });
+  const orbitMesh2 = new THREE.Line(orbitGeo2, orbitMat2);
+  orbitMesh2.computeLineDistances();
+  orbitMesh2.rotation.x = Math.PI / 1.85;
+  orbitMesh2.rotation.y = -Math.PI / 6.2;
+  globeGroup.add(orbitMesh2);
+
+  const satMesh2 = new THREE.Mesh(
+    new THREE.SphereGeometry(0.024, 16, 16),
+    new THREE.MeshBasicMaterial({ color: 0xe6a448 })
+  );
+  globeGroup.add(satMesh2);
+
+  // Floating Bathymetric Sounding Particle Cloud (Deep Ocean Acoustic & Buoy Nodes)
+  const pCount = 320;
+  const pPositions = new Float32Array(pCount * 3);
+  for (let i = 0; i < pCount; i++) {
+    const phi = Math.acos(-1 + (2 * i) / pCount);
+    const theta = Math.sqrt(pCount * Math.PI) * phi;
+    const r = 1.76 + Math.random() * 0.35;
+    pPositions[i * 3] = r * Math.cos(theta) * Math.sin(phi);
+    pPositions[i * 3 + 1] = r * Math.sin(theta) * Math.sin(phi);
+    pPositions[i * 3 + 2] = r * Math.cos(phi);
+  }
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+  const pMat = new THREE.PointsMaterial({
+    color: 0x00d4ff,
+    size: 0.022,
+    transparent: true,
+    opacity: 0.5,
+    blending: THREE.AdditiveBlending
+  });
+  const pSystem = new THREE.Points(pGeo, pMat);
+  globeGroup.add(pSystem);
+
+  // Cinematic Lighting
+  // Key Sunlight hitting northern Indian ocean basin
+  const keyLight = new THREE.DirectionalLight(0xd4e7e2, 1.85);
+  keyLight.position.set(4, 3.5, 4);
+  scene.add(keyLight);
+
+  // Deep oceanic abyss ambient
+  const ambientLight = new THREE.AmbientLight(0x071d29, 0.95);
+  scene.add(ambientLight);
+
+  // Electric cyan edge rim light
+  const rimLight = new THREE.DirectionalLight(0x00d4ff, 1.3);
+  rimLight.position.set(-4.5, -2, -3.5);
+  scene.add(rimLight);
+
+  // Parallax interaction & Drag-to-rotate handling
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetX = 0;
+  let targetY = 0;
+  let isDragging = false;
+  let prevMouseX = 0;
+  let prevMouseY = 0;
+
+  function onMouseMove(e) {
+    const rect = container.getBoundingClientRect();
+    const currX = ((e.clientX - rect.left) / width) * 2 - 1;
+    const currY = -(((e.clientY - rect.top) / height) * 2 - 1);
+
+    if (isDragging) {
+      const deltaX = e.clientX - prevMouseX;
+      const deltaY = e.clientY - prevMouseY;
+      globeGroup.rotation.y += deltaX * 0.005;
+      globeGroup.rotation.x += deltaY * 0.005;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+    } else {
+      mouseX = currX;
+      mouseY = currY;
+    }
+  }
+
+  function onMouseDown(e) {
+    if (e.target.tagName.toLowerCase() === 'canvas') {
+      isDragging = true;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+    }
+  }
+
+  function onMouseUp() {
+    isDragging = false;
+  }
+
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mouseup', onMouseUp);
+
+  // Resize handler
+  function onResize() {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+  window.addEventListener('resize', onResize);
+
+  // Animation Loop
+  let clock = new THREE.Clock();
+  let satAngle1 = 0;
+  let satAngle2 = 0;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const dt = clock.getDelta();
+
+    // Subtle drift rotation focused on the Indian Ocean
+    if (!isDragging) {
+      globeGroup.rotation.y += 0.0009;
+    }
+
+    // Parallax sway
+    targetX += (mouseX * 0.12 - targetX) * 0.035;
+    targetY += (mouseY * 0.12 - targetY) * 0.035;
+    camera.position.x = targetX * 0.6;
+    camera.position.y = 0.5 + targetY * 0.4;
+    camera.lookAt(0, 0, 0);
+
+    // Orbiting Satellites position updates
+    satAngle1 += dt * 0.65;
+    const r1 = 2.05;
+    satMesh1.position.set(
+      Math.cos(satAngle1) * r1,
+      Math.sin(satAngle1) * 0.4,
+      Math.sin(satAngle1) * r1
+    );
+
+    satAngle2 += dt * 0.42;
+    const r2 = 2.32;
+    satMesh2.position.set(
+      Math.sin(satAngle2) * r2,
+      Math.cos(satAngle2) * 0.6,
+      Math.cos(satAngle2) * r2
+    );
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Cleanup
+  const observer = new MutationObserver(() => {
+    if (!document.contains(container)) {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('resize', onResize);
+      observer.disconnect();
+      renderer.dispose();
+      sphereGeo.dispose();
+      sphereMat.dispose();
+      atmosGeo.dispose();
+      atmosMat.dispose();
+      earthTexture.dispose();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_10 -->
+<!-- Ambient Oceanic Grid Graphic Overlay (Technical Depth) -->
+<div class="absolute inset-0 pointer-events-none z-[1] opacity-25" style="background-image: radial-gradient(rgba(0, 212, 255, 0.15) 1px, transparent 1px); background-size: 40px 40px;"></div>
+<!-- Subtle Vignette Frame -->
+<div class="absolute inset-0 pointer-events-none z-[2] bg-gradient-to-t from-[#041119] via-transparent to-[#041119]/80"></div>
+<!-- ========================================================================= -->
+<!-- TOP APPLICATION BAR / SHARED COMPONENT: TopNavBar -->
+<!-- ========================================================================= -->
+<header class="fixed top-4 left-6 right-6 z-30 ocean-glass rounded-full shadow-2xl px-6 py-2.5 flex items-center justify-between transition-all duration-200">
+<!-- Brand / ISRO SIH Badge -->
+<div class="flex items-center space-x-3.5 pr-4 border-r border-[#00d4ff]/20">
+<div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#123B49] border border-[#00d4ff]/40 shadow-inner">
+<!-- Satellite / ISRO Radar Emblem -->
+<span class="material-symbols-outlined text-[#00d4ff] text-xl" style="font-variation-settings: 'FILL' 1;">satellite_alt</span>
+<span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#00d4ff] rounded-full pulse-live ring-2 ring-[#071D29]"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-2">
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight text-[#F1EFE8]">ORCA Marine Intelligence</span>
+<span class="px-2 py-0.5 text-[10px] font-telemetry-mono uppercase tracking-widest bg-[#00d4ff]/15 text-[#00d4ff] border border-[#00d4ff]/30 rounded-full">v2.6 SIH26176</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00d4ff]"></span>
+<span class="font-telemetry-mono text-[11px] text-[#D4E7E2]/80">ISRO METOP-C &amp; OCEANSAT-3 SYNC · 99.8% TELEMETRY</span>
+</div>
+</div>
+</div>
+<!-- Coastal Port Quick-Selectors Pill Switcher -->
+<nav class="hidden xl:flex items-center space-x-1 bg-[#041620]/60 p-1 rounded-full border border-[#00d4ff]/15">
+<button class="px-3.5 py-1 rounded-full text-label-md font-label-md text-[#D4E7E2]/70 hover:text-[#00d4ff] hover:bg-[#123B49]/40 transition-all">MUMBAI</button>
+<button class="px-3.5 py-1 rounded-full text-label-md font-label-md text-[#D4E7E2]/70 hover:text-[#00d4ff] hover:bg-[#123B49]/40 transition-all">KOCHI</button>
+<button class="px-4 py-1 rounded-full text-label-md font-label-md bg-[#00d4ff] text-[#071D29] font-bold shadow-sm flex items-center space-x-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#071D29] animate-ping"></span>
+<span>CHENNAI (ACTIVE)</span>
+</button>
+<button class="px-3.5 py-1 rounded-full text-label-md font-label-md text-[#D4E7E2]/70 hover:text-[#00d4ff] hover:bg-[#123B49]/40 transition-all">VIZAG</button>
+<button class="px-3.5 py-1 rounded-full text-label-md font-label-md text-[#D4E7E2]/70 hover:text-[#00d4ff] hover:bg-[#123B49]/40 transition-all">PORT BLAIR</button>
+<button class="px-3.5 py-1 rounded-full text-label-md font-label-md text-[#D4E7E2]/70 hover:text-[#00d4ff] hover:bg-[#123B49]/40 transition-all">LAKSHADWEEP</button>
+</nav>
+<!-- Navigation Domain Anchors from JSON -->
+<div class="hidden lg:flex items-center space-x-5 text-label-md font-label-md">
+<a class="text-[#00d4ff] font-semibold border-b-2 border-[#00d4ff] pb-0.5 transition-all" href="#">Fleet Domain</a>
+<a class="text-[#D4E7E2]/70 hover:text-[#F1EFE8] transition-colors" href="#">Acoustic Grid</a>
+<a class="text-[#D4E7E2]/70 hover:text-[#F1EFE8] transition-colors" href="#">Oceanographic</a>
+<a class="text-[#D4E7E2]/70 hover:text-[#F1EFE8] transition-colors" href="#">Catch Intel</a>
+</div>
+<!-- Trailing Actions & Search Input -->
+<div class="flex items-center space-x-3">
+<!-- Search Input Pill -->
+<div class="relative hidden sm:flex items-center">
+<span class="material-symbols-outlined text-[#00d4ff]/70 text-lg absolute left-3 pointer-events-none">search</span>
+<input class="bg-[#041620]/80 text-[#F1EFE8] placeholder-[#D4E7E2]/40 text-body-sm font-body-sm rounded-full pl-9 pr-12 py-1.5 border border-[#00d4ff]/25 focus:border-[#00d4ff] focus:outline-none focus:ring-1 focus:ring-[#00d4ff] w-64 transition-all" placeholder="Search coordinates, buoy ID, MMSI..." type="text"/>
+<span class="absolute right-3 px-1.5 py-0.5 rounded text-[10px] font-telemetry-mono bg-[#123B49]/90 border border-[#00d4ff]/30 text-[#D4E7E2]">⌘K</span>
+</div>
+<!-- Action Icons from JSON: satellite_alt, notifications, tune -->
+<button class="p-2 rounded-full hover:bg-[#123B49]/60 text-[#D4E7E2] hover:text-[#00d4ff] transition-all relative" title="Satellite Uplink Status">
+<span class="material-symbols-outlined text-lg">satellite_alt</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-[#00d4ff]"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#123B49]/60 text-[#D4E7E2] hover:text-[#00d4ff] transition-all relative" title="Maritime Notifications">
+<span class="material-symbols-outlined text-lg">notifications</span>
+<span class="absolute top-1 right-1 px-1 min-w-[14px] h-[14px] text-[9px] font-telemetry-mono bg-[#E6A448] text-[#071D29] font-bold rounded-full flex items-center justify-center">2</span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#123B49]/60 text-[#D4E7E2] hover:text-[#00d4ff] transition-all" title="Settings &amp; Layers">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+<!-- User Profile / Navigator -->
+<div class="flex items-center pl-2 border-l border-[#00d4ff]/20">
+<div class="w-8 h-8 rounded-full border border-[#00d4ff] overflow-hidden shadow-sm relative group cursor-pointer" title="Chief Operational Navigator Avatar">
+<img class="w-full h-full object-cover" data-alt="A portrait photograph of a focused Indian maritime tactical operations commander in sharp naval technical gear against a high-tech naval control center backdrop with glowing blue and sea-foam telemetry monitors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqawDjyZ8qWM_Uys7CdVrKke01FAzu6zE7Qs5MLAztyTrfgZQr2O3U3LqWaB3n167LwGR23XTKlhgmR6mjLr6TFWpgobpzLBWJwQQHI9MNh9SV7rRG48031iC8hZezMA8pu7_zDqQGNaeMKa5CC5UeI8QlTP1JTa7Verh90Zm2rLL4myDER0-UI5N_QSl67LXXTO3AqUCPL1_cYwyFSpKls-6Dtjv2XvIcOEmafiNh6IGo453ra2lmO9CTOtvM-NapceDWMZSGXzM"/>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- TOP TELEMETRY HUD RIBBON (Floating beneath header) -->
+<!-- ========================================================================= -->
+<div class="fixed top-20 left-6 right-6 z-25 pointer-events-none flex justify-center">
+<div class="ocean-glass-light pointer-events-auto rounded-full py-1.5 px-6 shadow-xl flex items-center space-x-6 overflow-x-auto max-w-7xl border border-[#00d4ff]/25 backdrop-blur-xl">
+<!-- 1. Sea State -->
+<div class="flex items-center space-x-2 shrink-0">
+<span class="material-symbols-outlined text-[#00d4ff] text-base">waves</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-[#D4E7E2]/70 uppercase tracking-wider">Sea State</span>
+<span class="font-telemetry-mono text-telemetry-mono text-[#F1EFE8] font-semibold">Calm-Slight (Code 3)</span>
+</div>
+</div>
+<div class="h-6 w-px bg-[#00d4ff]/20"></div>
+<!-- 2. Significant Wave Height -->
+<div class="flex items-center space-x-2 shrink-0">
+<span class="material-symbols-outlined text-[#00d4ff] text-base">water</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-[#D4E7E2]/70 uppercase tracking-wider">Sig. Wave Height</span>
+<span class="font-telemetry-mono text-telemetry-mono text-[#F1EFE8] font-semibold">1.2 m <span class="text-[#D4E7E2]/60">@ 8.4s SSW</span></span>
+</div>
+</div>
+<div class="h-6 w-px bg-[#00d4ff]/20"></div>
+<!-- 3. Wind Speed -->
+<div class="flex items-center space-x-2 shrink-0">
+<span class="material-symbols-outlined text-[#00d4ff] text-base">air</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-[#D4E7E2]/70 uppercase tracking-wider">Surface Wind</span>
+<span class="font-telemetry-mono text-telemetry-mono text-[#F1EFE8] font-semibold">14.2 km/h <span class="text-[#D4E7E2]/60">(8 kts SSW)</span></span>
+</div>
+</div>
+<div class="h-6 w-px bg-[#00d4ff]/20"></div>
+<!-- 4. Sea Surface Temp -->
+<div class="flex items-center space-x-2 shrink-0">
+<span class="material-symbols-outlined text-[#E6A448] text-base">device_thermostat</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-[#D4E7E2]/70 uppercase tracking-wider">Sea Surface Temp (SST)</span>
+<span class="font-telemetry-mono text-telemetry-mono text-[#F1EFE8] font-semibold">28.5 °C <span class="text-[#E6A448] text-[11px]">(+0.8° Anomaly)</span></span>
+</div>
+</div>
+<div class="h-6 w-px bg-[#00d4ff]/20"></div>
+<!-- 5. Chlorophyll-a -->
+<div class="flex items-center space-x-2 shrink-0">
+<span class="material-symbols-outlined text-[#00d4ff] text-base">eco</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-[#D4E7E2]/70 uppercase tracking-wider">Pelagic Chlorophyll-a</span>
+<span class="font-telemetry-mono text-telemetry-mono text-[#F1EFE8] font-semibold">1.42 µg/L <span class="text-[#D4E7E2]/60">(Bloom)</span></span>
+</div>
+</div>
+<div class="h-6 w-px bg-[#00d4ff]/20"></div>
+<!-- 6. Live Beacon Status -->
+<div class="flex items-center space-x-2.5 shrink-0 pl-1">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d4ff] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00d4ff]"></span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-[#00d4ff] font-bold tracking-widest uppercase">INCOIS-PFZ SYNCHRONIZED</span>
+<span class="font-telemetry-mono text-[10px] text-[#D4E7E2]/70">SECTOR 04 LOCK · BAY OF BENGAL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- LEFT SIDE: TACTICAL DOCK & LAYER CONTROLS OVERLAY -->
+<!-- ========================================================================= -->
+<!-- Left Side Floating Dock (Matching Shared Component SideNavBar structure) -->
+<aside class="fixed left-6 top-32 bottom-12 w-16 ocean-glass rounded-full z-30 shadow-2xl flex flex-col items-center justify-between py-5 border border-[#00d4ff]/20">
+<!-- Top Emblem / Avatar -->
+<div class="flex flex-col items-center space-y-1">
+<div class="w-10 h-10 rounded-full bg-[#123B49] border border-[#00d4ff]/40 flex items-center justify-center text-[#00d4ff]" title="Tactical Marine Command Badge">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">radar</span>
+</div>
+<span class="text-[9px] font-telemetry-mono text-[#00d4ff] tracking-tighter">ORCA</span>
+</div>
+<!-- Center Navigation Tabs from JSON -->
+<div class="flex flex-col items-center space-y-3">
+<!-- Active: Tactical Radar -->
+<button class="bg-[#00d4ff] text-[#071D29] rounded-full p-2.5 shadow-lg group relative transition-transform hover:scale-110 active:scale-95" title="Tactical Radar">
+<span class="material-symbols-outlined text-xl">radar</span>
+<span class="absolute left-16 bg-[#071D29] border border-[#00d4ff]/30 text-[#F1EFE8] text-xs font-label-md px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl">Tactical Radar</span>
+</button>
+<button class="text-[#D4E7E2]/70 hover:bg-[#123B49]/50 hover:text-[#00d4ff] rounded-full p-2.5 transition-all group relative active:scale-95" title="Overview">
+<span class="material-symbols-outlined text-xl">explore</span>
+<span class="absolute left-16 bg-[#071D29] border border-[#00d4ff]/30 text-[#F1EFE8] text-xs font-label-md px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl">Overview</span>
+</button>
+<button class="text-[#D4E7E2]/70 hover:bg-[#123B49]/50 hover:text-[#00d4ff] rounded-full p-2.5 transition-all group relative active:scale-95" title="Vessel Telemetry">
+<span class="material-symbols-outlined text-xl">directions_boat</span>
+<span class="absolute left-16 bg-[#071D29] border border-[#00d4ff]/30 text-[#F1EFE8] text-xs font-label-md px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl">Vessel Telemetry</span>
+</button>
+<button class="text-[#D4E7E2]/70 hover:bg-[#123B49]/50 hover:text-[#00d4ff] rounded-full p-2.5 transition-all group relative active:scale-95" title="Thermal Layers">
+<span class="material-symbols-outlined text-xl">waves</span>
+<span class="absolute left-16 bg-[#071D29] border border-[#00d4ff]/30 text-[#F1EFE8] text-xs font-label-md px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl">Thermal Layers</span>
+</button>
+<button class="text-[#D4E7E2]/70 hover:bg-[#123B49]/50 hover:text-[#00d4ff] rounded-full p-2.5 transition-all group relative active:scale-95" title="Catch Predictive">
+<span class="material-symbols-outlined text-xl">water_drop</span>
+<span class="absolute left-16 bg-[#071D29] border border-[#00d4ff]/30 text-[#F1EFE8] text-xs font-label-md px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl">Catch Predictive</span>
+</button>
+<button class="text-[#D4E7E2]/70 hover:bg-[#123B49]/50 hover:text-[#00d4ff] rounded-full p-2.5 transition-all group relative active:scale-95" title="Settings">
+<span class="material-symbols-outlined text-xl">tune</span>
+<span class="absolute left-16 bg-[#071D29] border border-[#00d4ff]/30 text-[#F1EFE8] text-xs font-label-md px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl">Settings</span>
+</button>
+</div>
+<!-- Bottom Actions from JSON: Deploy Buoy, Diagnostics & Uplink -->
+<div class="flex flex-col items-center space-y-2.5">
+<button class="w-10 h-10 rounded-full bg-[#E6A448] text-[#071D29] flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition-all" title="Deploy Buoy">
+<span class="material-symbols-outlined text-xl">add_location_alt</span>
+</button>
+<div class="w-8 h-px bg-[#00d4ff]/20"></div>
+<button class="text-[#D4E7E2]/60 hover:text-[#00d4ff] transition-colors p-1" title="System Diagnostics">
+<span class="material-symbols-outlined text-lg">sensors</span>
+</button>
+<button class="text-[#D4E7E2]/60 hover:text-[#00d4ff] transition-colors p-1" title="Secure Uplink">
+<span class="material-symbols-outlined text-lg">shield</span>
+</button>
+</div>
+</aside>
+<!-- Floating Layer Controller Card (Left of Globe, adjacent to dock) -->
+<div class="fixed left-26 top-32 z-20 w-80 ocean-glass rounded-2xl p-4 shadow-2xl border border-[#00d4ff]/25 backdrop-blur-2xl">
+<div class="flex items-center justify-between mb-3 pb-2 border-b border-[#00d4ff]/20">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[#00d4ff] text-base">layers</span>
+<h3 class="font-headline-sm text-sm font-semibold tracking-wide text-[#F1EFE8]">Geospatial Layers</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-telemetry-mono bg-[#123B49] text-[#00d4ff] border border-[#00d4ff]/30">5 ACTIVE</span>
+</div>
+<!-- Interactive Layer Toggles -->
+<div class="space-y-2.5">
+<!-- Bathymetric Contours -->
+<label class="flex items-center justify-between p-2.5 rounded-xl bg-[#041620]/70 hover:bg-[#123B49]/40 border border-[#00d4ff]/10 cursor-pointer transition-all">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="w-4 h-4 rounded text-[#00d4ff] bg-[#071D29] border-[#00d4ff]/40 focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-sm font-label-md text-[#F1EFE8]">Bathymetric Contours</span>
+<span class="font-telemetry-mono text-[10px] text-[#D4E7E2]/60">3,420m Abyssal Margin</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-[#00d4ff] shadow-sm"></span>
+</label>
+<!-- SST & Chlorophyll-a Thermal Overlay -->
+<label class="flex items-center justify-between p-2.5 rounded-xl bg-[#041620]/70 hover:bg-[#123B49]/40 border border-[#00d4ff]/10 cursor-pointer transition-all">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="w-4 h-4 rounded text-[#00d4ff] bg-[#071D29] border-[#00d4ff]/40 focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-sm font-label-md text-[#F1EFE8]">SST &amp; Chlorophyll Gradient</span>
+<span class="font-telemetry-mono text-[10px] text-[#E6A448]">Pelagic Upwelling Heatmap</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-[#E6A448] shadow-sm"></span>
+</label>
+<!-- Sonar Buoys & Acoustic Nodes -->
+<label class="flex items-center justify-between p-2.5 rounded-xl bg-[#041620]/70 hover:bg-[#123B49]/40 border border-[#00d4ff]/10 cursor-pointer transition-all">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="w-4 h-4 rounded text-[#00d4ff] bg-[#071D29] border-[#00d4ff]/40 focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-sm font-label-md text-[#F1EFE8]">Sonar Buoys &amp; Hydrophones</span>
+<span class="font-telemetry-mono text-[10px] text-[#00d4ff]">128 Nodes Broadcast</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-[#00d4ff] animate-pulse"></span>
+</label>
+<!-- AIS Trawler & Fleet Tracks -->
+<label class="flex items-center justify-between p-2.5 rounded-xl bg-[#041620]/70 hover:bg-[#123B49]/40 border border-[#00d4ff]/10 cursor-pointer transition-all">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="w-4 h-4 rounded text-[#00d4ff] bg-[#071D29] border-[#00d4ff]/40 focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-sm font-label-md text-[#F1EFE8]">AIS Vessel Fleet Tracks</span>
+<span class="font-telemetry-mono text-[10px] text-[#D4E7E2]/60">Sea Harvest II, Atlantic Exp.</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-[#D4E7E2]"></span>
+</label>
+<!-- ISRO Satellite Pass Tracker -->
+<label class="flex items-center justify-between p-2.5 rounded-xl bg-[#041620]/70 hover:bg-[#123B49]/40 border border-[#00d4ff]/10 cursor-pointer transition-all">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="w-4 h-4 rounded text-[#00d4ff] bg-[#071D29] border-[#00d4ff]/40 focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-sm font-label-md text-[#F1EFE8]">ISRO EOS-06 / Oceansat-3</span>
+<span class="font-telemetry-mono text-[10px] text-[#00d4ff]">Overpass in 14m 20s</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-[#00d4ff] pulse-live"></span>
+</label>
+</div>
+<!-- Map Viewport Controls: Compass & Zoom -->
+<div class="mt-4 pt-3 border-t border-[#00d4ff]/20 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<button class="w-8 h-8 rounded-lg bg-[#041620] hover:bg-[#123B49] border border-[#00d4ff]/30 text-[#F1EFE8] flex items-center justify-center font-bold text-sm transition-all" title="Zoom In">+</button>
+<button class="w-8 h-8 rounded-lg bg-[#041620] hover:bg-[#123B49] border border-[#00d4ff]/30 text-[#F1EFE8] flex items-center justify-center font-bold text-sm transition-all" title="Zoom Out">-</button>
+<button class="px-2.5 py-1 rounded-lg bg-[#041620] hover:bg-[#123B49] border border-[#00d4ff]/30 text-[#D4E7E2] text-xs font-telemetry-mono transition-all flex items-center space-x-1" title="Reset View">
+<span class="material-symbols-outlined text-xs">restart_alt</span>
+<span>INDIAN OCEAN</span>
+</button>
+</div>
+<!-- Mini Compass Rose Indicator -->
+<div class="relative w-8 h-8 rounded-full border border-[#00d4ff]/40 flex items-center justify-center bg-[#071D29]">
+<div class="absolute inset-0 border-t border-[#00d4ff] rounded-full animate-spin" style="animation-duration: 12s;"></div>
+<span class="text-[9px] font-telemetry-mono font-bold text-[#00d4ff]">N</span>
+</div>
+</div>
+</div>
+<!-- Interactive Target Pin Marker (Simulated 3D Globe HUD tag) -->
+<div class="fixed left-[42%] top-[48%] -translate-x-1/2 -translate-y-1/2 z-15 pointer-events-auto">
+<div class="relative group cursor-pointer">
+<!-- Concentric Radar Ripple -->
+<div class="absolute -inset-4 rounded-full border border-[#00d4ff]/40 animate-ping opacity-60"></div>
+<div class="w-8 h-8 rounded-full bg-[#071D29]/90 border-2 border-[#00d4ff] flex items-center justify-center glow-cyan shadow-xl">
+<span class="w-2.5 h-2.5 rounded-full bg-[#00d4ff]"></span>
+</div>
+<!-- Floating Pin Micro-Card -->
+<div class="absolute left-10 -top-8 w-60 ocean-glass p-3 rounded-xl border border-[#00d4ff]/40 shadow-2xl transition-all pointer-events-none group-hover:scale-105">
+<div class="flex items-center justify-between pb-1 border-b border-[#00d4ff]/20">
+<span class="text-[10px] font-telemetry-mono text-[#00d4ff]">BUOY-INCOIS-PFZ-04</span>
+<span class="w-2 h-2 rounded-full bg-[#00d4ff]"></span>
+</div>
+<div class="mt-1 text-xs text-[#F1EFE8] font-bold">Tamil Nadu Shelf Aggregation</div>
+<div class="text-[11px] font-telemetry-mono text-[#D4E7E2]/70 mt-0.5">Biomass: 42.8 t/nm² · SST 28.4°C</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- RIGHT SIDE COMMAND PANEL: AI COPILOT INTELLIGENCE -->
+<!-- ========================================================================= -->
+<aside class="fixed right-6 top-32 bottom-12 w-[420px] ocean-glass rounded-3xl p-6 shadow-2xl flex flex-col justify-between z-30 border border-[#00d4ff]/30 backdrop-blur-2xl">
+<!-- Top Copilot Header -->
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-[#00d4ff]/20">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-2xl bg-[#123B49] border border-[#00d4ff]/40 flex items-center justify-center text-[#00d4ff] shadow-inner relative">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#00d4ff] pulse-live ring-2 ring-[#071D29]"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-2">
+<h2 class="font-headline-sm text-base font-bold text-[#F1EFE8] tracking-tight">ORCA Copilot</h2>
+<span class="px-2 py-0.5 text-[9px] font-telemetry-mono bg-[#00d4ff]/15 text-[#00d4ff] border border-[#00d4ff]/40 rounded-full font-bold">AI ACTIVE</span>
+</div>
+<p class="text-[11px] font-body-sm text-[#D4E7E2]/70">Bay of Bengal &amp; Arabian Sea Domain Model v4.2</p>
+</div>
+</div>
+<div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-[#041620] border border-[#00d4ff]/30">
+<span class="w-2 h-2 rounded-full bg-[#00d4ff] animate-ping"></span>
+<span class="text-[10px] font-telemetry-mono text-[#00d4ff] font-semibold">TELEMETRY SYNC</span>
+</div>
+</div>
+<!-- Live Stream Conversation & Advisory Feed -->
+<div class="mt-4 space-y-3.5 max-h-[calc(100vh-27rem)] overflow-y-auto pr-1 custom-scroll">
+<!-- User Query Bubble -->
+<div class="flex flex-col items-end space-y-1">
+<div class="flex items-center space-x-1.5 text-[10px] font-telemetry-mono text-[#D4E7E2]/60">
+<span>NAV-OFFICER CHENNAI DESK</span>
+<span class="material-symbols-outlined text-xs">person</span>
+</div>
+<div class="bg-[#123B49]/80 border border-[#00d4ff]/30 rounded-2xl rounded-tr-sm px-4 py-3 text-body-sm text-[#F1EFE8] max-w-[92%] shadow-md">
+            Correlate acoustic biomass backscatter with SST gradient anomaly at Sector 04 (Tamil Nadu Shelf).
+          </div>
+</div>
+<!-- AI Copilot Inference Card -->
+<div class="flex flex-col items-start space-y-1.5">
+<div class="flex items-center space-x-1.5 text-[10px] font-telemetry-mono text-[#00d4ff]">
+<span class="material-symbols-outlined text-xs">neurology</span>
+<span class="font-bold">ORCA NEURAL HYDROGRAPHIC INFERENCE</span>
+<span class="text-[#D4E7E2]/50">· 0.4s</span>
+</div>
+<div class="ocean-glass-light border border-[#00d4ff]/40 rounded-2xl rounded-tl-sm p-4 text-body-sm space-y-3 shadow-lg">
+<p class="text-[#F1EFE8] leading-relaxed">
+<strong class="text-[#00d4ff] font-semibold">High-density yellowfin tuna &amp; skipjack aggregation (42.8 tonnes/nm²)</strong> identified along the <span class="font-telemetry-mono text-xs text-[#E6A448]">65m–110m</span> thermocline shear boundary.
+            </p>
+<!-- Telemetry Metrics Grid -->
+<div class="grid grid-cols-2 gap-2 pt-1 border-t border-[#00d4ff]/15">
+<div class="bg-[#041620]/80 p-2 rounded-xl border border-[#00d4ff]/15">
+<span class="text-[10px] font-label-sm text-[#D4E7E2]/60 uppercase">SST Front Shear</span>
+<div class="font-telemetry-mono text-sm font-bold text-[#E6A448]">0.42 °C/km</div>
+</div>
+<div class="bg-[#041620]/80 p-2 rounded-xl border border-[#00d4ff]/15">
+<span class="text-[10px] font-label-sm text-[#D4E7E2]/60 uppercase">EEZ Boundary</span>
+<div class="font-telemetry-mono text-sm font-bold text-[#00d4ff]">CLEAR (68 nm off)</div>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[11px] text-[#D4E7E2] flex items-start space-x-2">
+<span class="material-symbols-outlined text-[#00d4ff] text-base shrink-0 mt-0.5">verified_user</span>
+<span>INCOIS Potential Fishing Zone (PFZ) advisory active. No sovereign border conflict detected. Recommended heading: 142° SE.</span>
+</div>
+</div>
+</div>
+<!-- Quick Advisory Trigger Chips -->
+<div class="pt-2">
+<span class="text-[10px] font-label-sm text-[#D4E7E2]/60 uppercase tracking-wider block mb-2">Tactical Action Matrices</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-3 py-1 rounded-full text-xs font-label-md bg-[#041620] hover:bg-[#00d4ff] hover:text-[#071D29] border border-[#00d4ff]/30 text-[#D4E7E2] transition-all flex items-center space-x-1 active:scale-95">
+<span class="material-symbols-outlined text-xs">assessment</span>
+<span>PFZ Advisory Matrix</span>
+</button>
+<button class="px-3 py-1 rounded-full text-xs font-label-md bg-[#041620] hover:bg-[#E6A448] hover:text-[#071D29] border border-[#E6A448]/40 text-[#E6A448] transition-all flex items-center space-x-1 active:scale-95">
+<span class="material-symbols-outlined text-xs">warning</span>
+<span>Wave Hazard Alert</span>
+</button>
+<button class="px-3 py-1 rounded-full text-xs font-label-md bg-[#041620] hover:bg-[#00d4ff] hover:text-[#071D29] border border-[#00d4ff]/30 text-[#D4E7E2] transition-all flex items-center space-x-1 active:scale-95">
+<span class="material-symbols-outlined text-xs">route</span>
+<span>Optimized Purse-Seine Route</span>
+</button>
+<button class="px-3 py-1 rounded-full text-xs font-label-md bg-[#041620] hover:bg-[#00d4ff] hover:text-[#071D29] border border-[#00d4ff]/30 text-[#D4E7E2] transition-all flex items-center space-x-1 active:scale-95">
+<span class="material-symbols-outlined text-xs">drive_file_stream</span>
+<span>EEZ Sovereign Fence</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Prompt Input Pill -->
+<div class="pt-3 border-t border-[#00d4ff]/20">
+<div class="relative flex items-center">
+<input class="w-full bg-[#041620] text-[#F1EFE8] placeholder-[#D4E7E2]/40 text-body-sm font-body-sm rounded-full pl-4 pr-12 py-3 border border-[#00d4ff]/30 focus:border-[#00d4ff] focus:outline-none focus:ring-1 focus:ring-[#00d4ff] shadow-inner transition-all" placeholder="Query hydrophones, vessel routing, or catch..." type="text"/>
+<button class="absolute right-2 w-8 h-8 rounded-full bg-[#00d4ff] text-[#071D29] hover:bg-[#F1EFE8] transition-all flex items-center justify-center font-bold active:scale-90 shadow-md">
+<span class="material-symbols-outlined text-base">send</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-2 px-2 text-[10px] font-telemetry-mono text-[#D4E7E2]/50">
+<span>Prompt: "Predict skipjack dispersal at 18:00 UTC"</span>
+<span>ENTER ↵</span>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- BOTTOM STATUS & CRYPTOGRAPHIC BAR -->
+<!-- ========================================================================= -->
+<footer class="fixed bottom-3 left-6 right-6 z-25 ocean-glass-light rounded-full py-1.5 px-6 shadow-xl flex items-center justify-between border border-[#00d4ff]/20 text-xs font-telemetry-mono backdrop-blur-md">
+<!-- Left: Geospatial Coordinates & Sector Lock -->
+<div class="flex items-center space-x-3 text-[#D4E7E2]/80">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[#00d4ff] text-sm">my_location</span>
+<span class="font-bold text-[#F1EFE8]">LAT 11°14'18"N · LON 84°32'02"E</span>
+</div>
+<span class="text-[#00d4ff]/40">|</span>
+<span class="text-[#00d4ff] font-semibold">BAY OF BENGAL · SECTOR 04 (TAMIL NADU SHELF)</span>
+<span class="hidden md:inline-block text-[#00d4ff]/40">|</span>
+<span class="hidden md:inline-block text-[#D4E7E2]/60">BATHYMETRY DEPTH: 1,840 METERS</span>
+</div>
+<!-- Center: Operational Status -->
+<div class="hidden lg:flex items-center space-x-2 text-[11px]">
+<span class="w-2 h-2 rounded-full bg-[#00d4ff] animate-pulse"></span>
+<span class="text-[#D4E7E2]">AUTONOMOUS DEEP SEA OBSERVATION MATRIX</span>
+</div>
+<!-- Right: Telemetry Signature & Uplink Latency -->
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-1.5 text-[11px] text-[#00d4ff]">
+<span class="material-symbols-outlined text-xs">enhanced_encryption</span>
+<span>SHA-256 HASH VERIFIED: <span class="text-[#D4E7E2]/70">8b7f...c31e</span></span>
+</div>
+<div class="h-3.5 w-px bg-[#00d4ff]/20"></div>
+<div class="flex items-center space-x-1.5 text-[11px] text-[#D4E7E2]/80">
+<span class="material-symbols-outlined text-[#00d4ff] text-xs">cell_tower</span>
+<span>STARLINK UPLINK: <span class="text-[#00d4ff] font-bold">1.2s</span></span>
+</div>
+</div>
+</footer>
+</body></html>

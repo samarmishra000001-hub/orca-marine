@@ -14,7 +14,7 @@ export default function ChatSidebar({
   onOpenQuiz
 }) {
   const [inputText, setInputText] = useState('');
-  const endOfMessagesRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   // The Official ISRO SIH26176 Core Problem Scenarios & Mission
   const isroScenarios = [
@@ -32,7 +32,12 @@ export default function ChatSidebar({
   ];
 
   const scrollToBottom = () => {
-    endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   };
 
   useEffect(() => {
@@ -111,7 +116,7 @@ export default function ChatSidebar({
         </button>
       </div>
 
-      <div className="chat-messages">
+      <div className="chat-messages" ref={messagesContainerRef}>
         {messages.map((msg, idx) => (
           <ChatMessage key={idx} message={msg} language={language} />
         ))}
@@ -122,7 +127,6 @@ export default function ChatSidebar({
             </div>
           </div>
         )}
-        <div ref={endOfMessagesRef} />
       </div>
 
       {/* ISRO SIH26176 8 Scenario Quick Prompts */}
