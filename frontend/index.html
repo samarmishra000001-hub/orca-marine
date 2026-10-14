@@ -24,6 +24,11 @@
     <style>
       @keyframes loader { from { transform: translateX(0); } to { transform: translateX(200%); } }
     </style>
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('ORCA Window Error:', e.message, e.filename, e.lineno);
+      });
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,6 +1,15 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import {
+  FALLBACK_PFZ_GEOJSON,
+  FALLBACK_IMBL_GEOJSON,
+  FALLBACK_MPA_GEOJSON,
+  FALLBACK_SST_GEOJSON,
+  FALLBACK_CHLOROPHYLL_GEOJSON,
+  generateClientProbe,
+  calculateClientRoute
+} from '../data/fallbackMarineData';
 
 // Official India boundary GeoJSON sources (includes complete J&K, Ladakh, Lakshadweep, A&N Islands)
 const INDIA_COMPOSITE_URL = 'https://raw.githubusercontent.com/datameet/maps/master/Country/india-composite.geojson';
@@ -212,14 +221,25 @@ export default function MapView({
       attributionControl: false
     });
 
-    map.setProjection({ type: 'globe' });
     map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
 
+    map.on('error', (e) => {
+      console.warn('MapLibre notice:', e?.error?.message || e);
+    });
+
     map.on('load', () => {
       mapRef.current = map;
-      addIndiaOverlay(map);
-      loadAllMarineLayers(map);
+      try {
+        addIndiaOverlay(map);
+      } catch (err) {
+        console.warn('India overlay notice:', err);
+      }
+      try {
+        loadAllMarineLayers(map);
+      } catch (err) {
+        console.warn('Marine layers notice:', err);
+      }
     });
 
     // Map Click Interaction Handler
@@ -246,176 +266,196 @@ export default function MapView({
     if (!map) return;
 
     // 1. PFZ Hotspots Layer
-    const pfzData = await safeFetch('/api/marine/layers/pfz');
-    if (pfzData && !map.getSource('src-pfz')) {
-      map.addSource('src-pfz', { type: 'geojson', data: pfzData });
+    try {
+      const pfzData = (await safeFetch('/api/marine/layers/pfz')) || FALLBACK_PFZ_GEOJSON;
+      if (pfzData && !map.getSource('src-pfz')) {
+        map.addSource('src-pfz', { type: 'geojson', data: pfzData });
 
-      map.addLayer({
-        id: 'lyr-pfz-fill',
-        type: 'fill',
-        source: 'src-pfz',
-        paint: {
-          'fill-color': '#00d4ff',
-          'fill-opacity': layerStates.pfz.enabled ? layerStates.pfz.opacity * 0.25 : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-pfz-fill',
+          type: 'fill',
+          source: 'src-pfz',
+          paint: {
+            'fill-color': '#00d4ff',
+            'fill-opacity': layerStates.pfz.enabled ? layerStates.pfz.opacity * 0.25 : 0
+          }
+        });
 
-      map.addLayer({
-        id: 'lyr-pfz-line',
-        type: 'line',
-        source: 'src-pfz',
-        paint: {
-          'line-color': '#00d4ff',
-          'line-width': 2.2,
-          'line-opacity': layerStates.pfz.enabled ? layerStates.pfz.opacity : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-pfz-line',
+          type: 'line',
+          source: 'src-pfz',
+          paint: {
+            'line-color': '#00d4ff',
+            'line-width': 2.2,
+            'line-opacity': layerStates.pfz.enabled ? layerStates.pfz.opacity : 0
+          }
+        });
 
-      map.on('click', 'lyr-pfz-fill', (e) => {
-        if (e.features && e.features[0]) {
-          const props = e.features[0].properties;
-          new maplibregl.Popup({ className: 'orca-map-popup' })
-            .setLngLat(e.lngLat)
-            .setHTML(`
-              <div class="popup-box">
-                <div class="popup-title">🐟 ${props.zone_name || 'Potential Fishing Zone'}</div>
-                <div class="popup-metric">Target: <strong>${props.target_species || 'Tuna & Mackerel'}</strong></div>
-                <div class="popup-desc">SST: ${props.sst_range || '28.2 - 28.9°C'} | Chl-a: ${props.chlorophyll_level || 'High'}</div>
-                <div class="popup-status">Confidence: ${props.confidence_score || '92%'}</div>
-              </div>
-            `)
-            .addTo(map);
-        }
-      });
+        map.on('click', 'lyr-pfz-fill', (e) => {
+          if (e.features && e.features[0]) {
+            const props = e.features[0].properties;
+            new maplibregl.Popup({ className: 'orca-map-popup' })
+              .setLngLat(e.lngLat)
+              .setHTML(`
+                <div class="popup-box">
+                  <div class="popup-title">🐟 ${props.zone_name || 'Potential Fishing Zone'}</div>
+                  <div class="popup-metric">Target: <strong>${props.target_species || 'Tuna & Mackerel'}</strong></div>
+                  <div class="popup-desc">SST: ${props.sst_range || '28.2 - 28.9°C'} | Chl-a: ${props.chlorophyll_level || 'High'}</div>
+                  <div class="popup-status">Confidence: ${props.confidence_score || '92%'}</div>
+                </div>
+              `)
+              .addTo(map);
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('PFZ Layer notice:', e);
     }
 
     // 2. SST Thermal Layer
-    const sstData = await safeFetch('/api/marine/layers/sst');
-    if (sstData && !map.getSource('src-sst')) {
-      map.addSource('src-sst', { type: 'geojson', data: sstData });
+    try {
+      const sstData = (await safeFetch('/api/marine/layers/sst')) || FALLBACK_SST_GEOJSON;
+      if (sstData && !map.getSource('src-sst')) {
+        map.addSource('src-sst', { type: 'geojson', data: sstData });
 
-      map.addLayer({
-        id: 'lyr-sst-points',
-        type: 'circle',
-        source: 'src-sst',
-        paint: {
-          'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 12, 8, 28],
-          'circle-blur': 0.85,
-          'circle-color': [
-            'interpolate',
-            ['linear'],
-            ['get', 'sst_celsius'],
-            24.0, '#1e3a8a',
-            26.5, '#0284c7',
-            28.0, '#00d4ff',
-            29.5, '#f59e0b',
-            31.0, '#ef4444'
-          ],
-          'circle-opacity': layerStates.sst.enabled ? layerStates.sst.opacity * 0.75 : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-sst-points',
+          type: 'circle',
+          source: 'src-sst',
+          paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 12, 8, 28],
+            'circle-blur': 0.85,
+            'circle-color': [
+              'interpolate',
+              ['linear'],
+              ['get', 'sst_celsius'],
+              24.0, '#1e3a8a',
+              26.5, '#0284c7',
+              28.0, '#00d4ff',
+              29.5, '#f59e0b',
+              31.0, '#ef4444'
+            ],
+            'circle-opacity': layerStates.sst.enabled ? layerStates.sst.opacity * 0.75 : 0
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('SST Layer notice:', e);
     }
 
     // 3. Chlorophyll-a Plumes Layer
-    const chlData = await safeFetch('/api/marine/layers/chlorophyll');
-    if (chlData && !map.getSource('src-chlorophyll')) {
-      map.addSource('src-chlorophyll', { type: 'geojson', data: chlData });
+    try {
+      const chlData = (await safeFetch('/api/marine/layers/chlorophyll')) || FALLBACK_CHLOROPHYLL_GEOJSON;
+      if (chlData && !map.getSource('src-chlorophyll')) {
+        map.addSource('src-chlorophyll', { type: 'geojson', data: chlData });
 
-      map.addLayer({
-        id: 'lyr-chl-fill',
-        type: 'fill',
-        source: 'src-chlorophyll',
-        paint: {
-          'fill-color': '#10b981',
-          'fill-opacity': layerStates.chlorophyll.enabled ? layerStates.chlorophyll.opacity * 0.35 : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-chl-fill',
+          type: 'fill',
+          source: 'src-chlorophyll',
+          paint: {
+            'fill-color': '#10b981',
+            'fill-opacity': layerStates.chlorophyll.enabled ? layerStates.chlorophyll.opacity * 0.35 : 0
+          }
+        });
 
-      map.addLayer({
-        id: 'lyr-chl-line',
-        type: 'line',
-        source: 'src-chlorophyll',
-        paint: {
-          'line-color': '#34d399',
-          'line-width': 1.5,
-          'line-dasharray': [2, 2],
-          'line-opacity': layerStates.chlorophyll.enabled ? layerStates.chlorophyll.opacity : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-chl-line',
+          type: 'line',
+          source: 'src-chlorophyll',
+          paint: {
+            'line-color': '#34d399',
+            'line-width': 1.5,
+            'line-dasharray': [2, 2],
+            'line-opacity': layerStates.chlorophyll.enabled ? layerStates.chlorophyll.opacity : 0
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('Chlorophyll Layer notice:', e);
     }
 
     // 4. IMBL Border Layer
-    const imblData = await safeFetch('/api/marine/layers/imbl');
-    if (imblData && !map.getSource('src-imbl')) {
-      map.addSource('src-imbl', { type: 'geojson', data: imblData });
+    try {
+      const imblData = (await safeFetch('/api/marine/layers/imbl')) || FALLBACK_IMBL_GEOJSON;
+      if (imblData && !map.getSource('src-imbl')) {
+        map.addSource('src-imbl', { type: 'geojson', data: imblData });
 
-      map.addLayer({
-        id: 'lyr-imbl-line',
-        type: 'line',
-        source: 'src-imbl',
-        paint: {
-          'line-color': '#ff4d4d',
-          'line-width': 3.0,
-          'line-dasharray': [3, 2],
-          'line-opacity': layerStates.imbl.enabled ? layerStates.imbl.opacity : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-imbl-line',
+          type: 'line',
+          source: 'src-imbl',
+          paint: {
+            'line-color': '#ff4d4d',
+            'line-width': 3.0,
+            'line-dasharray': [3, 2],
+            'line-opacity': layerStates.imbl.enabled ? layerStates.imbl.opacity : 0
+          }
+        });
 
-      map.addLayer({
-        id: 'lyr-imbl-glow',
-        type: 'line',
-        source: 'src-imbl',
-        paint: {
-          'line-color': '#ff0000',
-          'line-width': 8.0,
-          'line-blur': 4.0,
-          'line-opacity': layerStates.imbl.enabled ? layerStates.imbl.opacity * 0.4 : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-imbl-glow',
+          type: 'line',
+          source: 'src-imbl',
+          paint: {
+            'line-color': '#ff0000',
+            'line-width': 8.0,
+            'line-blur': 4.0,
+            'line-opacity': layerStates.imbl.enabled ? layerStates.imbl.opacity * 0.4 : 0
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('IMBL Layer notice:', e);
     }
 
     // 5. Marine Protected Areas (MPA) Layer
-    const mpaData = await safeFetch('/api/marine/layers/mpa');
-    if (mpaData && !map.getSource('src-mpa')) {
-      map.addSource('src-mpa', { type: 'geojson', data: mpaData });
+    try {
+      const mpaData = (await safeFetch('/api/marine/layers/mpa')) || FALLBACK_MPA_GEOJSON;
+      if (mpaData && !map.getSource('src-mpa')) {
+        map.addSource('src-mpa', { type: 'geojson', data: mpaData });
 
-      map.addLayer({
-        id: 'lyr-mpa-fill',
-        type: 'fill',
-        source: 'src-mpa',
-        paint: {
-          'fill-color': '#10b981',
-          'fill-opacity': layerStates.mpa.enabled ? layerStates.mpa.opacity * 0.30 : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-mpa-fill',
+          type: 'fill',
+          source: 'src-mpa',
+          paint: {
+            'fill-color': '#10b981',
+            'fill-opacity': layerStates.mpa.enabled ? layerStates.mpa.opacity * 0.30 : 0
+          }
+        });
 
-      map.addLayer({
-        id: 'lyr-mpa-line',
-        type: 'line',
-        source: 'src-mpa',
-        paint: {
-          'line-color': '#059669',
-          'line-width': 2.5,
-          'line-opacity': layerStates.mpa.enabled ? layerStates.mpa.opacity : 0
-        }
-      });
+        map.addLayer({
+          id: 'lyr-mpa-line',
+          type: 'line',
+          source: 'src-mpa',
+          paint: {
+            'line-color': '#059669',
+            'line-width': 2.5,
+            'line-opacity': layerStates.mpa.enabled ? layerStates.mpa.opacity : 0
+          }
+        });
 
-      map.on('click', 'lyr-mpa-fill', (e) => {
-        if (e.features && e.features[0]) {
-          const props = e.features[0].properties;
-          new maplibregl.Popup({ className: 'orca-map-popup' })
-            .setLngLat(e.lngLat)
-            .setHTML(`
-              <div class="popup-box">
-                <div class="popup-title">🛡️ ${props.zone_name || 'Marine Sanctuary'}</div>
-                <div class="popup-metric">Focus: <strong>${props.conservation_focus || 'Coral & Marine Wildlife'}</strong></div>
-                <div class="popup-desc" style="color: #ff8080;">${props.restrictions || 'No mechanized trawling.'}</div>
-                <div class="popup-status">Penalty: ${props.enforcement_penalty || 'Wildlife Protection Act'}</div>
-              </div>
-            `)
-            .addTo(map);
-        }
-      });
+        map.on('click', 'lyr-mpa-fill', (e) => {
+          if (e.features && e.features[0]) {
+            const props = e.features[0].properties;
+            new maplibregl.Popup({ className: 'orca-map-popup' })
+              .setLngLat(e.lngLat)
+              .setHTML(`
+                <div class="popup-box">
+                  <div class="popup-title">🛡️ ${props.zone_name || 'Marine Sanctuary'}</div>
+                  <div class="popup-metric">Focus: <strong>${props.conservation_focus || 'Coral & Marine Wildlife'}</strong></div>
+                  <div class="popup-desc" style="color: #ff8080;">${props.restrictions || 'No mechanized trawling.'}</div>
+                  <div class="popup-status">Penalty: ${props.enforcement_penalty || 'Wildlife Protection Act'}</div>
+                </div>
+              `)
+              .addTo(map);
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('MPA Layer notice:', e);
     }
 
     // 6. Offshore Weather & Swell Zones
@@ -548,9 +588,20 @@ export default function MapView({
         if (onProbedPointChange) {
           onProbedPointChange(res);
         }
+      } else {
+        const fallback = generateClientProbe(lat, lon, userPersona);
+        setProbeData(fallback);
+        if (onProbedPointChange) {
+          onProbedPointChange(fallback);
+        }
       }
     } catch (e) {
       console.warn("Probe error:", e);
+      const fallback = generateClientProbe(lat, lon, userPersona);
+      setProbeData(fallback);
+      if (onProbedPointChange) {
+        onProbedPointChange(fallback);
+      }
     } finally {
       setIsProbing(false);
     }
@@ -595,9 +646,14 @@ export default function MapView({
         });
         if (res) {
           setRouteAnalysis(res);
+        } else {
+          const fallback = calculateClientRoute(updated, 12.0, 18.0);
+          setRouteAnalysis(fallback);
         }
       } catch (err) {
         console.warn("Route analysis error:", err);
+        const fallback = calculateClientRoute(updated, 12.0, 18.0);
+        setRouteAnalysis(fallback);
       } finally {
         setIsAnalyzingRoute(false);
       }
