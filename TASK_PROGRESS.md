@@ -35,3 +35,12 @@
 - [x] Run backend tests (`pytest`) and ensure all pass (15/15 passed)
 - [x] Run frontend build (`npm run build` / `npx vite build`) and verify 0 bundle or syntax errors
 - [x] Final verification of end-to-end integration
+
+## Production Deployment & Stability Verification
+- [x] Identified and fixed runtime crash in `MapView.jsx` (`map.setProjection({ type: 'globe' })` was throwing before style load)
+- [x] Safeguarded chat auto-scroll in `ChatSidebar.jsx` with fallback for non-DOM environments
+- [x] Created `frontend/src/data/fallbackMarineData.js` with instant client-side Haversine route planner and probe generator
+- [x] Deployed and verified on Vercel with zero deployment protection barriers
+- [x] Live public URLs active and verified 200 OK:
+  - `https://orca-marine-alpha.vercel.app`
+  - `https://orca-marine-swarm.vercel.app`
