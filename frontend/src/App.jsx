@@ -29,7 +29,7 @@ export const FORECAST_TIMELINE = [
 ];
 
 export default function App() {
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [viewMode, setViewMode] = useState('globe'); // 'globe' (3D digital twin) or 'chart' (MapLibre vector)
   const [vesselType, setVesselType] = useState('motorized_boat');
   const [isTerritoryMapOpen, setIsTerritoryMapOpen] = useState(false);
@@ -241,16 +241,26 @@ export default function App() {
     setActiveLayers(prev => ({ ...prev, [layerKey]: !prev[layerKey] }));
   };
 
+  if (showIntro) {
+    return (
+      <React.Suspense fallback={
+        <div style={{ height: '100vh', width: '100vw', background: '#071D29', color: '#D4E7E2', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <div style={{ fontSize: '2rem', fontWeight: 700, letterSpacing: '0.08em', color: '#F1EFE8', marginBottom: '0.5rem' }}>ORCA</div>
+          <div style={{ fontSize: '0.85rem', color: '#9DB4BE', letterSpacing: '0.12em', textTransform: 'uppercase' }}>ISRO Ocean Observatory</div>
+        </div>
+      }>
+        <IntroScene onFinish={() => setShowIntro(false)} />
+      </React.Suspense>
+    );
+  }
+
   return (
-    <div className="stitch-viewport-container">
-      {/* Cinematic Intro Modal if requested */}
-      <AnimatePresence>
-        {showIntro && (
-          <React.Suspense fallback={<div className="splash-screen" style={{ background: '#071D29' }}>Loading ORCA Observatory...</div>}>
-            <IntroScene onFinish={() => setShowIntro(false)} />
-          </React.Suspense>
-        )}
-      </AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="stitch-viewport-container"
+    >
 
       {/* ========================================================================= */}
       {/* 1. CENTERPIECE GEOGRAPHIC OBSERVATORY VIEWPORT (3D GLOBE / 2D VECTOR CHART) */}
@@ -511,6 +521,17 @@ export default function App() {
             <span className="material-symbols-outlined">school</span>
             <span className="dock-tooltip">Practice Quiz</span>
           </button>
+
+          {/* Replay Cinematic Opening */}
+          <button
+            type="button"
+            className="dock-btn"
+            onClick={() => setShowIntro(true)}
+            title="Replay Cinematic 3D Opening"
+          >
+            <span className="material-symbols-outlined">smart_display</span>
+            <span className="dock-tooltip">Cinematic Intro</span>
+          </button>
         </div>
 
         {/* Bottom Actions */}
@@ -735,6 +756,6 @@ export default function App() {
         isOpen={isQuizOpen}
         onClose={() => setIsQuizOpen(false)}
       />
-    </div>
+    </motion.div>
   );
 }
