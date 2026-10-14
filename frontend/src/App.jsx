@@ -31,7 +31,7 @@ export const FORECAST_TIMELINE = [
 ];
 
 export default function App() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
   const [viewMode, setViewMode] = useState('globe'); // 'globe' (3D digital twin) or 'chart' (MapLibre vector)
   const [userPersona, setUserPersona] = useState('fisher'); // 'fisher' | 'coast_guard' | 'researcher'
   const [isSosOpen, setIsSosOpen] = useState(false);
