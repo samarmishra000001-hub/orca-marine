@@ -16,7 +16,7 @@ export default function ChatSidebar({
   const [inputText, setInputText] = useState('');
   const messagesContainerRef = useRef(null);
 
-  // The Official ISRO SIH26176 Core Problem Scenarios & Mission
+  // Official ISRO Core Problem Scenarios & Mission
   const isroScenarios = [
     { label: "Motto & What ORCA Does", query: "What is the motto of this project and what can you do for the people using this project?" },
     { label: "Lakshadweep Tuna Grounds", query: "Show Potential Fishing Zones, weather, and safe routes near Lakshadweep Islands" },
@@ -129,9 +129,9 @@ export default function ChatSidebar({
         )}
       </div>
 
-      {/* ISRO SIH26176 8 Scenario Quick Prompts */}
+      {/* ISRO Operational Scenario Quick Prompts */}
       <div className="quick-prompts-container">
-        <div className="quick-prompts-label">ISRO Problem Scenarios (SIH26176):</div>
+        <div className="quick-prompts-label">ISRO Operational Scenarios:</div>
         <div className="quick-prompts">
           {isroScenarios.map((item, idx) => (
             <button

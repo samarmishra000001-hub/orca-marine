@@ -75,7 +75,7 @@ def generate_pdf():
 
     # Title Banner
     story.append(Paragraph("🐋 ORCA Marine Intelligence Platform", title_style))
-    story.append(Paragraph("Simple Layman's Project Guide & Process Breakdown (Q&A Format) | ISRO SIH26176", subtitle_style))
+    story.append(Paragraph("Simple Layman's Project Guide & Process Breakdown (Q&A Format) | ISRO Marine Intelligence Platform", subtitle_style))
     story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#0284c7"), spaceAfter=15))
 
     qa_list = [
@@ -130,7 +130,7 @@ def generate_pdf():
     # Summary box
     story.append(Spacer(1, 10))
     summary_data = [
-        [Paragraph("<b>Project Summary Status:</b> Fully Built & Ready for Vercel Demo | ISRO SIH26176", ParagraphStyle('BoxText', fontName='Helvetica-Bold', fontSize=9.5, textColor=colors.HexColor("#0369a1")))]
+        [Paragraph("<b>Project Summary Status:</b> Fully Built & Ready for Vercel Demo | ISRO Marine Intelligence Platform", ParagraphStyle('BoxText', fontName='Helvetica-Bold', fontSize=9.5, textColor=colors.HexColor("#0369a1")))]
     ]
     summary_table = Table(summary_data, colWidths=[530])
     summary_table.setStyle(TableStyle([

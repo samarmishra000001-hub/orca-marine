@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { QUIZ_TOPICS, QUIZ_QUESTIONS } from '../data/marineQuizData';
 
 export default function MarineQuizModal({ isOpen, onClose }) {
@@ -93,7 +93,7 @@ export default function MarineQuizModal({ isOpen, onClose }) {
             <span className="quiz-header-icon">📚</span>
             <div>
               <h3>Marine Knowledge &amp; Regulatory Practice Assessment</h3>
-              <p>ISRO SIH26176 Competency Modules for Coastal Fishers &amp; Marine Navigators</p>
+              <p>ISRO Ocean Intelligence Competency Modules for Coastal Fishers &amp; Marine Navigators</p>
             </div>
           </div>
           <button className="quiz-close-btn" onClick={onClose} type="button" title="Close Assessment">✕</button>

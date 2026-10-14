@@ -1,6 +1,6 @@
 # 🐋 ORCA — Marine Ecosystem Reasoning with Collaborative Agents
 
-> **ISRO Problem Statement SIH26176** — Multi-Agent Marine Intelligence Platform
+> **ISRO Marine Intelligence Platform** — Multi-Agent Marine Intelligence Platform
 
 A full-stack prototype that allows users to query oceanographic conditions, safety alerts, safe routing, and Potential Fishing Zones (PFZs) using natural language, returning structured explanations and interactive map overlays.
 
@@ -160,4 +160,4 @@ Voice input uses the Web Speech API (Chrome/Edge recommended). The IndicTrans2 m
 
 ## License
 
-Built for Smart India Hackathon 2026 (ISRO SIH26176).
+Built for ISRO Marine Intelligence Platform.

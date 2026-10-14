@@ -76,7 +76,7 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
     words = set(re.findall(r'\b\w+\b', msg_lower))
     if any(q in msg_lower for q in ["who are you", "what are you", "your name", "who developed you", "what can you do"]) or words.intersection({"hi", "hello", "namaste", "hey"}):
         text = (
-            "**I am ORCA (Marine Intelligence & General Assistant)**, developed for the ISRO SIH26176 platform.\n\n"
+            "**I am ORCA (Marine Intelligence & General Assistant)**, developed for the ISRO Marine Intelligence platform.\n\n"
             "I operate as a dual-capability intelligence console:\n"
             "1. **General-Purpose AI:** I can assist with general knowledge, programming (Python, JavaScript, React, GIS), math, writing, and logical problem solving.\n"
             "2. **Real-Time Marine Observatory:** I retrieve live ocean forecasts from Open-Meteo, satellite indicators, Potential Fishing Zones (PFZs), coastal danger alerts, and geodesic safety routing along the Indian coastline.\n\n"

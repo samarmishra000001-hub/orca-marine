@@ -106,7 +106,7 @@ export default function App() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: 'Welcome to ORCA (ISRO SIH26176)! 🐋 I am your collaborative Marine Intelligence Swarm and General-Purpose Assistant. I synthesize real-time ocean forecasts from Open-Meteo, satellite telemetry, tide harmonics, and maritime boundaries into explainable decisions. Ask me anything about oceanography, coding, general science, or pick an Indian coastal port!',
+      content: 'Welcome to ORCA! 🐋 I am your collaborative Marine Intelligence Swarm and General-Purpose Assistant. I synthesize real-time ocean forecasts from Open-Meteo, satellite telemetry, tide harmonics, and maritime boundaries into explainable decisions. Ask me anything about oceanography, coding, general science, or pick an Indian coastal port!',
       timestamp: new Date()
     }
   ]);
@@ -289,7 +289,7 @@ export default function App() {
           <div className="brand-text-column">
             <div className="brand-headline">
               <span className="brand-name">ORCA Marine Intelligence</span>
-              <span className="brand-version-chip">v2.6 SIH26176</span>
+              <span className="brand-version-chip">v2.6 PROD</span>
             </div>
             <div className="brand-telemetry-status">
               <span className="status-bullet" />

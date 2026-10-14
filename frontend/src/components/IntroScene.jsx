@@ -113,7 +113,7 @@ function CinematicScene({ onFinish }) {
         zIndex: 10000
       }}>
         <div style={{ fontSize: '0.75rem', color: '#9DB4BE', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
-          ISRO SIH26176
+          ISRO OCEAN OBSERVATORY
         </div>
         <h1 style={{
           fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 700, color: '#F1EFE8',
