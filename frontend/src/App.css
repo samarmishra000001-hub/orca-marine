@@ -2881,3 +2881,1380 @@ body {
     font-size: 0.65rem;
   }
 }
+
+/* ========================================================================== */
+/* BATCH 2 & 3: BIOLUMINESCENT HORIZON — PERSONA SWITCHER & TACTICAL HUD      */
+/* ========================================================================== */
+
+/* Persona Navigation Capsule */
+.persona-nav-wrapper {
+  position: fixed;
+  top: 3.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 28;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.persona-glass-capsule {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(7, 29, 41, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 9999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 212, 255, 0.08);
+}
+
+.persona-tab-strip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(4, 18, 27, 0.7);
+  border-radius: 9999px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.persona-spring-slider {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  width: 33.333%;
+  border-radius: 9999px;
+  border: 1px solid #00d4ff;
+  pointer-events: none;
+  transition: border-color 0.2s ease;
+}
+
+.persona-tab-btn {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  color: #9DB4BE;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.persona-tab-btn:hover {
+  color: #F1EFE8;
+}
+
+.persona-tab-btn.active {
+  color: #F1EFE8;
+  font-weight: 700;
+}
+
+.persona-tab-icon {
+  font-size: 15px !important;
+  transition: transform 0.2s ease;
+}
+
+.persona-tab-btn:hover .persona-tab-icon {
+  transform: scale(1.15);
+}
+
+.persona-live-pulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: pulseCyan 1.6s infinite;
+}
+
+/* SOS Beacon Trigger in Coast Guard Mode */
+.sos-beacon-trigger-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(230, 72, 72, 0.18);
+  border: 1px solid rgba(255, 77, 77, 0.5);
+  border-radius: 9999px;
+  color: #ff4d4d;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: beaconBorderPulse 2s infinite;
+}
+
+.sos-beacon-trigger-btn:hover {
+  background: rgba(255, 77, 77, 0.3);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(255, 77, 77, 0.4);
+}
+
+@keyframes beaconBorderPulse {
+  0%, 100% { border-color: rgba(255, 77, 77, 0.4); }
+  50% { border-color: rgba(255, 77, 77, 0.9); }
+}
+
+.pulse-red {
+  color: #ff4d4d;
+  animation: pulseRed 1.2s infinite;
+}
+
+@keyframes pulseRed {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+/* Acronym Glossary Pill Row */
+.acronym-help-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.acronym-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #9DB4BE;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.acronym-badge-wrap {
+  position: relative;
+}
+
+.acronym-badge {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 4px;
+  color: #00d4ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.acronym-badge:hover {
+  background: rgba(0, 212, 255, 0.2);
+  color: #ffffff;
+  border-color: #00d4ff;
+}
+
+.acronym-tooltip-box {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  padding: 0.65rem 0.85rem;
+  background: rgba(7, 29, 41, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  border-radius: 8px;
+  color: #D4E7E2;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+/* ========================================================================== */
+/* EMERGENCY SOS MARITIME DISTRESS BEACON MODAL                               */
+/* ========================================================================== */
+.sos-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 13, 19, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem;
+}
+
+.sos-modal-card {
+  width: 100%;
+  max-width: 580px;
+  background: rgba(7, 29, 41, 0.94);
+  border: 1.5px solid rgba(255, 77, 77, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 77, 77, 0.2);
+  overflow: hidden;
+}
+
+.sos-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 77, 77, 0.08);
+  border-bottom: 1px solid rgba(255, 77, 77, 0.25);
+}
+
+.sos-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sos-flashing-icon {
+  font-size: 32px !important;
+  color: #ff4d4d;
+  animation: pulseRed 1s infinite;
+}
+
+.sos-modal-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sos-modal-sub {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #ff8080;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+.sos-close-btn {
+  background: transparent;
+  border: none;
+  color: #9DB4BE;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.sos-close-btn:hover {
+  color: #ffffff;
+}
+
+.sos-modal-body {
+  padding: 1.5rem;
+}
+
+.sos-coords-box {
+  background: rgba(4, 18, 27, 0.75);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+}
+
+.sos-coord-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sos-coord-label {
+  color: #9DB4BE;
+  font-weight: 600;
+}
+
+.sos-coord-dms {
+  color: #00d4ff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.sos-coord-dec {
+  color: #F1EFE8;
+}
+
+.sos-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.sos-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sos-field-group label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #9DB4BE;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sos-select, .sos-input {
+  background: rgba(4, 22, 32, 0.85);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 6px;
+  color: #F1EFE8;
+  padding: 0.55rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.sos-select:focus, .sos-input:focus {
+  border-color: #00d4ff;
+}
+
+.sos-warning-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(230, 164, 72, 0.1);
+  border: 1px solid rgba(230, 164, 72, 0.3);
+  border-radius: 6px;
+  color: #E6A448;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+
+.sos-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.sos-cancel-btn {
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: 1px solid rgba(157, 180, 190, 0.3);
+  border-radius: 8px;
+  color: #9DB4BE;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sos-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #F1EFE8;
+}
+
+.sos-transmit-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  background: linear-gradient(135deg, #ff4d4d 0%, #b91c1c 100%);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 77, 77, 0.4);
+  transition: all 0.2s ease;
+}
+
+.sos-transmit-btn:hover:not(:disabled) {
+  box-shadow: 0 6px 24px rgba(255, 77, 77, 0.6);
+  transform: translateY(-1px);
+}
+
+.sos-transmit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sos-success-banner {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sos-success-banner h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #00d4ff;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.sos-summary-box {
+  text-align: left;
+  background: rgba(4, 18, 27, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sos-reset-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: #00d4ff;
+  border: none;
+  border-radius: 8px;
+  color: #071D29;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ========================================================================== */
+/* MAPVIEW: SPATIAL TOOLS DOCK & LAYER MATRIX                                 */
+/* ========================================================================== */
+.mapview-root-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.maplibre-viewport {
+  width: 100%;
+  height: 100%;
+}
+
+.map-spatial-tools-dock {
+  position: absolute;
+  top: 5rem;
+  left: 6.5rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  background: rgba(7, 29, 41, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.spatial-tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  color: #9DB4BE;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spatial-tool-btn:hover {
+  background: rgba(0, 212, 255, 0.08);
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.spatial-tool-btn.active {
+  background: rgba(0, 212, 255, 0.18);
+  color: #00d4ff;
+  border-color: #00d4ff;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.25);
+}
+
+.spatial-dock-sep {
+  width: 1px;
+  height: 1.2rem;
+  background: rgba(0, 212, 255, 0.25);
+}
+
+.basemap-selector-pill {
+  background: rgba(4, 22, 32, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 9999px;
+  color: #F1EFE8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.3rem 0.6rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Floating Layer Control Dock */
+.map-layer-dock-card {
+  position: absolute;
+  top: 8rem;
+  left: 6.5rem;
+  z-index: 22;
+  width: 290px;
+  background: rgba(7, 29, 41, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  padding: 0.85rem;
+}
+
+.layer-dock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  margin-bottom: 0.6rem;
+}
+
+.layer-dock-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #F1EFE8;
+  flex: 1;
+  margin-left: 0.4rem;
+}
+
+.layer-dock-close {
+  background: transparent;
+  border: none;
+  color: #9DB4BE;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.layer-dock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.layer-dock-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.35rem 0.5rem;
+  background: rgba(4, 18, 27, 0.45);
+  border-radius: 6px;
+}
+
+.layer-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.layer-switch-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  color: #D4E7E2;
+  cursor: pointer;
+}
+
+.layer-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.layer-label-text {
+  font-weight: 500;
+}
+
+.layer-opacity-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #9DB4BE;
+}
+
+.layer-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 1.3rem;
+}
+
+.slider-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #9DB4BE;
+}
+
+.layer-slider-input {
+  flex: 1;
+  height: 3px;
+  accent-color: #00d4ff;
+  cursor: pointer;
+}
+
+.layer-legends-panel {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.legend-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.legend-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #9DB4BE;
+}
+
+.sst-color-bar {
+  height: 7px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #1e3a8a, #0284c7, #00d4ff, #f59e0b, #ef4444);
+}
+
+.chl-color-bar {
+  height: 7px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #064e3b, #10b981, #34d399, #a7f3d0);
+}
+
+.legend-labels-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: #9DB4BE;
+}
+
+/* ========================================================================== */
+/* CLICK-TO-PROBE: OCEANOGRAPHIC POINT CARD & MARKER                          */
+/* ========================================================================== */
+.probe-pin-container {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+}
+
+.probe-sonar-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #00d4ff;
+  animation: sonarWave 1.8s ease-out infinite;
+}
+
+@keyframes sonarWave {
+  0% { transform: scale(0.2); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.probe-center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: #00d4ff;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px #00d4ff;
+}
+
+.oceanographic-probe-card {
+  position: absolute;
+  top: 8rem;
+  left: 26rem;
+  z-index: 24;
+  width: 340px;
+  background: rgba(7, 29, 41, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+}
+
+.probe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  margin-bottom: 0.75rem;
+}
+
+.probe-title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.probe-card-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #00d4ff;
+}
+
+.probe-card-coords {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  color: #9DB4BE;
+}
+
+.probe-close-btn {
+  background: transparent;
+  border: none;
+  color: #9DB4BE;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.probe-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.probe-metric-box {
+  background: rgba(4, 18, 27, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.probe-box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: #9DB4BE;
+  letter-spacing: 0.08em;
+}
+
+.probe-box-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #F1EFE8;
+}
+
+.probe-distances-list {
+  background: rgba(4, 18, 27, 0.4);
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+}
+
+.probe-dist-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dist-name {
+  color: #9DB4BE;
+}
+
+.dist-num {
+  font-weight: 600;
+}
+
+.probe-advisory-box {
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.65rem 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.advisory-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #00d4ff;
+  margin-bottom: 0.3rem;
+}
+
+.advisory-text {
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: #D4E7E2;
+}
+
+.probe-ask-ai-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid #00d4ff;
+  border-radius: 8px;
+  color: #00d4ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.probe-ask-ai-btn:hover {
+  background: #00d4ff;
+  color: #071D29;
+}
+
+/* ========================================================================== */
+/* VOYAGE ROUTE PLANNER CARD & VESSEL SIMULATION                              */
+/* ========================================================================== */
+.waypoint-marker {
+  width: 22px;
+  height: 22px;
+  background: #00d4ff;
+  color: #071D29;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+  transform: translate(-50%, -50%);
+}
+
+.simulated-ship-marker {
+  width: 28px;
+  height: 28px;
+  background: rgba(7, 29, 41, 0.9);
+  border: 2px solid #00d4ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px #00d4ff;
+}
+
+.voyage-telemetry-card {
+  position: absolute;
+  top: 8rem;
+  left: 26rem;
+  z-index: 24;
+  width: 360px;
+  background: rgba(7, 29, 41, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+}
+
+.voyage-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  margin-bottom: 0.75rem;
+}
+
+.voyage-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.voyage-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #00d4ff;
+}
+
+.waypoint-count-chip {
+  padding: 0.2rem 0.5rem;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.route-helper-text {
+  font-size: 0.78rem;
+  color: #9DB4BE;
+  line-height: 1.4;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.voyage-metrics-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.voyage-metric-col {
+  background: rgba(4, 18, 27, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.45rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: center;
+}
+
+.voyage-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.56rem;
+  color: #9DB4BE;
+  letter-spacing: 0.08em;
+}
+
+.voyage-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #F1EFE8;
+}
+
+.voyage-subval {
+  font-size: 0.62rem;
+  color: #9DB4BE;
+}
+
+.voyage-warning-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.voyage-warning-banner.mpa {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
+.voyage-warning-banner.imbl {
+  background: rgba(255, 77, 77, 0.15);
+  border: 1px solid rgba(255, 77, 77, 0.4);
+  color: #ff4d4d;
+}
+
+.voyage-rec-box {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: #D4E7E2;
+  margin-bottom: 0.75rem;
+}
+
+.voyage-actions-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.voyage-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voyage-action-btn.simulate {
+  background: rgba(0, 212, 255, 0.2);
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+}
+
+.voyage-action-btn.simulate:hover:not(:disabled) {
+  background: #00d4ff;
+  color: #071D29;
+}
+
+.voyage-action-btn.clear {
+  background: rgba(255, 77, 77, 0.15);
+  border: 1px solid rgba(255, 77, 77, 0.4);
+  color: #ff8080;
+}
+
+.voyage-action-btn.clear:hover {
+  background: rgba(255, 77, 77, 0.3);
+  color: #ffffff;
+}
+
+/* ========================================================================== */
+/* 4D TIME-SCRUBBER TIMELINE BAR                                              */
+/* ========================================================================== */
+.bottom-time-scrubber-bar {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 6.5rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(7, 29, 41, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.scrubber-label-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.scrubber-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #00d4ff;
+}
+
+.scrubber-status-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.56rem;
+  color: #9DB4BE;
+}
+
+.scrubber-steps-track {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scrubber-step-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  color: #9DB4BE;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.64rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.scrubber-step-btn:hover {
+  background: rgba(0, 212, 255, 0.1);
+  color: #F1EFE8;
+}
+
+.scrubber-step-btn.active {
+  background: #00d4ff;
+  color: #071D29;
+  font-weight: 700;
+  border-color: #00d4ff;
+}
+
+.scrubber-step-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ========================================================================== */
+/* AI-MAP SYNC MARKER & POPUPS                                                */
+/* ========================================================================== */
+.ai-location-marker {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  transform: translate(-50%, -50%);
+}
+
+.ai-marker-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.35);
+  border: 2px solid #00d4ff;
+  animation: aiMarkerPing 1.8s ease-out infinite;
+}
+
+@keyframes aiMarkerPing {
+  0% { transform: scale(0.4); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.ai-marker-badge {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00d4ff;
+  color: #071D29;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.orca-map-popup .maplibregl-popup-content {
+  background: rgba(7, 29, 41, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  border-radius: 10px;
+  padding: 0.85rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  color: #F1EFE8;
+}
+
+.orca-map-popup .maplibregl-popup-tip {
+  border-top-color: rgba(7, 29, 41, 0.95);
+}
+
+.popup-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.74rem;
+}
+
+.popup-title {
+  font-weight: 700;
+  color: #00d4ff;
+  font-size: 0.8rem;
+}
+
+.popup-metric {
+  color: #D4E7E2;
+}
+
+.popup-desc {
+  color: #9DB4BE;
+  font-size: 0.7rem;
+}
+
+.popup-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: #E6A448;
+}
+
+/* ========================================================================== */
+/* CHATSIDEBAR SUBTITLE PERSONA CHIP & CONTEXTUAL PROMPT PILLS                */
+/* ========================================================================== */
+.subtitle-persona-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.persona-mode-chip {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.subtitle-subtext {
+  font-size: 0.68rem;
+  color: #9DB4BE;
+}
+
+.contextual-chips-container {
+  padding: 0.5rem 1rem 0.3rem 1rem;
+  background: rgba(0, 212, 255, 0.06);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.contextual-chips-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #00d4ff;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.contextual-chip {
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  background: rgba(0, 212, 255, 0.08) !important;
+  color: #00d4ff !important;
+  font-weight: 600 !important;
+}
+
+.contextual-chip:hover {
+  background: rgba(0, 212, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-color: #00d4ff !important;
+}
+
+/* ========================================================================== */
+/* NEURAL TTS PLAYBACK & ORGANIC WAVEFORM VISUALIZER                          */
+/* ========================================================================== */
+.message-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.tts-playback-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 9999px;
+  color: #00d4ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tts-playback-btn:hover {
+  background: rgba(0, 212, 255, 0.2);
+  color: #ffffff;
+  border-color: #00d4ff;
+}
+
+.tts-playback-btn.playing {
+  background: rgba(0, 212, 255, 0.25);
+  color: #ffffff;
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.waveform-visualizer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0.2rem 0.5rem;
+  background: rgba(4, 18, 27, 0.7);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 9999px;
+}
+
+.waveform-bar {
+  width: 2.5px;
+  background: #00d4ff;
+  border-radius: 2px;
+  animation: waveformBounce 0.8s ease-in-out infinite alternate;
+}
+
+.waveform-bar.bar-1 { height: 6px; animation-delay: 0.1s; }
+.waveform-bar.bar-2 { height: 14px; animation-delay: 0.3s; }
+.waveform-bar.bar-3 { height: 9px; animation-delay: 0.5s; }
+.waveform-bar.bar-4 { height: 16px; animation-delay: 0.2s; }
+.waveform-bar.bar-5 { height: 7px; animation-delay: 0.4s; }
+
+@keyframes waveformBounce {
+  0% { transform: scaleY(0.4); opacity: 0.5; }
+  100% { transform: scaleY(1.3); opacity: 1; }
+}
+
+.waveform-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #00d4ff;
+  letter-spacing: 0.08em;
+  margin-left: 3px;
+}

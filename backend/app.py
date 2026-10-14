@@ -24,6 +24,7 @@ from middleware.translation import TranslationMiddleware
 from agents.mock_orchestrator import mock_orchestrate
 from agents.graph import run_agent
 from agents.groq_agent import run_groq_agent
+from api.marine import router as marine_router
 
 # Load environment variables
 load_dotenv()
@@ -32,6 +33,7 @@ limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(title='ORCA Marine Intelligence API', version='1.3.0')
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.include_router(marine_router)
 
 # Configure CORS
 ALLOWED_ORIGINS = [
@@ -158,8 +160,10 @@ async def chat(request: Request, body: ChatRequest):
             message=processed_message,
             location=body.location,
             language=target_lang,
-            vessel_type=getattr(body, 'vessel_type', 'motorized'),
+            vessel_type=getattr(body, 'vessel_type', 'motorized_boat'),
             time_horizon=getattr(body, 'time_horizon', 'now'),
+            persona=getattr(body, 'persona', 'fisher') or getattr(body, 'user_role', 'fisher'),
+            user_role=getattr(body, 'user_role', 'fisher') or getattr(body, 'persona', 'fisher'),
             conversation_history=getattr(body, 'conversation_history', [])
         )
 

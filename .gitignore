@@ -1,11 +1,13 @@
 # Python
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *.pyo
 .venv/
 venv/
 env/
 .pytest_cache/
+backend/.pytest_cache/
 .mypy_cache/
 
 # Environment and secrets
@@ -26,3 +28,4 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 .vercel/
+frontend/.vercel/

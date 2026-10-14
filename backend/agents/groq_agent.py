@@ -2,7 +2,7 @@ import os
 import json
 import asyncio
 from groq import AsyncGroq
-from models import ChatRequest, ChatResponse, AgentStep, GeoJSONLayer, LayerStyle
+from models import ChatRequest, ChatResponse, AgentStep, GeoJSONLayer, LayerStyle, MapAction
 from agents.tools import (
     discover_ocean_data,
     assess_safety_risk,
@@ -228,10 +228,39 @@ async def run_groq_agent(request: ChatRequest) -> ChatResponse:
         # Deduplicate layers
         unique_raw = list({l["id"]: l for l in layers_raw if isinstance(l, dict) and "id" in l}.values())
 
+        # Extract map action if a coastal location is discussed
+        map_act = None
+        try:
+            from agents.mock_orchestrator import _resolve_location
+            combined_text = (request.message + " " + (final_text or "")).lower()
+            loc_lat, loc_lon, loc_label = _resolve_location(combined_text)
+            layers_to_enable = []
+            if any(k in combined_text for k in ["pfz", "fish", "tuna", "mackerel"]):
+                layers_to_enable.append("pfz")
+            if any(k in combined_text for k in ["mpa", "protected", "sanctuary"]):
+                layers_to_enable.append("mpa")
+            if any(k in combined_text for k in ["imbl", "border", "boundary"]):
+                layers_to_enable.append("imbl")
+            if any(k in combined_text for k in ["cyclone", "storm", "weather", "wind"]):
+                layers_to_enable.append("weather")
+            if any(k in combined_text for k in ["sst", "temperature", "chlorophyll"]):
+                layers_to_enable.extend(["thermal", "sst"])
+            map_act = MapAction(
+                type="flyTo",
+                lat=round(loc_lat, 4),
+                lon=round(loc_lon, 4),
+                zoom=8.0,
+                enable_layers=layers_to_enable,
+                label=loc_label
+            )
+        except Exception:
+            pass
+
         return ChatResponse(
             text_response=final_text,
             agent_reasoning=steps,
-            geojson_layers=_to_geojson_layers(unique_raw)
+            geojson_layers=_to_geojson_layers(unique_raw),
+            map_action=map_act
         )
     except Exception as e:
         print(f"[Groq Agent Fallback]: {e}")

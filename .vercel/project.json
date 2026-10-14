@@ -1,1 +1,16 @@
-{"projectId":"prj_DfSNDUKZWDP8GCQT4kd3Bp4Ob7fr","orgId":"team_xPiiAIyRgqA1FsaitgvnyeRm","projectName":"orca-marine"}
+{
+  "projectId": "prj_DfSNDUKZWDP8GCQT4kd3Bp4Ob7fr",
+  "orgId": "team_xPiiAIyRgqA1FsaitgvnyeRm",
+  "projectName": "orca-marine",
+  "settings": {
+    "createdAt": 1791458764433,
+    "framework": "fastapi",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": "cd frontend && npm install && npm run build",
+    "outputDirectory": "frontend/dist",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

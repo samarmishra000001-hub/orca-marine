@@ -5,6 +5,8 @@ import MapView from './components/MapView';
 import OceanGlobe3D from './components/OceanGlobe3D';
 import IndiaTerritoryMap from './components/IndiaTerritoryMap';
 import MarineQuizModal from './components/MarineQuizModal';
+import PersonaSwitcher from './components/PersonaSwitcher';
+import EmergencyBeaconModal from './components/EmergencyBeaconModal';
 
 const IntroScene = lazy(() => import('./components/IntroScene'));
 
@@ -31,6 +33,9 @@ export const FORECAST_TIMELINE = [
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [viewMode, setViewMode] = useState('globe'); // 'globe' (3D digital twin) or 'chart' (MapLibre vector)
+  const [userPersona, setUserPersona] = useState('fisher'); // 'fisher' | 'coast_guard' | 'researcher'
+  const [isSosOpen, setIsSosOpen] = useState(false);
+  const [probedPoint, setProbedPoint] = useState(null);
   const [vesselType, setVesselType] = useState('motorized_boat');
   const [isTerritoryMapOpen, setIsTerritoryMapOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -170,6 +175,8 @@ export default function App() {
           location: activePort,
           language: language,
           vessel_type: vesselType,
+          persona: userPersona,
+          user_role: userPersona,
           conversation_history: historyPayload
         })
       });
@@ -183,6 +190,8 @@ export default function App() {
             location: activePort,
             language: language,
             vessel_type: vesselType,
+            persona: userPersona,
+            user_role: userPersona,
             conversation_history: historyPayload
           })
         });
@@ -198,6 +207,32 @@ export default function App() {
         layers: data.geojson_layers,
         timestamp: new Date()
       }]);
+
+      // AI-Map Synchronization: Handle structured map_action from backend agent
+      if (data.map_action && data.map_action.lat && data.map_action.lon) {
+        setMapCenter([data.map_action.lon, data.map_action.lat]);
+        if (data.map_action.zoom) setMapZoom(data.map_action.zoom);
+        setViewMode('chart');
+        window.dispatchEvent(new CustomEvent('orca-map-flyto', {
+          detail: data.map_action
+        }));
+      } else {
+        // Fallback AI coordinate extraction from natural language
+        try {
+          const coordMatch = data.text_response?.match(/(\d{1,2}\.\d+)[°\s]*N[,\s]+(\d{2,3}\.\d+)[°\s]*E/);
+          if (coordMatch) {
+            const aiLat = parseFloat(coordMatch[1]);
+            const aiLon = parseFloat(coordMatch[2]);
+            if (aiLat > 5 && aiLat < 38 && aiLon > 65 && aiLon < 100) {
+              setMapCenter([aiLon, aiLat]);
+              setViewMode('chart');
+              window.dispatchEvent(new CustomEvent('orca-map-flyto', {
+                detail: { lat: aiLat, lon: aiLon, zoom: 7.5, label: 'COORDINATE FIX' }
+              }));
+            }
+          }
+        } catch (_) {}
+      }
 
       if (data.geojson_layers && data.geojson_layers.length > 0) {
         setLayers(data.geojson_layers);
@@ -218,7 +253,7 @@ export default function App() {
     } finally {
       setIsLoading(false);
     }
-  }, [language, messages, vesselType, activePort, apiBase]);
+  }, [language, messages, vesselType, activePort, apiBase, userPersona]);
 
   const handleSelectTerritory = useCallback((territory) => {
     if (!territory) return;
@@ -277,6 +312,9 @@ export default function App() {
             layers={layers}
             centerCoords={mapCenter}
             zoom={mapZoom}
+            userPersona={userPersona}
+            onAskAiAboutPoint={(query) => handleSend(query)}
+            onProbedPointChange={(point) => setProbedPoint(point)}
           />
         )}
       </div>
@@ -375,70 +413,178 @@ export default function App() {
       </header>
 
       {/* ========================================================================= */}
-      {/* 3. FLOATING TOP TELEMETRY HUD RIBBON */}
+      {/* 2B. ADAPTIVE PERSONA MODE SWITCHER */}
+      {/* ========================================================================= */}
+      <PersonaSwitcher
+        activePersona={userPersona}
+        onPersonaChange={setUserPersona}
+        onOpenSosModal={() => setIsSosOpen(true)}
+      />
+
+      {/* ========================================================================= */}
+      {/* 3. FLOATING TOP TELEMETRY HUD RIBBON (ADAPTIVE TO ACTIVE PERSONA) */}
       {/* ========================================================================= */}
       <div className="stitch-telemetry-ribbon">
         <div className="telemetry-glass-capsule ocean-glass-light">
-          {/* 1. Sea State */}
-          <div className="hud-metric-item">
-            <span className="material-symbols-outlined text-[#00d4ff] text-base">waves</span>
-            <div className="metric-text-group">
-              <span className="metric-label">SEA STATE</span>
-              <span className="metric-val">{telemetry.sea_state || 'Calm (Code 3)'}</span>
-            </div>
-          </div>
-          <div className="hud-divider" />
+          {userPersona === 'fisher' ? (
+            <>
+              {/* Fisher Metric 1: Sea State & Safety in Plain Language */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#00d4ff] text-base">waves</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">SEA SAFETY ADVISORY</span>
+                  <span className="metric-val">
+                    {(telemetry.wave_height_m || 1.1) < 1.5 
+                      ? 'Safe Sea State — 1.1m Swell' 
+                      : (telemetry.wave_height_m || 1.1) < 2.5 
+                      ? 'Caution — Moderate Swell' 
+                      : 'High Danger — Stay on Shore'}
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
 
-          {/* 2. Significant Wave Height */}
-          <div className="hud-metric-item">
-            <span className="material-symbols-outlined text-[#00d4ff] text-base">water</span>
-            <div className="metric-text-group">
-              <span className="metric-label">SIG. WAVE HEIGHT</span>
-              <span className="metric-val">
-                {telemetry.wave_height_m !== undefined ? `${telemetry.wave_height_m}m` : '1.1m'}
-                <span className="metric-subval"> @ 8.4s SSW</span>
-              </span>
-            </div>
-          </div>
-          <div className="hud-divider" />
+              {/* Fisher Metric 2: Catch Aggregation */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#2ECC71] text-base">phishing</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">CATCH PROBABILITY</span>
+                  <span className="metric-val text-[#2ECC71]">
+                    High Catch Potential — Tuna &amp; Mackerel Front
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
 
-          {/* 3. Surface Wind Velocity */}
-          <div className="hud-metric-item">
-            <span className="material-symbols-outlined text-[#00d4ff] text-base">air</span>
-            <div className="metric-text-group">
-              <span className="metric-label">SURFACE WIND</span>
-              <span className="metric-val">
-                {telemetry.wind_speed_kmh !== undefined ? `${telemetry.wind_speed_kmh} km/h` : '14.2 km/h'}
-                <span className="metric-subval"> (8 kts SSW)</span>
-              </span>
-            </div>
-          </div>
-          <div className="hud-divider" />
+              {/* Fisher Metric 3: Water Column & Pelagic Temp */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#E6A448] text-base">device_thermostat</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">WATER TEMPERATURE</span>
+                  <span className="metric-val">
+                    {telemetry.temperature_c ? `${telemetry.temperature_c} °C` : '28.5 °C'}
+                    <span className="metric-subval"> (Optimal Pelagic Band)</span>
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
 
-          {/* 4. Sea Surface Temp (SST) */}
-          <div className="hud-metric-item">
-            <span className="material-symbols-outlined text-[#E6A448] text-base">device_thermostat</span>
-            <div className="metric-text-group">
-              <span className="metric-label">SST TEMPERATURE</span>
-              <span className="metric-val">
-                {telemetry.temperature_c ? `${telemetry.temperature_c} °C` : '28.5 °C'}
-                <span className="metric-anomaly text-[#E6A448]"> (+0.8° Anomaly)</span>
-              </span>
-            </div>
-          </div>
-          <div className="hud-divider" />
+              {/* Fisher Metric 4: Wind & Tides */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#00d4ff] text-base">air</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">SURFACE WIND &amp; TIDE</span>
+                  <span className="metric-val">
+                    {telemetry.wind_speed_kmh !== undefined ? `${telemetry.wind_speed_kmh} km/h` : '14.2 km/h'}
+                    <span className="metric-subval"> · Favorable Outbound</span>
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
+            </>
+          ) : userPersona === 'coast_guard' ? (
+            <>
+              {/* Coast Guard Metric 1: IMBL Border Buffer Clearance */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#E6A448] text-base">security</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">IMBL BORDER BUFFER</span>
+                  <span className="metric-val text-[#E6A448]">
+                    12 NM Clear · No Border Breach Detected
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
 
-          {/* 5. Pelagic Chlorophyll & Tide */}
-          <div className="hud-metric-item">
-            <span className="material-symbols-outlined text-[#00d4ff] text-base">eco</span>
-            <div className="metric-text-group">
-              <span className="metric-label">TIDE &amp; PRODUCTIVITY</span>
-              <span className="metric-val">{telemetry.tide_summary || 'Harmonic Active'}</span>
-            </div>
-          </div>
-          <div className="hud-divider" />
+              {/* Coast Guard Metric 2: Operational SAR Readiness */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#00d4ff] text-base">flight_takeoff</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">SAR MISSION WINDOW</span>
+                  <span className="metric-val">
+                    Ready · Wave {telemetry.wave_height_m || 1.1}m (Swell &lt; 2.0m Favorable)
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
 
-          {/* 6. Active Threat & Refresh */}
+              {/* Coast Guard Metric 3: Hydrodynamic Drift Vector */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#ff4d4d] text-base">explore</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">SURFACE DRIFT VECTOR</span>
+                  <span className="metric-val">
+                    0.8 kts @ 215° SW · NavTex Broadcast Verified
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
+
+              {/* Coast Guard Metric 4: Satellite Emergency Uplink */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#00d4ff] text-base">cell_tower</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">COSPAS-SARSAT EPIRB</span>
+                  <span className="metric-val text-[#00d4ff]">
+                    406 MHz Frequency Monitored
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
+            </>
+          ) : (
+            <>
+              {/* Marine Biologist Metric 1: MPA Sanctuaries */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#10b981] text-base">verified_user</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">MPA CONSERVATION GEOFENCE</span>
+                  <span className="metric-val text-[#10b981]">
+                    Marine Sanctuaries Monitored · Zero Trawling
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
+
+              {/* Marine Biologist Metric 2: Coral Bleaching & SST Anomaly */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#E6A448] text-base">thermostat</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">CORAL BLEACHING STRESS</span>
+                  <span className="metric-val text-[#E6A448]">
+                    DHW: 0.4 · SST Anomaly +0.8°C (Watch Level)
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
+
+              {/* Marine Biologist Metric 3: Chlorophyll Bloom Dynamics */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#2ECC71] text-base">eco</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">CHLOROPHYLL-A PRODUCTIVITY</span>
+                  <span className="metric-val">
+                    1.42 mg/m³ · Active Pelagic Upwelling Plume
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
+
+              {/* Marine Biologist Metric 4: Species Biodiversity Corridor */}
+              <div className="hud-metric-item">
+                <span className="material-symbols-outlined text-[#00d4ff] text-base">biotech</span>
+                <div className="metric-text-group">
+                  <span className="metric-label">BIODIVERSITY MIGRATION</span>
+                  <span className="metric-val">
+                    Olive Ridley &amp; Dugong Corridor Active
+                  </span>
+                </div>
+              </div>
+              <div className="hud-divider" />
+            </>
+          )}
+
+          {/* Active Threat / Operational Status Badge & Refresh */}
           <div className="hud-threat-item">
             <span className={`threat-badge alert-${(telemetry.alert_level || 'NORMAL').toLowerCase()}`}>
               <span className="threat-ping" />
@@ -694,6 +840,8 @@ export default function App() {
           onSend={handleSend}
           onOpenTerritoryMap={() => setIsTerritoryMapOpen(true)}
           onOpenQuiz={() => setIsQuizOpen(true)}
+          userPersona={userPersona}
+          probedCoordinate={probedPoint}
         />
       </aside>
 
@@ -755,6 +903,17 @@ export default function App() {
       <MarineQuizModal
         isOpen={isQuizOpen}
         onClose={() => setIsQuizOpen(false)}
+      />
+
+      {/* Indian Coast Guard Emergency SOS Distress Beacon Modal */}
+      <EmergencyBeaconModal
+        isOpen={isSosOpen}
+        onClose={() => setIsSosOpen(false)}
+        currentCoords={mapCenter}
+        locationName={activePort}
+        onBroadcastSos={(sosData) => {
+          handleSend(`🚨 EMERGENCY DISTRESS BEACON TRANSMITTED: Vessel ${sosData.vesselName} (${sosData.crewCount} POB) reporting ${sosData.distressType} at ${sosData.dms} (${sosData.lat.toFixed(4)}°N, ${sosData.lon.toFixed(4)}°E). Dispatched to ${sosData.nearestMRCC}.`);
+        }}
       />
     </motion.div>
   );

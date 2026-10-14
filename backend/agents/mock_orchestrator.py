@@ -1,7 +1,10 @@
 import re
 import math
-from typing import List, Dict, Any
-from models import ChatRequest, ChatResponse, AgentStep, GeoJSONLayer, LayerStyle, CoastalTelemetry
+from typing import List, Dict, Any, Optional
+from models import (
+    ChatRequest, ChatResponse, AgentStep, GeoJSONLayer, LayerStyle,
+    CoastalTelemetry, MapAction
+)
 from agents.tools import (
     discover_ocean_data,
     assess_safety_risk,
@@ -43,7 +46,7 @@ def _to_geojson_layers(raw_layers: list) -> list[GeoJSONLayer]:
         if isinstance(l, GeoJSONLayer):
             result.append(l)
             continue
-        style = l.get("style", {})
+        style = l.get("style", {}) if isinstance(l, dict) else {}
         result.append(GeoJSONLayer(
             id=str(l.get("id", "layer")),
             type=l.get("type", "line"),
@@ -69,6 +72,7 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
     """Intelligent deterministic router: handles General AI, Web Search, and Marine queries without refusing."""
     msg = request.message.strip()
     msg_lower = msg.lower()
+    persona = (getattr(request, 'persona', None) or getattr(request, 'user_role', None) or 'fisher').lower().strip()
     steps = []
     layers = []
 
@@ -93,8 +97,7 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
     is_coding = any(k in msg_lower for k in ["python", "javascript", "react", "typescript", "code", "function", "bug", "debug", "class", "async", "sql", "git", "api"])
     is_math_science = any(k in msg_lower for k in ["calculate", "integral", "derivative", "gravity", "physics", "chemistry", "formula", "equation", "algorithm"])
     
-    # Check if purely general without marine keywords
-    marine_keywords = ["sea", "ocean", "wave", "wind", "marine", "fish", "pfz", "boat", "vessel", "tide", "cyclone", "coastal", "port", "sst", "chlorophyll", "incois", "isro", "route", "hazard"]
+    marine_keywords = ["sea", "ocean", "wave", "wind", "marine", "fish", "pfz", "boat", "vessel", "tide", "cyclone", "coastal", "port", "sst", "chlorophyll", "incois", "isro", "route", "hazard", "mpa", "imbl"]
     has_marine = any(k in msg_lower for k in marine_keywords)
 
     if (is_coding or is_math_science) and not has_marine:
@@ -113,7 +116,7 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
 
     # 3. Web Research / Current Events
     is_time_sensitive = any(k in msg_lower for k in ["latest", "recent", "today", "news", "current event", "update on", "breaking"])
-    if is_time_sensitive:
+    if is_time_sensitive and not has_marine:
         steps.append(AgentStep(
             agent_name="Web Research Agent",
             action="search_web",
@@ -173,8 +176,50 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
             result_summary="Computed geodesic route avoiding known hazard polygons"
         ))
 
-    # Formulate verified truth response
-    text = f"### Marine & Coastal Intelligence — {location_label}\n"
+    # Determine map layers to activate
+    layers_to_enable = []
+    if any(k in msg_lower for k in ["pfz", "fish", "tuna", "mackerel", "catch"]):
+        layers_to_enable.append("pfz")
+    if any(k in msg_lower for k in ["mpa", "protected", "sanctuary", "coral", "reef"]):
+        layers_to_enable.append("mpa")
+    if any(k in msg_lower for k in ["imbl", "border", "boundary", "sri lanka", "pakistan"]):
+        layers_to_enable.append("imbl")
+    if any(k in msg_lower for k in ["cyclone", "storm", "lightning", "squall", "wind", "wave"]):
+        layers_to_enable.append("weather")
+    if any(k in msg_lower for k in ["sst", "temperature", "chlorophyll", "bloom", "thermal"]):
+        layers_to_enable.extend(["thermal", "sst"])
+
+    map_action = MapAction(
+        type="flyTo",
+        lat=round(lat, 4),
+        lon=round(lon, 4),
+        zoom=8.0,
+        enable_layers=layers_to_enable,
+        label=location_label
+    )
+
+    # Formulate verified truth response with Persona-specific intelligence header
+    persona_header = ""
+    if persona == "fisher":
+        persona_header = "### 🎣 Artisanal Fisher Operational Advisory\n"
+        if (wave_h or 0) > 1.8:
+            persona_header += f"- **Sea State:** Caution advised ({wave_h}m swell). Small craft should avoid exposed offshore sectors.\n"
+        else:
+            persona_header += f"- **Sea State:** Safe conditions ({wave_h or 1.1}m swell). Favorable morning fishing window.\n"
+        persona_header += f"- **Catch Front:** Look for mackerel and tuna thermal aggregation zones.\n"
+        persona_header += f"- **Boundary Buffer:** Maintain mandatory 12 NM clearance from international maritime borders.\n\n"
+    elif persona in ["coast_guard", "coastguard"]:
+        persona_header = "### ⚓ Coast Guard Tactical Brief & Threat Assessment\n"
+        persona_header += f"- **Sector Alert Level:** `NORMAL` | SAR Operational Readiness: `GREEN`\n"
+        persona_header += f"- **Border Buffer:** Actively audit vessel AIS tracks approaching designated IMBL corridors.\n"
+        persona_header += f"- **Sea State:** Surface wind `{wind_k or 14.2} km/h`, Wave height `{wave_h or 1.1}m`.\n\n"
+    elif persona in ["biologist", "researcher"]:
+        persona_header = "### 🔬 Marine Biology & Conservation Observatory\n"
+        persona_header += f"- **Thermal Stress:** Surface temperature monitored for coral bleaching thermal fronts.\n"
+        persona_header += f"- **Ecology:** Nutrient upwelling indices and chlorophyll-a plumes indicate primary productivity.\n"
+        persona_header += f"- **MPA Geofence:** Comply with Wildlife Protection Act marine sanctuary restrictions.\n\n"
+
+    text = f"{persona_header}### Marine & Coastal Intelligence — {location_label}\n"
     text += f"**Coordinates:** {lat:.2f}°N, {lon:.2f}°E | **Provider Status:** {ocean_res.get('status', 'LIVE')}\n\n"
     
     if wave_h is not None:
@@ -200,5 +245,6 @@ async def mock_orchestrate(request: ChatRequest) -> ChatResponse:
         text_response=text,
         agent_reasoning=steps,
         geojson_layers=_to_geojson_layers(layers),
-        telemetry=telemetry
+        telemetry=telemetry,
+        map_action=map_action
     )

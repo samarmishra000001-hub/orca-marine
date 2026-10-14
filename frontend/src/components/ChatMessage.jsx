@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import AgentReasoning from './AgentReasoning';
 import { useSpeech } from '../hooks/useSpeech';
 
@@ -79,7 +79,6 @@ export default function ChatMessage({ message, language = 'en' }) {
   };
 
   const formattedTime = timestamp ? new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '';
-
   const safeContent = typeof content === 'string' ? content : String(content || '');
 
   return (
@@ -94,28 +93,31 @@ export default function ChatMessage({ message, language = 'en' }) {
           <AgentReasoning steps={reasoning} />
         )}
         {!isUser && content && (
-          <div className="message-actions" style={{ marginTop: '8px' }}>
+          <div className="message-actions-row">
             <button
               onClick={handleTogglePlay}
-              title={isPlaying ? "Stop audio" : "Listen to response"}
+              title={isPlaying ? "Stop audio broadcast" : "Play Neural Indian Coastal Speech"}
               type="button"
               disabled={isLoadingAudio}
-              style={{ 
-                background: 'transparent', 
-                border: 'none', 
-                cursor: 'pointer', 
-                color: isPlaying ? '#D97706' : '#718277', 
-                display: 'flex', 
-                alignItems: 'center',
-                padding: '4px',
-                borderRadius: '50%',
-                transition: 'all 0.2s'
-              }}
+              className={`tts-playback-btn ${isPlaying ? 'playing' : ''}`}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined text-base">
                 {isLoadingAudio ? 'hourglass_top' : isPlaying ? 'stop_circle' : 'volume_up'}
               </span>
+              <span>{isLoadingAudio ? 'Loading Speech...' : isPlaying ? 'Stop Audio' : 'Play Voice'}</span>
             </button>
+
+            {/* Organic CSS Waveform Visualizer */}
+            {isPlaying && (
+              <div className="waveform-visualizer" title="Streaming Microsoft Neural Indian Coastal Voice">
+                <span className="waveform-bar bar-1" />
+                <span className="waveform-bar bar-2" />
+                <span className="waveform-bar bar-3" />
+                <span className="waveform-bar bar-4" />
+                <span className="waveform-bar bar-5" />
+                <span className="waveform-tag">NEURAL STREAM</span>
+              </div>
+            )}
           </div>
         )}
       </div>
