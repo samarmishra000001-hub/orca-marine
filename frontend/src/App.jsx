@@ -32,7 +32,7 @@ export const FORECAST_TIMELINE = [
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(false);
-  const [viewMode, setViewMode] = useState('globe'); // 'globe' (3D digital twin) or 'chart' (MapLibre vector)
+  const [viewMode, setViewMode] = useState('chart'); // 'chart' (MapLibre vector) or 'globe' (3D digital twin)
   const [userPersona, setUserPersona] = useState('fisher'); // 'fisher' | 'coast_guard' | 'researcher'
   const [isSosOpen, setIsSosOpen] = useState(false);
   const [probedPoint, setProbedPoint] = useState(null);
@@ -379,6 +379,28 @@ export default function App() {
             />
             <span className="search-shortcut-badge">⌘K</span>
           </form>
+
+          {/* View Mode Canvas Toggle Pill (2D Tactical Map vs 3D Globe) */}
+          <div className="view-mode-toggle-dock">
+            <button
+              type="button"
+              className={`view-mode-pill-btn ${viewMode === 'chart' ? 'active' : ''}`}
+              onClick={() => setViewMode('chart')}
+              title="2D MapLibre Tactical Chart with Layer Dock, Buoy Probe & Route Planner"
+            >
+              <span className="material-symbols-outlined text-sm">map</span>
+              <span>2D MAP</span>
+            </button>
+            <button
+              type="button"
+              className={`view-mode-pill-btn ${viewMode === 'globe' ? 'active' : ''}`}
+              onClick={() => setViewMode('globe')}
+              title="3D Three.js Earth Globe Digital Twin"
+            >
+              <span className="material-symbols-outlined text-sm">public</span>
+              <span>3D GLOBE</span>
+            </button>
+          </div>
 
           {/* Territory Map launcher button */}
           <button

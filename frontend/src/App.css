@@ -4258,3 +4258,46 @@ body {
   letter-spacing: 0.08em;
   margin-left: 3px;
 }
+
+/* ========================================================================== */
+/* HEADER VIEW MODE CANVAS TOGGLE (2D MAP / 3D GLOBE)                        */
+/* ========================================================================== */
+.view-mode-toggle-dock {
+  display: flex;
+  align-items: center;
+  background: rgba(4, 18, 27, 0.75);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.view-mode-pill-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  color: #9DB4BE;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.view-mode-pill-btn:hover {
+  color: #F1EFE8;
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.view-mode-pill-btn.active {
+  background: #00d4ff;
+  color: #071D29;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.45);
+}
