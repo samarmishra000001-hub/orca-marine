@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orca-marine-alpha.vercel.app/sitemap.xml
