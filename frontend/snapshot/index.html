@@ -29,7 +29,7 @@
     }
     </script>
     <script>
-      if (window.location.hostname && window.location.hostname.includes('orca-sih.vercel.app')) {
+      if (window.location.hostname && !window.location.hostname.includes('orca-marine-alpha.vercel.app') && !window.location.hostname.includes('orca-marine-swarm.vercel.app') && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')) {
         window.location.replace('https://orca-marine-alpha.vercel.app' + window.location.pathname + window.location.search);
       }
     </script>

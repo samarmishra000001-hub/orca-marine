@@ -14,5 +14,5 @@ function copyDir(src, dest) {
   }
 }
 
-copyDir('sih_snapshot', 'dist');
-console.log('✓ Restored orca-sih snapshot to dist');
+copyDir('snapshot', 'dist');
+console.log('✓ Restored clean production snapshot to dist');
