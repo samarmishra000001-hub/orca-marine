@@ -1,0 +1,5927 @@
+{
+  "sequenceTitle": "ORCA Cinematic Scrolltelling - Master Sequence",
+  "totalFrames": 120,
+  "masterResolution": "1920x1080",
+  "aspectRatio": "16:9",
+  "fpsStandard": 24,
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Deep Hazard",
+      "frameRange": [
+        1,
+        30
+      ],
+      "description": "Immense storm ocean, high turbulence, low visibility."
+    },
+    {
+      "phase": 2,
+      "name": "Data Calibration",
+      "frameRange": [
+        31,
+        60
+      ],
+      "description": "Cyan radar sweep, spatial telemetry grid calibration."
+    },
+    {
+      "phase": 3,
+      "name": "Safe Zone Identification",
+      "frameRange": [
+        61,
+        90
+      ],
+      "description": "Vector boundaries distinguish crimson hazard from emerald safe zones."
+    },
+    {
+      "phase": 4,
+      "name": "Optimized Advisory",
+      "frameRange": [
+        91,
+        120
+      ],
+      "description": "Golden-hour sunlight, clear marine advisory, dashboard transition."
+    }
+  ],
+  "frames": [
+    {
+      "frameIndex": 1,
+      "fileName": "frame_001.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.0
+      },
+      "narrative": "Establish vast dark ocean and storm horizon with turbulent swells.",
+      "wavePhysics": {
+        "waveHeightM": 4.39,
+        "periodSec": 11.5,
+        "foamCoverage": 0.45,
+        "turbulence": 0.95
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.35
+      },
+      "camera": {
+        "pitchDeg": -17.4,
+        "rollDeg": 0.7,
+        "yawDeg": 0.0,
+        "altitudeM": 45.0,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.922,
+        "longitude": 72.818,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 2,
+      "fileName": "frame_002.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.034
+      },
+      "narrative": "Establish vast dark ocean and storm horizon with turbulent swells.",
+      "wavePhysics": {
+        "waveHeightM": 4.65,
+        "periodSec": 11.4,
+        "foamCoverage": 0.46,
+        "turbulence": 0.94
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.35
+      },
+      "camera": {
+        "pitchDeg": -16.8,
+        "rollDeg": 1.4,
+        "yawDeg": 0.2,
+        "altitudeM": 46.1,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9225,
+        "longitude": 72.8188,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 3,
+      "fileName": "frame_003.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.069
+      },
+      "narrative": "Establish vast dark ocean and storm horizon with turbulent swells.",
+      "wavePhysics": {
+        "waveHeightM": 4.77,
+        "periodSec": 11.4,
+        "foamCoverage": 0.47,
+        "turbulence": 0.94
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.35
+      },
+      "camera": {
+        "pitchDeg": -16.3,
+        "rollDeg": 2.0,
+        "yawDeg": 0.3,
+        "altitudeM": 47.1,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.923,
+        "longitude": 72.8196,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 4,
+      "fileName": "frame_004.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.103
+      },
+      "narrative": "Establish vast dark ocean and storm horizon with turbulent swells.",
+      "wavePhysics": {
+        "waveHeightM": 4.76,
+        "periodSec": 11.3,
+        "foamCoverage": 0.49,
+        "turbulence": 0.93
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.36
+      },
+      "camera": {
+        "pitchDeg": -15.8,
+        "rollDeg": 2.3,
+        "yawDeg": 0.5,
+        "altitudeM": 48.2,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9235,
+        "longitude": 72.8204,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 5,
+      "fileName": "frame_005.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.138
+      },
+      "narrative": "Establish vast dark ocean and storm horizon with turbulent swells.",
+      "wavePhysics": {
+        "waveHeightM": 4.7,
+        "periodSec": 11.3,
+        "foamCoverage": 0.5,
+        "turbulence": 0.93
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.36
+      },
+      "camera": {
+        "pitchDeg": -15.5,
+        "rollDeg": 2.5,
+        "yawDeg": 0.7,
+        "altitudeM": 49.2,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.924,
+        "longitude": 72.8212,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 6,
+      "fileName": "frame_006.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.172
+      },
+      "narrative": "Rougher wave crests, wind-driven spray, and heavy cloud movement.",
+      "wavePhysics": {
+        "waveHeightM": 4.68,
+        "periodSec": 11.2,
+        "foamCoverage": 0.51,
+        "turbulence": 0.92
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.36
+      },
+      "camera": {
+        "pitchDeg": -15.2,
+        "rollDeg": 2.4,
+        "yawDeg": 0.9,
+        "altitudeM": 50.2,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9245,
+        "longitude": 72.822,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 7,
+      "fileName": "frame_007.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.207
+      },
+      "narrative": "Rougher wave crests, wind-driven spray, and heavy cloud movement.",
+      "wavePhysics": {
+        "waveHeightM": 4.78,
+        "periodSec": 11.2,
+        "foamCoverage": 0.52,
+        "turbulence": 0.92
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.36
+      },
+      "camera": {
+        "pitchDeg": -15.0,
+        "rollDeg": 2.2,
+        "yawDeg": 1.0,
+        "altitudeM": 51.1,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.925,
+        "longitude": 72.8228,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 8,
+      "fileName": "frame_008.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.241
+      },
+      "narrative": "Rougher wave crests, wind-driven spray, and heavy cloud movement.",
+      "wavePhysics": {
+        "waveHeightM": 5.0,
+        "periodSec": 11.1,
+        "foamCoverage": 0.53,
+        "turbulence": 0.91
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.36
+      },
+      "camera": {
+        "pitchDeg": -15.0,
+        "rollDeg": 1.7,
+        "yawDeg": 1.2,
+        "altitudeM": 51.9,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9255,
+        "longitude": 72.8236,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 9,
+      "fileName": "frame_009.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.276
+      },
+      "narrative": "Rougher wave crests, wind-driven spray, and heavy cloud movement.",
+      "wavePhysics": {
+        "waveHeightM": 5.3,
+        "periodSec": 11.1,
+        "foamCoverage": 0.55,
+        "turbulence": 0.91
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.36
+      },
+      "camera": {
+        "pitchDeg": -15.1,
+        "rollDeg": 1.1,
+        "yawDeg": 1.4,
+        "altitudeM": 52.6,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.926,
+        "longitude": 72.8244,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 10,
+      "fileName": "frame_010.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.31
+      },
+      "narrative": "Rougher wave crests, wind-driven spray, and heavy cloud movement.",
+      "wavePhysics": {
+        "waveHeightM": 5.59,
+        "periodSec": 11.0,
+        "foamCoverage": 0.56,
+        "turbulence": 0.9
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.37
+      },
+      "camera": {
+        "pitchDeg": -15.3,
+        "rollDeg": 0.4,
+        "yawDeg": 1.6,
+        "altitudeM": 53.3,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9265,
+        "longitude": 72.8252,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 11,
+      "fileName": "frame_011.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.345
+      },
+      "narrative": "Maximum turbulence, reduced visibility, and unpredictable ocean hazard.",
+      "wavePhysics": {
+        "waveHeightM": 5.77,
+        "periodSec": 11.0,
+        "foamCoverage": 0.57,
+        "turbulence": 0.9
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.37
+      },
+      "camera": {
+        "pitchDeg": -15.6,
+        "rollDeg": -0.4,
+        "yawDeg": 1.7,
+        "altitudeM": 53.8,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.927,
+        "longitude": 72.826,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 12,
+      "fileName": "frame_012.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.379
+      },
+      "narrative": "Maximum turbulence, reduced visibility, and unpredictable ocean hazard.",
+      "wavePhysics": {
+        "waveHeightM": 5.79,
+        "periodSec": 10.9,
+        "foamCoverage": 0.58,
+        "turbulence": 0.89
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.37
+      },
+      "camera": {
+        "pitchDeg": -16.0,
+        "rollDeg": -1.1,
+        "yawDeg": 1.9,
+        "altitudeM": 54.3,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9275,
+        "longitude": 72.8268,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 13,
+      "fileName": "frame_013.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.414
+      },
+      "narrative": "Maximum turbulence, reduced visibility, and unpredictable ocean hazard.",
+      "wavePhysics": {
+        "waveHeightM": 5.68,
+        "periodSec": 10.9,
+        "foamCoverage": 0.59,
+        "turbulence": 0.89
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.37
+      },
+      "camera": {
+        "pitchDeg": -16.5,
+        "rollDeg": -1.7,
+        "yawDeg": 2.1,
+        "altitudeM": 54.6,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.928,
+        "longitude": 72.8276,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 14,
+      "fileName": "frame_014.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.448
+      },
+      "narrative": "Maximum turbulence, reduced visibility, and unpredictable ocean hazard.",
+      "wavePhysics": {
+        "waveHeightM": 5.51,
+        "periodSec": 10.8,
+        "foamCoverage": 0.61,
+        "turbulence": 0.88
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.37
+      },
+      "camera": {
+        "pitchDeg": -17.0,
+        "rollDeg": -2.2,
+        "yawDeg": 2.2,
+        "altitudeM": 54.9,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9285,
+        "longitude": 72.8284,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 15,
+      "fileName": "frame_015.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.483
+      },
+      "narrative": "Maximum turbulence, reduced visibility, and unpredictable ocean hazard.",
+      "wavePhysics": {
+        "waveHeightM": 5.37,
+        "periodSec": 10.8,
+        "foamCoverage": 0.62,
+        "turbulence": 0.88
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.37
+      },
+      "camera": {
+        "pitchDeg": -17.6,
+        "rollDeg": -2.4,
+        "yawDeg": 2.4,
+        "altitudeM": 55.0,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.929,
+        "longitude": 72.8292,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 16,
+      "fileName": "frame_016.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.517
+      },
+      "narrative": "Threatening sea conditions and deep atmospheric perspective.",
+      "wavePhysics": {
+        "waveHeightM": 5.34,
+        "periodSec": 10.7,
+        "foamCoverage": 0.63,
+        "turbulence": 0.87
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.38
+      },
+      "camera": {
+        "pitchDeg": -18.2,
+        "rollDeg": -2.5,
+        "yawDeg": 2.6,
+        "altitudeM": 55.0,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9295,
+        "longitude": 72.83,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 17,
+      "fileName": "frame_017.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.552
+      },
+      "narrative": "Threatening sea conditions and deep atmospheric perspective.",
+      "wavePhysics": {
+        "waveHeightM": 5.44,
+        "periodSec": 10.7,
+        "foamCoverage": 0.64,
+        "turbulence": 0.87
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.38
+      },
+      "camera": {
+        "pitchDeg": -18.8,
+        "rollDeg": -2.3,
+        "yawDeg": 2.8,
+        "altitudeM": 54.9,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.93,
+        "longitude": 72.8308,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 18,
+      "fileName": "frame_018.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.586
+      },
+      "narrative": "Threatening sea conditions and deep atmospheric perspective.",
+      "wavePhysics": {
+        "waveHeightM": 5.6,
+        "periodSec": 10.6,
+        "foamCoverage": 0.66,
+        "turbulence": 0.86
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.38
+      },
+      "camera": {
+        "pitchDeg": -19.3,
+        "rollDeg": -1.9,
+        "yawDeg": 2.9,
+        "altitudeM": 54.6,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9305,
+        "longitude": 72.8316,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 19,
+      "fileName": "frame_019.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.621
+      },
+      "narrative": "Threatening sea conditions and deep atmospheric perspective.",
+      "wavePhysics": {
+        "waveHeightM": 5.74,
+        "periodSec": 10.6,
+        "foamCoverage": 0.67,
+        "turbulence": 0.86
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.38
+      },
+      "camera": {
+        "pitchDeg": -19.8,
+        "rollDeg": -1.4,
+        "yawDeg": 3.1,
+        "altitudeM": 54.3,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.931,
+        "longitude": 72.8324,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 20,
+      "fileName": "frame_020.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.655
+      },
+      "narrative": "Threatening sea conditions and deep atmospheric perspective.",
+      "wavePhysics": {
+        "waveHeightM": 5.77,
+        "periodSec": 10.5,
+        "foamCoverage": 0.68,
+        "turbulence": 0.85
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.38
+      },
+      "camera": {
+        "pitchDeg": -20.3,
+        "rollDeg": -0.7,
+        "yawDeg": 3.3,
+        "altitudeM": 53.8,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9315,
+        "longitude": 72.8332,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 21,
+      "fileName": "frame_021.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.69
+      },
+      "narrative": "Camera stabilization begins while retaining storm intensity.",
+      "wavePhysics": {
+        "waveHeightM": 5.65,
+        "periodSec": 10.5,
+        "foamCoverage": 0.69,
+        "turbulence": 0.85
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.38
+      },
+      "camera": {
+        "pitchDeg": -20.6,
+        "rollDeg": 0.0,
+        "yawDeg": 3.4,
+        "altitudeM": 53.3,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.932,
+        "longitude": 72.834,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 22,
+      "fileName": "frame_022.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.724
+      },
+      "narrative": "Camera stabilization begins while retaining storm intensity.",
+      "wavePhysics": {
+        "waveHeightM": 5.39,
+        "periodSec": 10.4,
+        "foamCoverage": 0.7,
+        "turbulence": 0.84
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.39
+      },
+      "camera": {
+        "pitchDeg": -20.9,
+        "rollDeg": 0.8,
+        "yawDeg": 3.6,
+        "altitudeM": 52.6,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9325,
+        "longitude": 72.8348,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 23,
+      "fileName": "frame_023.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.759
+      },
+      "narrative": "Camera stabilization begins while retaining storm intensity.",
+      "wavePhysics": {
+        "waveHeightM": 5.08,
+        "periodSec": 10.4,
+        "foamCoverage": 0.72,
+        "turbulence": 0.84
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.39
+      },
+      "camera": {
+        "pitchDeg": -21.0,
+        "rollDeg": 1.4,
+        "yawDeg": 3.8,
+        "altitudeM": 51.9,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.933,
+        "longitude": 72.8356,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 24,
+      "fileName": "frame_024.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.793
+      },
+      "narrative": "Camera stabilization begins while retaining storm intensity.",
+      "wavePhysics": {
+        "waveHeightM": 4.81,
+        "periodSec": 10.3,
+        "foamCoverage": 0.73,
+        "turbulence": 0.83
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.39
+      },
+      "camera": {
+        "pitchDeg": -21.0,
+        "rollDeg": 2.0,
+        "yawDeg": 4.0,
+        "altitudeM": 51.1,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9335,
+        "longitude": 72.8364,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 25,
+      "fileName": "frame_025.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.828
+      },
+      "narrative": "Camera stabilization begins while retaining storm intensity.",
+      "wavePhysics": {
+        "waveHeightM": 4.65,
+        "periodSec": 10.3,
+        "foamCoverage": 0.74,
+        "turbulence": 0.83
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.39
+      },
+      "camera": {
+        "pitchDeg": -20.9,
+        "rollDeg": 2.3,
+        "yawDeg": 4.1,
+        "altitudeM": 50.2,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.934,
+        "longitude": 72.8372,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 26,
+      "fileName": "frame_026.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.862
+      },
+      "narrative": "Ocean composition stabilizes, preparing for radar calibration.",
+      "wavePhysics": {
+        "waveHeightM": 4.62,
+        "periodSec": 10.2,
+        "foamCoverage": 0.75,
+        "turbulence": 0.82
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.39
+      },
+      "camera": {
+        "pitchDeg": -20.7,
+        "rollDeg": 2.5,
+        "yawDeg": 4.3,
+        "altitudeM": 49.2,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9345,
+        "longitude": 72.838,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 27,
+      "fileName": "frame_027.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.897
+      },
+      "narrative": "Ocean composition stabilizes, preparing for radar calibration.",
+      "wavePhysics": {
+        "waveHeightM": 4.67,
+        "periodSec": 10.2,
+        "foamCoverage": 0.76,
+        "turbulence": 0.82
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.39
+      },
+      "camera": {
+        "pitchDeg": -20.3,
+        "rollDeg": 2.4,
+        "yawDeg": 4.5,
+        "altitudeM": 48.2,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.935,
+        "longitude": 72.8388,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 28,
+      "fileName": "frame_028.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.931
+      },
+      "narrative": "Ocean composition stabilizes, preparing for radar calibration.",
+      "wavePhysics": {
+        "waveHeightM": 4.71,
+        "periodSec": 10.1,
+        "foamCoverage": 0.78,
+        "turbulence": 0.81
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.4
+      },
+      "camera": {
+        "pitchDeg": -19.9,
+        "rollDeg": 2.1,
+        "yawDeg": 4.7,
+        "altitudeM": 47.1,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9355,
+        "longitude": 72.8396,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 29,
+      "fileName": "frame_029.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 0.966
+      },
+      "narrative": "Ocean composition stabilizes, preparing for radar calibration.",
+      "wavePhysics": {
+        "waveHeightM": 4.65,
+        "periodSec": 10.1,
+        "foamCoverage": 0.79,
+        "turbulence": 0.81
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.4
+      },
+      "camera": {
+        "pitchDeg": -19.4,
+        "rollDeg": 1.7,
+        "yawDeg": 4.8,
+        "altitudeM": 46.1,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.936,
+        "longitude": 72.8404,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 30,
+      "fileName": "frame_030.png",
+      "phase": {
+        "number": 1,
+        "name": "Deep Hazard",
+        "progress": 1.0
+      },
+      "narrative": "Ocean composition stabilizes, preparing for radar calibration.",
+      "wavePhysics": {
+        "waveHeightM": 4.45,
+        "periodSec": 10.0,
+        "foamCoverage": 0.8,
+        "turbulence": 0.8
+      },
+      "lighting": {
+        "theme": "Storm Midnight",
+        "ambientColor": "#030B10",
+        "keyLightColor": "#123B49",
+        "sunElevationDeg": -12.0,
+        "colorTempK": 9500,
+        "exposure": 0.4
+      },
+      "camera": {
+        "pitchDeg": -18.8,
+        "rollDeg": 1.0,
+        "yawDeg": 5.0,
+        "altitudeM": 45.0,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": false,
+        "opacity": 0.0,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9365,
+        "longitude": 72.8412,
+        "riskLevel": "CRITICAL_HAZARD",
+        "advisory": "Uncharted sea conditions. Environmental hazards unmitigated."
+      }
+    },
+    {
+      "frameIndex": 31,
+      "fileName": "frame_031.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.0
+      },
+      "narrative": "First faint cyan sensor scan lines project across ocean swell.",
+      "wavePhysics": {
+        "waveHeightM": 3.84,
+        "periodSec": 10.0,
+        "foamCoverage": 0.55,
+        "turbulence": 0.8
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -6.0,
+        "colorTempK": 8200,
+        "exposure": 0.42
+      },
+      "camera": {
+        "pitchDeg": -19.5,
+        "rollDeg": -0.1,
+        "yawDeg": 5.0,
+        "altitudeM": 52.0,
+        "fovDeg": 55.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.15,
+        "sweepAngleDeg": 12.0,
+        "gridDensity": 0.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.937,
+        "longitude": 72.842,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 32,
+      "fileName": "frame_032.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.034
+      },
+      "narrative": "First faint cyan sensor scan lines project across ocean swell.",
+      "wavePhysics": {
+        "waveHeightM": 3.7,
+        "periodSec": 10.0,
+        "foamCoverage": 0.54,
+        "turbulence": 0.79
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -5.862068965517241,
+        "colorTempK": 8200,
+        "exposure": 0.42
+      },
+      "camera": {
+        "pitchDeg": -19.4,
+        "rollDeg": 0.1,
+        "yawDeg": 5.2,
+        "altitudeM": 52.6,
+        "fovDeg": 55.1
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.17,
+        "sweepAngleDeg": 24.0,
+        "gridDensity": 0.03
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9375,
+        "longitude": 72.8428,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 33,
+      "fileName": "frame_033.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.069
+      },
+      "narrative": "First faint cyan sensor scan lines project across ocean swell.",
+      "wavePhysics": {
+        "waveHeightM": 3.57,
+        "periodSec": 9.9,
+        "foamCoverage": 0.53,
+        "turbulence": 0.78
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -5.724137931034483,
+        "colorTempK": 8200,
+        "exposure": 0.43
+      },
+      "camera": {
+        "pitchDeg": -19.4,
+        "rollDeg": 0.3,
+        "yawDeg": 5.5,
+        "altitudeM": 53.2,
+        "fovDeg": 55.2
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.2,
+        "sweepAngleDeg": 36.0,
+        "gridDensity": 0.07
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.938,
+        "longitude": 72.8436,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 34,
+      "fileName": "frame_034.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.103
+      },
+      "narrative": "First faint cyan sensor scan lines project across ocean swell.",
+      "wavePhysics": {
+        "waveHeightM": 3.48,
+        "periodSec": 9.9,
+        "foamCoverage": 0.52,
+        "turbulence": 0.76
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -5.586206896551724,
+        "colorTempK": 8200,
+        "exposure": 0.43
+      },
+      "camera": {
+        "pitchDeg": -19.3,
+        "rollDeg": 0.4,
+        "yawDeg": 5.7,
+        "altitudeM": 53.9,
+        "fovDeg": 55.3
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.22,
+        "sweepAngleDeg": 48.0,
+        "gridDensity": 0.1
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9385,
+        "longitude": 72.8444,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 35,
+      "fileName": "frame_035.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.138
+      },
+      "narrative": "First faint cyan sensor scan lines project across ocean swell.",
+      "wavePhysics": {
+        "waveHeightM": 3.44,
+        "periodSec": 9.9,
+        "foamCoverage": 0.52,
+        "turbulence": 0.75
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -5.448275862068965,
+        "colorTempK": 8200,
+        "exposure": 0.44
+      },
+      "camera": {
+        "pitchDeg": -19.2,
+        "rollDeg": 0.6,
+        "yawDeg": 6.0,
+        "altitudeM": 54.5,
+        "fovDeg": 55.4
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.25,
+        "sweepAngleDeg": 60.0,
+        "gridDensity": 0.14
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.939,
+        "longitude": 72.8452,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 36,
+      "fileName": "frame_036.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.172
+      },
+      "narrative": "Perspective-aligned spatial telemetry grid anchors to the water plane.",
+      "wavePhysics": {
+        "waveHeightM": 3.44,
+        "periodSec": 9.8,
+        "foamCoverage": 0.51,
+        "turbulence": 0.74
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -5.310344827586206,
+        "colorTempK": 8200,
+        "exposure": 0.44
+      },
+      "camera": {
+        "pitchDeg": -19.2,
+        "rollDeg": 0.7,
+        "yawDeg": 6.2,
+        "altitudeM": 55.1,
+        "fovDeg": 55.5
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.27,
+        "sweepAngleDeg": 72.0,
+        "gridDensity": 0.17
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9395,
+        "longitude": 72.846,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 37,
+      "fileName": "frame_037.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.207
+      },
+      "narrative": "Perspective-aligned spatial telemetry grid anchors to the water plane.",
+      "wavePhysics": {
+        "waveHeightM": 3.48,
+        "periodSec": 9.8,
+        "foamCoverage": 0.5,
+        "turbulence": 0.73
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -5.172413793103448,
+        "colorTempK": 8200,
+        "exposure": 0.44
+      },
+      "camera": {
+        "pitchDeg": -19.1,
+        "rollDeg": 0.7,
+        "yawDeg": 6.4,
+        "altitudeM": 55.7,
+        "fovDeg": 55.6
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.29,
+        "sweepAngleDeg": 84.0,
+        "gridDensity": 0.21
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.94,
+        "longitude": 72.8468,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 38,
+      "fileName": "frame_038.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.241
+      },
+      "narrative": "Perspective-aligned spatial telemetry grid anchors to the water plane.",
+      "wavePhysics": {
+        "waveHeightM": 3.54,
+        "periodSec": 9.8,
+        "foamCoverage": 0.49,
+        "turbulence": 0.72
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -5.0344827586206895,
+        "colorTempK": 8200,
+        "exposure": 0.45
+      },
+      "camera": {
+        "pitchDeg": -19.0,
+        "rollDeg": 0.7,
+        "yawDeg": 6.7,
+        "altitudeM": 56.3,
+        "fovDeg": 55.7
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.32,
+        "sweepAngleDeg": 96.0,
+        "gridDensity": 0.24
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9405,
+        "longitude": 72.8476,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 39,
+      "fileName": "frame_039.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.276
+      },
+      "narrative": "Perspective-aligned spatial telemetry grid anchors to the water plane.",
+      "wavePhysics": {
+        "waveHeightM": 3.59,
+        "periodSec": 9.7,
+        "foamCoverage": 0.48,
+        "turbulence": 0.7
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -4.896551724137931,
+        "colorTempK": 8200,
+        "exposure": 0.45
+      },
+      "camera": {
+        "pitchDeg": -18.9,
+        "rollDeg": 0.7,
+        "yawDeg": 6.9,
+        "altitudeM": 57.0,
+        "fovDeg": 55.8
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.34,
+        "sweepAngleDeg": 108.0,
+        "gridDensity": 0.28
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.941,
+        "longitude": 72.8484,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 40,
+      "fileName": "frame_040.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.31
+      },
+      "narrative": "Perspective-aligned spatial telemetry grid anchors to the water plane.",
+      "wavePhysics": {
+        "waveHeightM": 3.61,
+        "periodSec": 9.7,
+        "foamCoverage": 0.47,
+        "turbulence": 0.69
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -4.758620689655173,
+        "colorTempK": 8200,
+        "exposure": 0.46
+      },
+      "camera": {
+        "pitchDeg": -18.9,
+        "rollDeg": 0.7,
+        "yawDeg": 7.2,
+        "altitudeM": 57.6,
+        "fovDeg": 55.9
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.37,
+        "sweepAngleDeg": 120.0,
+        "gridDensity": 0.31
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9415,
+        "longitude": 72.8492,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 41,
+      "fileName": "frame_041.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.345
+      },
+      "narrative": "Rotating radar sweep beam illuminates wave crests and bathymetric slopes.",
+      "wavePhysics": {
+        "waveHeightM": 3.59,
+        "periodSec": 9.7,
+        "foamCoverage": 0.46,
+        "turbulence": 0.68
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -4.620689655172414,
+        "colorTempK": 8200,
+        "exposure": 0.46
+      },
+      "camera": {
+        "pitchDeg": -18.8,
+        "rollDeg": 0.6,
+        "yawDeg": 7.4,
+        "altitudeM": 58.2,
+        "fovDeg": 56.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.39,
+        "sweepAngleDeg": 132.0,
+        "gridDensity": 0.34
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.942,
+        "longitude": 72.85,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 42,
+      "fileName": "frame_042.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.379
+      },
+      "narrative": "Rotating radar sweep beam illuminates wave crests and bathymetric slopes.",
+      "wavePhysics": {
+        "waveHeightM": 3.51,
+        "periodSec": 9.6,
+        "foamCoverage": 0.46,
+        "turbulence": 0.67
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -4.482758620689655,
+        "colorTempK": 8200,
+        "exposure": 0.47
+      },
+      "camera": {
+        "pitchDeg": -18.7,
+        "rollDeg": 0.5,
+        "yawDeg": 7.7,
+        "altitudeM": 58.8,
+        "fovDeg": 56.1
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.42,
+        "sweepAngleDeg": 144.0,
+        "gridDensity": 0.38
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9425,
+        "longitude": 72.8508,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 43,
+      "fileName": "frame_043.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.414
+      },
+      "narrative": "Rotating radar sweep beam illuminates wave crests and bathymetric slopes.",
+      "wavePhysics": {
+        "waveHeightM": 3.4,
+        "periodSec": 9.6,
+        "foamCoverage": 0.45,
+        "turbulence": 0.66
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -4.344827586206897,
+        "colorTempK": 8200,
+        "exposure": 0.47
+      },
+      "camera": {
+        "pitchDeg": -18.7,
+        "rollDeg": 0.4,
+        "yawDeg": 7.9,
+        "altitudeM": 59.4,
+        "fovDeg": 56.2
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.44,
+        "sweepAngleDeg": 156.0,
+        "gridDensity": 0.41
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.943,
+        "longitude": 72.8516,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 44,
+      "fileName": "frame_044.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.448
+      },
+      "narrative": "Rotating radar sweep beam illuminates wave crests and bathymetric slopes.",
+      "wavePhysics": {
+        "waveHeightM": 3.26,
+        "periodSec": 9.6,
+        "foamCoverage": 0.44,
+        "turbulence": 0.64
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -4.206896551724138,
+        "colorTempK": 8200,
+        "exposure": 0.47
+      },
+      "camera": {
+        "pitchDeg": -18.6,
+        "rollDeg": 0.3,
+        "yawDeg": 8.1,
+        "altitudeM": 60.1,
+        "fovDeg": 56.3
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.46,
+        "sweepAngleDeg": 168.0,
+        "gridDensity": 0.45
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9435,
+        "longitude": 72.8524,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 45,
+      "fileName": "frame_045.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.483
+      },
+      "narrative": "Rotating radar sweep beam illuminates wave crests and bathymetric slopes.",
+      "wavePhysics": {
+        "waveHeightM": 3.12,
+        "periodSec": 9.5,
+        "foamCoverage": 0.43,
+        "turbulence": 0.63
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -4.068965517241379,
+        "colorTempK": 8200,
+        "exposure": 0.48
+      },
+      "camera": {
+        "pitchDeg": -18.5,
+        "rollDeg": 0.2,
+        "yawDeg": 8.4,
+        "altitudeM": 60.7,
+        "fovDeg": 56.4
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.49,
+        "sweepAngleDeg": 180.0,
+        "gridDensity": 0.48
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.944,
+        "longitude": 72.8532,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 46,
+      "fileName": "frame_046.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.517
+      },
+      "narrative": "Geographic coordinates and sensor datum markers lock into position.",
+      "wavePhysics": {
+        "waveHeightM": 3.01,
+        "periodSec": 9.5,
+        "foamCoverage": 0.42,
+        "turbulence": 0.62
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -3.9310344827586206,
+        "colorTempK": 8200,
+        "exposure": 0.48
+      },
+      "camera": {
+        "pitchDeg": -18.5,
+        "rollDeg": 0.1,
+        "yawDeg": 8.6,
+        "altitudeM": 61.3,
+        "fovDeg": 56.6
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.51,
+        "sweepAngleDeg": 192.0,
+        "gridDensity": 0.52
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9445,
+        "longitude": 72.854,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 47,
+      "fileName": "frame_047.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.552
+      },
+      "narrative": "Geographic coordinates and sensor datum markers lock into position.",
+      "wavePhysics": {
+        "waveHeightM": 2.94,
+        "periodSec": 9.4,
+        "foamCoverage": 0.41,
+        "turbulence": 0.61
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -3.793103448275862,
+        "colorTempK": 8200,
+        "exposure": 0.49
+      },
+      "camera": {
+        "pitchDeg": -18.4,
+        "rollDeg": 0.0,
+        "yawDeg": 8.9,
+        "altitudeM": 61.9,
+        "fovDeg": 56.7
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.54,
+        "sweepAngleDeg": 204.0,
+        "gridDensity": 0.55
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.945,
+        "longitude": 72.8548,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 48,
+      "fileName": "frame_048.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.586
+      },
+      "narrative": "Geographic coordinates and sensor datum markers lock into position.",
+      "wavePhysics": {
+        "waveHeightM": 2.92,
+        "periodSec": 9.4,
+        "foamCoverage": 0.4,
+        "turbulence": 0.59
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -3.6551724137931036,
+        "colorTempK": 8200,
+        "exposure": 0.49
+      },
+      "camera": {
+        "pitchDeg": -18.3,
+        "rollDeg": -0.1,
+        "yawDeg": 9.1,
+        "altitudeM": 62.6,
+        "fovDeg": 56.8
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.56,
+        "sweepAngleDeg": 216.0,
+        "gridDensity": 0.59
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9455,
+        "longitude": 72.8556,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 49,
+      "fileName": "frame_049.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.621
+      },
+      "narrative": "Geographic coordinates and sensor datum markers lock into position.",
+      "wavePhysics": {
+        "waveHeightM": 2.94,
+        "periodSec": 9.4,
+        "foamCoverage": 0.39,
+        "turbulence": 0.58
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -3.5172413793103448,
+        "colorTempK": 8200,
+        "exposure": 0.49
+      },
+      "camera": {
+        "pitchDeg": -18.3,
+        "rollDeg": -0.1,
+        "yawDeg": 9.3,
+        "altitudeM": 63.2,
+        "fovDeg": 56.9
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.58,
+        "sweepAngleDeg": 228.0,
+        "gridDensity": 0.62
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.946,
+        "longitude": 72.8564,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 50,
+      "fileName": "frame_050.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.655
+      },
+      "narrative": "Geographic coordinates and sensor datum markers lock into position.",
+      "wavePhysics": {
+        "waveHeightM": 2.99,
+        "periodSec": 9.3,
+        "foamCoverage": 0.39,
+        "turbulence": 0.57
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -3.3793103448275863,
+        "colorTempK": 8200,
+        "exposure": 0.5
+      },
+      "camera": {
+        "pitchDeg": -18.2,
+        "rollDeg": -0.2,
+        "yawDeg": 9.6,
+        "altitudeM": 63.8,
+        "fovDeg": 57.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.61,
+        "sweepAngleDeg": 240.0,
+        "gridDensity": 0.66
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9465,
+        "longitude": 72.8572,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 51,
+      "fileName": "frame_051.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.69
+      },
+      "narrative": "Telemetry grid achieves full spatial alignment and perspective lock.",
+      "wavePhysics": {
+        "waveHeightM": 3.04,
+        "periodSec": 9.3,
+        "foamCoverage": 0.38,
+        "turbulence": 0.56
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -3.2413793103448274,
+        "colorTempK": 8200,
+        "exposure": 0.5
+      },
+      "camera": {
+        "pitchDeg": -18.1,
+        "rollDeg": -0.2,
+        "yawDeg": 9.8,
+        "altitudeM": 64.4,
+        "fovDeg": 57.1
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.63,
+        "sweepAngleDeg": 252.0,
+        "gridDensity": 0.69
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.947,
+        "longitude": 72.858,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 52,
+      "fileName": "frame_052.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.724
+      },
+      "narrative": "Telemetry grid achieves full spatial alignment and perspective lock.",
+      "wavePhysics": {
+        "waveHeightM": 3.08,
+        "periodSec": 9.3,
+        "foamCoverage": 0.37,
+        "turbulence": 0.55
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -3.103448275862069,
+        "colorTempK": 8200,
+        "exposure": 0.51
+      },
+      "camera": {
+        "pitchDeg": -18.1,
+        "rollDeg": -0.2,
+        "yawDeg": 10.1,
+        "altitudeM": 65.0,
+        "fovDeg": 57.2
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.66,
+        "sweepAngleDeg": 264.0,
+        "gridDensity": 0.72
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9475,
+        "longitude": 72.8588,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 53,
+      "fileName": "frame_053.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.759
+      },
+      "narrative": "Telemetry grid achieves full spatial alignment and perspective lock.",
+      "wavePhysics": {
+        "waveHeightM": 3.09,
+        "periodSec": 9.2,
+        "foamCoverage": 0.36,
+        "turbulence": 0.53
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.9655172413793105,
+        "colorTempK": 8200,
+        "exposure": 0.51
+      },
+      "camera": {
+        "pitchDeg": -18.0,
+        "rollDeg": -0.2,
+        "yawDeg": 10.3,
+        "altitudeM": 65.7,
+        "fovDeg": 57.3
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.68,
+        "sweepAngleDeg": 276.0,
+        "gridDensity": 0.76
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.948,
+        "longitude": 72.8596,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 54,
+      "fileName": "frame_054.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.793
+      },
+      "narrative": "Telemetry grid achieves full spatial alignment and perspective lock.",
+      "wavePhysics": {
+        "waveHeightM": 3.04,
+        "periodSec": 9.2,
+        "foamCoverage": 0.35,
+        "turbulence": 0.52
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.8275862068965516,
+        "colorTempK": 8200,
+        "exposure": 0.52
+      },
+      "camera": {
+        "pitchDeg": -17.9,
+        "rollDeg": -0.2,
+        "yawDeg": 10.6,
+        "altitudeM": 66.3,
+        "fovDeg": 57.4
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.71,
+        "sweepAngleDeg": 288.0,
+        "gridDensity": 0.79
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9485,
+        "longitude": 72.8604,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 55,
+      "fileName": "frame_055.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.828
+      },
+      "narrative": "Telemetry grid achieves full spatial alignment and perspective lock.",
+      "wavePhysics": {
+        "waveHeightM": 2.95,
+        "periodSec": 9.2,
+        "foamCoverage": 0.34,
+        "turbulence": 0.51
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.689655172413793,
+        "colorTempK": 8200,
+        "exposure": 0.52
+      },
+      "camera": {
+        "pitchDeg": -17.8,
+        "rollDeg": -0.2,
+        "yawDeg": 10.8,
+        "altitudeM": 66.9,
+        "fovDeg": 57.5
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.73,
+        "sweepAngleDeg": 300.0,
+        "gridDensity": 0.83
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.949,
+        "longitude": 72.8612,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 56,
+      "fileName": "frame_056.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.862
+      },
+      "narrative": "Calibration complete: ocean topography mapped and ready for boundaries.",
+      "wavePhysics": {
+        "waveHeightM": 2.82,
+        "periodSec": 9.1,
+        "foamCoverage": 0.33,
+        "turbulence": 0.5
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.5517241379310347,
+        "colorTempK": 8200,
+        "exposure": 0.52
+      },
+      "camera": {
+        "pitchDeg": -17.8,
+        "rollDeg": -0.1,
+        "yawDeg": 11.0,
+        "altitudeM": 67.5,
+        "fovDeg": 57.6
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.75,
+        "sweepAngleDeg": 312.0,
+        "gridDensity": 0.86
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9495,
+        "longitude": 72.862,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 57,
+      "fileName": "frame_057.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.897
+      },
+      "narrative": "Calibration complete: ocean topography mapped and ready for boundaries.",
+      "wavePhysics": {
+        "waveHeightM": 2.68,
+        "periodSec": 9.1,
+        "foamCoverage": 0.33,
+        "turbulence": 0.49
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.413793103448276,
+        "colorTempK": 8200,
+        "exposure": 0.53
+      },
+      "camera": {
+        "pitchDeg": -17.7,
+        "rollDeg": -0.1,
+        "yawDeg": 11.3,
+        "altitudeM": 68.1,
+        "fovDeg": 57.7
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.78,
+        "sweepAngleDeg": 324.0,
+        "gridDensity": 0.9
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.95,
+        "longitude": 72.8628,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 58,
+      "fileName": "frame_058.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.931
+      },
+      "narrative": "Calibration complete: ocean topography mapped and ready for boundaries.",
+      "wavePhysics": {
+        "waveHeightM": 2.55,
+        "periodSec": 9.1,
+        "foamCoverage": 0.32,
+        "turbulence": 0.47
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.2758620689655173,
+        "colorTempK": 8200,
+        "exposure": 0.53
+      },
+      "camera": {
+        "pitchDeg": -17.6,
+        "rollDeg": -0.1,
+        "yawDeg": 11.5,
+        "altitudeM": 68.8,
+        "fovDeg": 57.8
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.8,
+        "sweepAngleDeg": 336.0,
+        "gridDensity": 0.93
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9505,
+        "longitude": 72.8636,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 59,
+      "fileName": "frame_059.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 0.966
+      },
+      "narrative": "Calibration complete: ocean topography mapped and ready for boundaries.",
+      "wavePhysics": {
+        "waveHeightM": 2.45,
+        "periodSec": 9.0,
+        "foamCoverage": 0.31,
+        "turbulence": 0.46
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.1379310344827585,
+        "colorTempK": 8200,
+        "exposure": 0.54
+      },
+      "camera": {
+        "pitchDeg": -17.6,
+        "rollDeg": -0.0,
+        "yawDeg": 11.8,
+        "altitudeM": 69.4,
+        "fovDeg": 57.9
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.83,
+        "sweepAngleDeg": 348.0,
+        "gridDensity": 0.97
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.951,
+        "longitude": 72.8644,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 60,
+      "fileName": "frame_060.png",
+      "phase": {
+        "number": 2,
+        "name": "Data Calibration",
+        "progress": 1.0
+      },
+      "narrative": "Calibration complete: ocean topography mapped and ready for boundaries.",
+      "wavePhysics": {
+        "waveHeightM": 2.4,
+        "periodSec": 9.0,
+        "foamCoverage": 0.3,
+        "turbulence": 0.45
+      },
+      "lighting": {
+        "theme": "Cyan Sensor Dawn",
+        "ambientColor": "#051622",
+        "keyLightColor": "#00d4ff",
+        "sunElevationDeg": -2.0,
+        "colorTempK": 8200,
+        "exposure": 0.54
+      },
+      "camera": {
+        "pitchDeg": -17.5,
+        "rollDeg": -0.0,
+        "yawDeg": 12.0,
+        "altitudeM": 70.0,
+        "fovDeg": 58.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.85,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": false,
+        "safeZoneOpacity": 0.0,
+        "hazardZoneOpacity": 0.0,
+        "corridorClarity": 0.0
+      },
+      "telemetry": {
+        "latitude": 18.9515,
+        "longitude": 72.8652,
+        "riskLevel": "CALIBRATING",
+        "advisory": "Calibrating real-time spatial matrix. Synthesizing oceanographic datum."
+      }
+    },
+    {
+      "frameIndex": 61,
+      "fileName": "frame_061.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.0
+      },
+      "narrative": "Spatial boundary vertices materialize over bathymetric ridges.",
+      "wavePhysics": {
+        "waveHeightM": 2.5,
+        "periodSec": 9.0,
+        "foamCoverage": 0.3,
+        "turbulence": 0.45
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -1.5,
+        "colorTempK": 7000,
+        "exposure": 0.55
+      },
+      "camera": {
+        "pitchDeg": -17.5,
+        "rollDeg": 0.0,
+        "yawDeg": 12.0,
+        "altitudeM": 70.0,
+        "fovDeg": 58.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.85,
+        "sweepAngleDeg": 12.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.2,
+        "hazardZoneOpacity": 0.25,
+        "corridorClarity": 0.3
+      },
+      "telemetry": {
+        "latitude": 18.952,
+        "longitude": 72.866,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 62,
+      "fileName": "frame_062.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.034
+      },
+      "narrative": "Spatial boundary vertices materialize over bathymetric ridges.",
+      "wavePhysics": {
+        "waveHeightM": 2.52,
+        "periodSec": 9.0,
+        "foamCoverage": 0.29,
+        "turbulence": 0.44
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -1.3793103448275863,
+        "colorTempK": 7000,
+        "exposure": 0.56
+      },
+      "camera": {
+        "pitchDeg": -17.4,
+        "rollDeg": 0.0,
+        "yawDeg": 12.2,
+        "altitudeM": 70.9,
+        "fovDeg": 58.1
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.84,
+        "sweepAngleDeg": 24.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.23,
+        "hazardZoneOpacity": 0.28,
+        "corridorClarity": 0.32
+      },
+      "telemetry": {
+        "latitude": 18.9525,
+        "longitude": 72.8668,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 63,
+      "fileName": "frame_063.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.069
+      },
+      "narrative": "Spatial boundary vertices materialize over bathymetric ridges.",
+      "wavePhysics": {
+        "waveHeightM": 2.54,
+        "periodSec": 8.9,
+        "foamCoverage": 0.29,
+        "turbulence": 0.43
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -1.2586206896551724,
+        "colorTempK": 7000,
+        "exposure": 0.56
+      },
+      "camera": {
+        "pitchDeg": -17.3,
+        "rollDeg": 0.0,
+        "yawDeg": 12.4,
+        "altitudeM": 71.7,
+        "fovDeg": 58.1
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.83,
+        "sweepAngleDeg": 36.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.26,
+        "hazardZoneOpacity": 0.3,
+        "corridorClarity": 0.35
+      },
+      "telemetry": {
+        "latitude": 18.953,
+        "longitude": 72.8676,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 64,
+      "fileName": "frame_064.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.103
+      },
+      "narrative": "Spatial boundary vertices materialize over bathymetric ridges.",
+      "wavePhysics": {
+        "waveHeightM": 2.56,
+        "periodSec": 8.9,
+        "foamCoverage": 0.28,
+        "turbulence": 0.42
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -1.1379310344827587,
+        "colorTempK": 7000,
+        "exposure": 0.57
+      },
+      "camera": {
+        "pitchDeg": -17.2,
+        "rollDeg": 0.0,
+        "yawDeg": 12.6,
+        "altitudeM": 72.6,
+        "fovDeg": 58.2
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.82,
+        "sweepAngleDeg": 48.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.28,
+        "hazardZoneOpacity": 0.33,
+        "corridorClarity": 0.37
+      },
+      "telemetry": {
+        "latitude": 18.9535,
+        "longitude": 72.8684,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 65,
+      "fileName": "frame_065.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.138
+      },
+      "narrative": "Spatial boundary vertices materialize over bathymetric ridges.",
+      "wavePhysics": {
+        "waveHeightM": 2.58,
+        "periodSec": 8.9,
+        "foamCoverage": 0.28,
+        "turbulence": 0.42
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -1.0172413793103448,
+        "colorTempK": 7000,
+        "exposure": 0.57
+      },
+      "camera": {
+        "pitchDeg": -17.2,
+        "rollDeg": 0.0,
+        "yawDeg": 12.8,
+        "altitudeM": 73.4,
+        "fovDeg": 58.3
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.82,
+        "sweepAngleDeg": 60.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.31,
+        "hazardZoneOpacity": 0.35,
+        "corridorClarity": 0.4
+      },
+      "telemetry": {
+        "latitude": 18.954,
+        "longitude": 72.8692,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 66,
+      "fileName": "frame_066.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.172
+      },
+      "narrative": "High-precision vector corridors interconnect active datum points.",
+      "wavePhysics": {
+        "waveHeightM": 2.57,
+        "periodSec": 8.9,
+        "foamCoverage": 0.27,
+        "turbulence": 0.41
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.896551724137931,
+        "colorTempK": 7000,
+        "exposure": 0.58
+      },
+      "camera": {
+        "pitchDeg": -17.1,
+        "rollDeg": 0.0,
+        "yawDeg": 13.0,
+        "altitudeM": 74.3,
+        "fovDeg": 58.3
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.81,
+        "sweepAngleDeg": 72.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.34,
+        "hazardZoneOpacity": 0.38,
+        "corridorClarity": 0.42
+      },
+      "telemetry": {
+        "latitude": 18.9545,
+        "longitude": 72.87,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 67,
+      "fileName": "frame_067.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.207
+      },
+      "narrative": "High-precision vector corridors interconnect active datum points.",
+      "wavePhysics": {
+        "waveHeightM": 2.54,
+        "periodSec": 8.8,
+        "foamCoverage": 0.27,
+        "turbulence": 0.4
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.7758620689655172,
+        "colorTempK": 7000,
+        "exposure": 0.58
+      },
+      "camera": {
+        "pitchDeg": -17.0,
+        "rollDeg": 0.0,
+        "yawDeg": 13.2,
+        "altitudeM": 75.2,
+        "fovDeg": 58.4
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.8,
+        "sweepAngleDeg": 84.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.37,
+        "hazardZoneOpacity": 0.41,
+        "corridorClarity": 0.44
+      },
+      "telemetry": {
+        "latitude": 18.955,
+        "longitude": 72.8708,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 68,
+      "fileName": "frame_068.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.241
+      },
+      "narrative": "High-precision vector corridors interconnect active datum points.",
+      "wavePhysics": {
+        "waveHeightM": 2.49,
+        "periodSec": 8.8,
+        "foamCoverage": 0.26,
+        "turbulence": 0.39
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.6551724137931034,
+        "colorTempK": 7000,
+        "exposure": 0.59
+      },
+      "camera": {
+        "pitchDeg": -16.9,
+        "rollDeg": 0.0,
+        "yawDeg": 13.4,
+        "altitudeM": 76.0,
+        "fovDeg": 58.5
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.79,
+        "sweepAngleDeg": 96.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.39,
+        "hazardZoneOpacity": 0.43,
+        "corridorClarity": 0.47
+      },
+      "telemetry": {
+        "latitude": 18.9555,
+        "longitude": 72.8716,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 69,
+      "fileName": "frame_069.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.276
+      },
+      "narrative": "High-precision vector corridors interconnect active datum points.",
+      "wavePhysics": {
+        "waveHeightM": 2.42,
+        "periodSec": 8.8,
+        "foamCoverage": 0.26,
+        "turbulence": 0.38
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.5344827586206897,
+        "colorTempK": 7000,
+        "exposure": 0.59
+      },
+      "camera": {
+        "pitchDeg": -16.8,
+        "rollDeg": 0.0,
+        "yawDeg": 13.7,
+        "altitudeM": 76.9,
+        "fovDeg": 58.6
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.78,
+        "sweepAngleDeg": 108.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.42,
+        "hazardZoneOpacity": 0.46,
+        "corridorClarity": 0.49
+      },
+      "telemetry": {
+        "latitude": 18.956,
+        "longitude": 72.8724,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 70,
+      "fileName": "frame_070.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.31
+      },
+      "narrative": "High-precision vector corridors interconnect active datum points.",
+      "wavePhysics": {
+        "waveHeightM": 2.33,
+        "periodSec": 8.8,
+        "foamCoverage": 0.25,
+        "turbulence": 0.37
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.4137931034482758,
+        "colorTempK": 7000,
+        "exposure": 0.6
+      },
+      "camera": {
+        "pitchDeg": -16.7,
+        "rollDeg": 0.0,
+        "yawDeg": 13.9,
+        "altitudeM": 77.8,
+        "fovDeg": 58.6
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.77,
+        "sweepAngleDeg": 120.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.45,
+        "hazardZoneOpacity": 0.48,
+        "corridorClarity": 0.52
+      },
+      "telemetry": {
+        "latitude": 18.9565,
+        "longitude": 72.8732,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 71,
+      "fileName": "frame_071.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.345
+      },
+      "narrative": "Closed polygonal boundary rings isolate restricted shallow shoals.",
+      "wavePhysics": {
+        "waveHeightM": 2.24,
+        "periodSec": 8.7,
+        "foamCoverage": 0.25,
+        "turbulence": 0.36
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.2931034482758621,
+        "colorTempK": 7000,
+        "exposure": 0.6
+      },
+      "camera": {
+        "pitchDeg": -16.6,
+        "rollDeg": 0.0,
+        "yawDeg": 14.1,
+        "altitudeM": 78.6,
+        "fovDeg": 58.7
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.76,
+        "sweepAngleDeg": 132.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.48,
+        "hazardZoneOpacity": 0.51,
+        "corridorClarity": 0.54
+      },
+      "telemetry": {
+        "latitude": 18.957,
+        "longitude": 72.874,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 72,
+      "fileName": "frame_072.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.379
+      },
+      "narrative": "Closed polygonal boundary rings isolate restricted shallow shoals.",
+      "wavePhysics": {
+        "waveHeightM": 2.15,
+        "periodSec": 8.7,
+        "foamCoverage": 0.24,
+        "turbulence": 0.36
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.1724137931034484,
+        "colorTempK": 7000,
+        "exposure": 0.61
+      },
+      "camera": {
+        "pitchDeg": -16.6,
+        "rollDeg": 0.0,
+        "yawDeg": 14.3,
+        "altitudeM": 79.5,
+        "fovDeg": 58.8
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.76,
+        "sweepAngleDeg": 144.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.5,
+        "hazardZoneOpacity": 0.53,
+        "corridorClarity": 0.57
+      },
+      "telemetry": {
+        "latitude": 18.9575,
+        "longitude": 72.8748,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 73,
+      "fileName": "frame_073.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.414
+      },
+      "narrative": "Closed polygonal boundary rings isolate restricted shallow shoals.",
+      "wavePhysics": {
+        "waveHeightM": 2.07,
+        "periodSec": 8.7,
+        "foamCoverage": 0.24,
+        "turbulence": 0.35
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": -0.051724137931034475,
+        "colorTempK": 7000,
+        "exposure": 0.61
+      },
+      "camera": {
+        "pitchDeg": -16.5,
+        "rollDeg": 0.0,
+        "yawDeg": 14.5,
+        "altitudeM": 80.3,
+        "fovDeg": 58.8
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.75,
+        "sweepAngleDeg": 156.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.53,
+        "hazardZoneOpacity": 0.56,
+        "corridorClarity": 0.59
+      },
+      "telemetry": {
+        "latitude": 18.958,
+        "longitude": 72.8756,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 74,
+      "fileName": "frame_074.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.448
+      },
+      "narrative": "Closed polygonal boundary rings isolate restricted shallow shoals.",
+      "wavePhysics": {
+        "waveHeightM": 2.01,
+        "periodSec": 8.6,
+        "foamCoverage": 0.23,
+        "turbulence": 0.34
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.06896551724137945,
+        "colorTempK": 7000,
+        "exposure": 0.62
+      },
+      "camera": {
+        "pitchDeg": -16.4,
+        "rollDeg": 0.0,
+        "yawDeg": 14.7,
+        "altitudeM": 81.2,
+        "fovDeg": 58.9
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.74,
+        "sweepAngleDeg": 168.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.56,
+        "hazardZoneOpacity": 0.59,
+        "corridorClarity": 0.61
+      },
+      "telemetry": {
+        "latitude": 18.9585,
+        "longitude": 72.8764,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 75,
+      "fileName": "frame_075.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.483
+      },
+      "narrative": "Closed polygonal boundary rings isolate restricted shallow shoals.",
+      "wavePhysics": {
+        "waveHeightM": 1.97,
+        "periodSec": 8.6,
+        "foamCoverage": 0.23,
+        "turbulence": 0.33
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.18965517241379315,
+        "colorTempK": 7000,
+        "exposure": 0.62
+      },
+      "camera": {
+        "pitchDeg": -16.3,
+        "rollDeg": 0.0,
+        "yawDeg": 14.9,
+        "altitudeM": 82.1,
+        "fovDeg": 59.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.73,
+        "sweepAngleDeg": 180.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.59,
+        "hazardZoneOpacity": 0.61,
+        "corridorClarity": 0.64
+      },
+      "telemetry": {
+        "latitude": 18.959,
+        "longitude": 72.8772,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 76,
+      "fileName": "frame_076.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.517
+      },
+      "narrative": "Distinct color separation: Crimson hazard exclusion vs Emerald safe transit.",
+      "wavePhysics": {
+        "waveHeightM": 1.96,
+        "periodSec": 8.6,
+        "foamCoverage": 0.22,
+        "turbulence": 0.32
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.3103448275862071,
+        "colorTempK": 7000,
+        "exposure": 0.63
+      },
+      "camera": {
+        "pitchDeg": -16.2,
+        "rollDeg": 0.0,
+        "yawDeg": 15.1,
+        "altitudeM": 82.9,
+        "fovDeg": 59.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.72,
+        "sweepAngleDeg": 192.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.61,
+        "hazardZoneOpacity": 0.64,
+        "corridorClarity": 0.66
+      },
+      "telemetry": {
+        "latitude": 18.9595,
+        "longitude": 72.878,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 77,
+      "fileName": "frame_077.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.552
+      },
+      "narrative": "Distinct color separation: Crimson hazard exclusion vs Emerald safe transit.",
+      "wavePhysics": {
+        "waveHeightM": 1.96,
+        "periodSec": 8.6,
+        "foamCoverage": 0.22,
+        "turbulence": 0.31
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.43103448275862055,
+        "colorTempK": 7000,
+        "exposure": 0.63
+      },
+      "camera": {
+        "pitchDeg": -16.1,
+        "rollDeg": 0.0,
+        "yawDeg": 15.3,
+        "altitudeM": 83.8,
+        "fovDeg": 59.1
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.71,
+        "sweepAngleDeg": 204.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.64,
+        "hazardZoneOpacity": 0.66,
+        "corridorClarity": 0.69
+      },
+      "telemetry": {
+        "latitude": 18.96,
+        "longitude": 72.8788,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 78,
+      "fileName": "frame_078.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.586
+      },
+      "narrative": "Distinct color separation: Crimson hazard exclusion vs Emerald safe transit.",
+      "wavePhysics": {
+        "waveHeightM": 1.98,
+        "periodSec": 8.5,
+        "foamCoverage": 0.21,
+        "turbulence": 0.3
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.5517241379310343,
+        "colorTempK": 7000,
+        "exposure": 0.64
+      },
+      "camera": {
+        "pitchDeg": -16.0,
+        "rollDeg": 0.0,
+        "yawDeg": 15.5,
+        "altitudeM": 84.7,
+        "fovDeg": 59.2
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.7,
+        "sweepAngleDeg": 216.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.67,
+        "hazardZoneOpacity": 0.69,
+        "corridorClarity": 0.71
+      },
+      "telemetry": {
+        "latitude": 18.9605,
+        "longitude": 72.8796,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 79,
+      "fileName": "frame_079.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.621
+      },
+      "narrative": "Distinct color separation: Crimson hazard exclusion vs Emerald safe transit.",
+      "wavePhysics": {
+        "waveHeightM": 2.01,
+        "periodSec": 8.5,
+        "foamCoverage": 0.21,
+        "turbulence": 0.29
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.6724137931034484,
+        "colorTempK": 7000,
+        "exposure": 0.64
+      },
+      "camera": {
+        "pitchDeg": -15.9,
+        "rollDeg": 0.0,
+        "yawDeg": 15.7,
+        "altitudeM": 85.5,
+        "fovDeg": 59.2
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.69,
+        "sweepAngleDeg": 228.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.7,
+        "hazardZoneOpacity": 0.72,
+        "corridorClarity": 0.73
+      },
+      "telemetry": {
+        "latitude": 18.961,
+        "longitude": 72.8804,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 80,
+      "fileName": "frame_080.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.655
+      },
+      "narrative": "Distinct color separation: Crimson hazard exclusion vs Emerald safe transit.",
+      "wavePhysics": {
+        "waveHeightM": 2.03,
+        "periodSec": 8.5,
+        "foamCoverage": 0.2,
+        "turbulence": 0.29
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.7931034482758621,
+        "colorTempK": 7000,
+        "exposure": 0.65
+      },
+      "camera": {
+        "pitchDeg": -15.9,
+        "rollDeg": 0.0,
+        "yawDeg": 15.9,
+        "altitudeM": 86.4,
+        "fovDeg": 59.3
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.69,
+        "sweepAngleDeg": 240.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.72,
+        "hazardZoneOpacity": 0.74,
+        "corridorClarity": 0.76
+      },
+      "telemetry": {
+        "latitude": 18.9615,
+        "longitude": 72.8812,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 81,
+      "fileName": "frame_081.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.69
+      },
+      "narrative": "Navigation corridor vectors reach full clarity and geo-referencing.",
+      "wavePhysics": {
+        "waveHeightM": 2.04,
+        "periodSec": 8.4,
+        "foamCoverage": 0.2,
+        "turbulence": 0.28
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 0.9137931034482758,
+        "colorTempK": 7000,
+        "exposure": 0.65
+      },
+      "camera": {
+        "pitchDeg": -15.8,
+        "rollDeg": 0.0,
+        "yawDeg": 16.1,
+        "altitudeM": 87.2,
+        "fovDeg": 59.4
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.68,
+        "sweepAngleDeg": 252.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.75,
+        "hazardZoneOpacity": 0.77,
+        "corridorClarity": 0.78
+      },
+      "telemetry": {
+        "latitude": 18.962,
+        "longitude": 72.882,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 82,
+      "fileName": "frame_082.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.724
+      },
+      "narrative": "Navigation corridor vectors reach full clarity and geo-referencing.",
+      "wavePhysics": {
+        "waveHeightM": 2.02,
+        "periodSec": 8.4,
+        "foamCoverage": 0.19,
+        "turbulence": 0.27
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.0344827586206895,
+        "colorTempK": 7000,
+        "exposure": 0.66
+      },
+      "camera": {
+        "pitchDeg": -15.7,
+        "rollDeg": 0.0,
+        "yawDeg": 16.3,
+        "altitudeM": 88.1,
+        "fovDeg": 59.4
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.67,
+        "sweepAngleDeg": 264.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.78,
+        "hazardZoneOpacity": 0.79,
+        "corridorClarity": 0.81
+      },
+      "telemetry": {
+        "latitude": 18.9625,
+        "longitude": 72.8828,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 83,
+      "fileName": "frame_083.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.759
+      },
+      "narrative": "Navigation corridor vectors reach full clarity and geo-referencing.",
+      "wavePhysics": {
+        "waveHeightM": 1.99,
+        "periodSec": 8.4,
+        "foamCoverage": 0.19,
+        "turbulence": 0.26
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.1551724137931032,
+        "colorTempK": 7000,
+        "exposure": 0.66
+      },
+      "camera": {
+        "pitchDeg": -15.6,
+        "rollDeg": 0.0,
+        "yawDeg": 16.6,
+        "altitudeM": 89.0,
+        "fovDeg": 59.5
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.66,
+        "sweepAngleDeg": 276.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.81,
+        "hazardZoneOpacity": 0.82,
+        "corridorClarity": 0.83
+      },
+      "telemetry": {
+        "latitude": 18.963,
+        "longitude": 72.8836,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 84,
+      "fileName": "frame_084.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.793
+      },
+      "narrative": "Navigation corridor vectors reach full clarity and geo-referencing.",
+      "wavePhysics": {
+        "waveHeightM": 1.93,
+        "periodSec": 8.4,
+        "foamCoverage": 0.18,
+        "turbulence": 0.25
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.2758620689655173,
+        "colorTempK": 7000,
+        "exposure": 0.67
+      },
+      "camera": {
+        "pitchDeg": -15.5,
+        "rollDeg": 0.0,
+        "yawDeg": 16.8,
+        "altitudeM": 89.8,
+        "fovDeg": 59.6
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.65,
+        "sweepAngleDeg": 288.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.83,
+        "hazardZoneOpacity": 0.84,
+        "corridorClarity": 0.86
+      },
+      "telemetry": {
+        "latitude": 18.9635,
+        "longitude": 72.8844,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 85,
+      "fileName": "frame_085.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.828
+      },
+      "narrative": "Navigation corridor vectors reach full clarity and geo-referencing.",
+      "wavePhysics": {
+        "waveHeightM": 1.85,
+        "periodSec": 8.3,
+        "foamCoverage": 0.18,
+        "turbulence": 0.24
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.396551724137931,
+        "colorTempK": 7000,
+        "exposure": 0.67
+      },
+      "camera": {
+        "pitchDeg": -15.4,
+        "rollDeg": 0.0,
+        "yawDeg": 17.0,
+        "altitudeM": 90.7,
+        "fovDeg": 59.7
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.64,
+        "sweepAngleDeg": 300.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.86,
+        "hazardZoneOpacity": 0.87,
+        "corridorClarity": 0.88
+      },
+      "telemetry": {
+        "latitude": 18.964,
+        "longitude": 72.8852,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 86,
+      "fileName": "frame_086.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.862
+      },
+      "narrative": "Stable, validated spatial corridors established across the coastal sector.",
+      "wavePhysics": {
+        "waveHeightM": 1.76,
+        "periodSec": 8.3,
+        "foamCoverage": 0.17,
+        "turbulence": 0.23
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.5172413793103448,
+        "colorTempK": 7000,
+        "exposure": 0.68
+      },
+      "camera": {
+        "pitchDeg": -15.3,
+        "rollDeg": 0.0,
+        "yawDeg": 17.2,
+        "altitudeM": 91.6,
+        "fovDeg": 59.7
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.63,
+        "sweepAngleDeg": 312.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.89,
+        "hazardZoneOpacity": 0.9,
+        "corridorClarity": 0.9
+      },
+      "telemetry": {
+        "latitude": 18.9645,
+        "longitude": 72.886,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 87,
+      "fileName": "frame_087.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.897
+      },
+      "narrative": "Stable, validated spatial corridors established across the coastal sector.",
+      "wavePhysics": {
+        "waveHeightM": 1.67,
+        "periodSec": 8.3,
+        "foamCoverage": 0.17,
+        "turbulence": 0.23
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.637931034482759,
+        "colorTempK": 7000,
+        "exposure": 0.68
+      },
+      "camera": {
+        "pitchDeg": -15.3,
+        "rollDeg": 0.0,
+        "yawDeg": 17.4,
+        "altitudeM": 92.4,
+        "fovDeg": 59.8
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.63,
+        "sweepAngleDeg": 324.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.92,
+        "hazardZoneOpacity": 0.92,
+        "corridorClarity": 0.93
+      },
+      "telemetry": {
+        "latitude": 18.965,
+        "longitude": 72.8868,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 88,
+      "fileName": "frame_088.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.931
+      },
+      "narrative": "Stable, validated spatial corridors established across the coastal sector.",
+      "wavePhysics": {
+        "waveHeightM": 1.58,
+        "periodSec": 8.3,
+        "foamCoverage": 0.16,
+        "turbulence": 0.22
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.7586206896551722,
+        "colorTempK": 7000,
+        "exposure": 0.69
+      },
+      "camera": {
+        "pitchDeg": -15.2,
+        "rollDeg": 0.0,
+        "yawDeg": 17.6,
+        "altitudeM": 93.3,
+        "fovDeg": 59.9
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.62,
+        "sweepAngleDeg": 336.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.94,
+        "hazardZoneOpacity": 0.95,
+        "corridorClarity": 0.95
+      },
+      "telemetry": {
+        "latitude": 18.9655,
+        "longitude": 72.8876,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 89,
+      "fileName": "frame_089.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 0.966
+      },
+      "narrative": "Stable, validated spatial corridors established across the coastal sector.",
+      "wavePhysics": {
+        "waveHeightM": 1.5,
+        "periodSec": 8.2,
+        "foamCoverage": 0.16,
+        "turbulence": 0.21
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 1.8793103448275863,
+        "colorTempK": 7000,
+        "exposure": 0.69
+      },
+      "camera": {
+        "pitchDeg": -15.1,
+        "rollDeg": 0.0,
+        "yawDeg": 17.8,
+        "altitudeM": 94.1,
+        "fovDeg": 59.9
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.61,
+        "sweepAngleDeg": 348.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.97,
+        "hazardZoneOpacity": 0.97,
+        "corridorClarity": 0.98
+      },
+      "telemetry": {
+        "latitude": 18.966,
+        "longitude": 72.8884,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 90,
+      "fileName": "frame_090.png",
+      "phase": {
+        "number": 3,
+        "name": "Safe Zone Identification",
+        "progress": 1.0
+      },
+      "narrative": "Stable, validated spatial corridors established across the coastal sector.",
+      "wavePhysics": {
+        "waveHeightM": 1.45,
+        "periodSec": 8.2,
+        "foamCoverage": 0.15,
+        "turbulence": 0.2
+      },
+      "lighting": {
+        "theme": "Vector Demarcation",
+        "ambientColor": "#072030",
+        "keyLightColor": "#00f0ff",
+        "sunElevationDeg": 2.0,
+        "colorTempK": 7000,
+        "exposure": 0.7
+      },
+      "camera": {
+        "pitchDeg": -15.0,
+        "rollDeg": 0.0,
+        "yawDeg": 18.0,
+        "altitudeM": 95.0,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.6,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 1.0
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 1.0,
+        "hazardZoneOpacity": 1.0,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9665,
+        "longitude": 72.8892,
+        "riskLevel": "MAPPED_CORRIDORS",
+        "advisory": "Safe navigation corridors verified. Hazard boundaries marked in red."
+      }
+    },
+    {
+      "frameIndex": 91,
+      "fileName": "frame_091.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.0
+      },
+      "narrative": "First golden-hour dawn rays crest horizon, illuminating calm emerald swells.",
+      "wavePhysics": {
+        "waveHeightM": 1.68,
+        "periodSec": 8.2,
+        "foamCoverage": 0.15,
+        "turbulence": 0.2
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 2.0,
+        "colorTempK": 5800,
+        "exposure": 0.72
+      },
+      "camera": {
+        "pitchDeg": -15.0,
+        "rollDeg": 0.0,
+        "yawDeg": 18.0,
+        "altitudeM": 95.0,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.6,
+        "sweepAngleDeg": 12.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 1.0,
+        "hazardZoneOpacity": 1.0,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.967,
+        "longitude": 72.89,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 92,
+      "fileName": "frame_092.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.034
+      },
+      "narrative": "First golden-hour dawn rays crest horizon, illuminating calm emerald swells.",
+      "wavePhysics": {
+        "waveHeightM": 1.65,
+        "periodSec": 8.2,
+        "foamCoverage": 0.15,
+        "turbulence": 0.2
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 2.3,
+        "colorTempK": 5752,
+        "exposure": 0.73
+      },
+      "camera": {
+        "pitchDeg": -14.9,
+        "rollDeg": 0.0,
+        "yawDeg": 18.1,
+        "altitudeM": 95.9,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.59,
+        "sweepAngleDeg": 24.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 1.0,
+        "hazardZoneOpacity": 1.0,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9675,
+        "longitude": 72.8908,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 93,
+      "fileName": "frame_093.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.069
+      },
+      "narrative": "First golden-hour dawn rays crest horizon, illuminating calm emerald swells.",
+      "wavePhysics": {
+        "waveHeightM": 1.6,
+        "periodSec": 8.2,
+        "foamCoverage": 0.14,
+        "turbulence": 0.19
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 2.7,
+        "colorTempK": 5703,
+        "exposure": 0.74
+      },
+      "camera": {
+        "pitchDeg": -14.8,
+        "rollDeg": 0.0,
+        "yawDeg": 18.3,
+        "altitudeM": 96.7,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.59,
+        "sweepAngleDeg": 36.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.99,
+        "hazardZoneOpacity": 0.99,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.968,
+        "longitude": 72.8916,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 94,
+      "fileName": "frame_094.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.103
+      },
+      "narrative": "First golden-hour dawn rays crest horizon, illuminating calm emerald swells.",
+      "wavePhysics": {
+        "waveHeightM": 1.56,
+        "periodSec": 8.1,
+        "foamCoverage": 0.14,
+        "turbulence": 0.19
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 3.0,
+        "colorTempK": 5655,
+        "exposure": 0.74
+      },
+      "camera": {
+        "pitchDeg": -14.7,
+        "rollDeg": 0.0,
+        "yawDeg": 18.4,
+        "altitudeM": 97.6,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.58,
+        "sweepAngleDeg": 48.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.99,
+        "hazardZoneOpacity": 0.99,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9685,
+        "longitude": 72.8924,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 95,
+      "fileName": "frame_095.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.138
+      },
+      "narrative": "First golden-hour dawn rays crest horizon, illuminating calm emerald swells.",
+      "wavePhysics": {
+        "waveHeightM": 1.51,
+        "periodSec": 8.1,
+        "foamCoverage": 0.14,
+        "turbulence": 0.18
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 3.4,
+        "colorTempK": 5607,
+        "exposure": 0.75
+      },
+      "camera": {
+        "pitchDeg": -14.6,
+        "rollDeg": 0.0,
+        "yawDeg": 18.6,
+        "altitudeM": 98.4,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.57,
+        "sweepAngleDeg": 60.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.99,
+        "hazardZoneOpacity": 0.99,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.969,
+        "longitude": 72.8932,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 96,
+      "fileName": "frame_096.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.172
+      },
+      "narrative": "Warm natural gold water reflections blend with rich cyan bathymetry.",
+      "wavePhysics": {
+        "waveHeightM": 1.46,
+        "periodSec": 8.1,
+        "foamCoverage": 0.14,
+        "turbulence": 0.18
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 3.7,
+        "colorTempK": 5559,
+        "exposure": 0.76
+      },
+      "camera": {
+        "pitchDeg": -14.5,
+        "rollDeg": 0.0,
+        "yawDeg": 18.7,
+        "altitudeM": 99.3,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.57,
+        "sweepAngleDeg": 72.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.98,
+        "hazardZoneOpacity": 0.98,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9695,
+        "longitude": 72.894,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 97,
+      "fileName": "frame_097.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.207
+      },
+      "narrative": "Warm natural gold water reflections blend with rich cyan bathymetry.",
+      "wavePhysics": {
+        "waveHeightM": 1.42,
+        "periodSec": 8.1,
+        "foamCoverage": 0.13,
+        "turbulence": 0.18
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 4.1,
+        "colorTempK": 5510,
+        "exposure": 0.77
+      },
+      "camera": {
+        "pitchDeg": -14.4,
+        "rollDeg": 0.0,
+        "yawDeg": 18.8,
+        "altitudeM": 100.2,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.56,
+        "sweepAngleDeg": 84.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.98,
+        "hazardZoneOpacity": 0.98,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.97,
+        "longitude": 72.8948,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 98,
+      "fileName": "frame_098.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.241
+      },
+      "narrative": "Warm natural gold water reflections blend with rich cyan bathymetry.",
+      "wavePhysics": {
+        "waveHeightM": 1.39,
+        "periodSec": 8.1,
+        "foamCoverage": 0.13,
+        "turbulence": 0.17
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 4.4,
+        "colorTempK": 5462,
+        "exposure": 0.78
+      },
+      "camera": {
+        "pitchDeg": -14.3,
+        "rollDeg": 0.0,
+        "yawDeg": 19.0,
+        "altitudeM": 101.0,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.55,
+        "sweepAngleDeg": 96.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.98,
+        "hazardZoneOpacity": 0.98,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9705,
+        "longitude": 72.8956,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 99,
+      "fileName": "frame_099.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.276
+      },
+      "narrative": "Warm natural gold water reflections blend with rich cyan bathymetry.",
+      "wavePhysics": {
+        "waveHeightM": 1.36,
+        "periodSec": 8.0,
+        "foamCoverage": 0.13,
+        "turbulence": 0.17
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 4.8,
+        "colorTempK": 5414,
+        "exposure": 0.78
+      },
+      "camera": {
+        "pitchDeg": -14.2,
+        "rollDeg": 0.0,
+        "yawDeg": 19.1,
+        "altitudeM": 101.9,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.54,
+        "sweepAngleDeg": 108.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.97,
+        "hazardZoneOpacity": 0.97,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.971,
+        "longitude": 72.8964,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 100,
+      "fileName": "frame_100.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.31
+      },
+      "narrative": "Warm natural gold water reflections blend with rich cyan bathymetry.",
+      "wavePhysics": {
+        "waveHeightM": 1.35,
+        "periodSec": 8.0,
+        "foamCoverage": 0.13,
+        "turbulence": 0.16
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 5.1,
+        "colorTempK": 5366,
+        "exposure": 0.79
+      },
+      "camera": {
+        "pitchDeg": -14.1,
+        "rollDeg": 0.0,
+        "yawDeg": 19.2,
+        "altitudeM": 102.8,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.54,
+        "sweepAngleDeg": 120.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.97,
+        "hazardZoneOpacity": 0.97,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9715,
+        "longitude": 72.8972,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 101,
+      "fileName": "frame_101.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.345
+      },
+      "narrative": "Optimized fishing corridors radiate emerald clarity; hazard zones clearly bounded.",
+      "wavePhysics": {
+        "waveHeightM": 1.34,
+        "periodSec": 8.0,
+        "foamCoverage": 0.12,
+        "turbulence": 0.16
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 5.4,
+        "colorTempK": 5317,
+        "exposure": 0.8
+      },
+      "camera": {
+        "pitchDeg": -14.0,
+        "rollDeg": 0.0,
+        "yawDeg": 19.4,
+        "altitudeM": 103.6,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.53,
+        "sweepAngleDeg": 132.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.97,
+        "hazardZoneOpacity": 0.97,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.972,
+        "longitude": 72.898,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 102,
+      "fileName": "frame_102.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.379
+      },
+      "narrative": "Optimized fishing corridors radiate emerald clarity; hazard zones clearly bounded.",
+      "wavePhysics": {
+        "waveHeightM": 1.34,
+        "periodSec": 8.0,
+        "foamCoverage": 0.12,
+        "turbulence": 0.15
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 5.8,
+        "colorTempK": 5269,
+        "exposure": 0.81
+      },
+      "camera": {
+        "pitchDeg": -13.9,
+        "rollDeg": 0.0,
+        "yawDeg": 19.5,
+        "altitudeM": 104.5,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.52,
+        "sweepAngleDeg": 144.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.96,
+        "hazardZoneOpacity": 0.96,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9725,
+        "longitude": 72.8988,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 103,
+      "fileName": "frame_103.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.414
+      },
+      "narrative": "Optimized fishing corridors radiate emerald clarity; hazard zones clearly bounded.",
+      "wavePhysics": {
+        "waveHeightM": 1.34,
+        "periodSec": 8.0,
+        "foamCoverage": 0.12,
+        "turbulence": 0.15
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 6.1,
+        "colorTempK": 5221,
+        "exposure": 0.82
+      },
+      "camera": {
+        "pitchDeg": -13.8,
+        "rollDeg": 0.0,
+        "yawDeg": 19.7,
+        "altitudeM": 105.3,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.52,
+        "sweepAngleDeg": 156.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.96,
+        "hazardZoneOpacity": 0.96,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.973,
+        "longitude": 72.8996,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 104,
+      "fileName": "frame_104.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.448
+      },
+      "narrative": "Optimized fishing corridors radiate emerald clarity; hazard zones clearly bounded.",
+      "wavePhysics": {
+        "waveHeightM": 1.35,
+        "periodSec": 7.9,
+        "foamCoverage": 0.11,
+        "turbulence": 0.15
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 6.5,
+        "colorTempK": 5172,
+        "exposure": 0.82
+      },
+      "camera": {
+        "pitchDeg": -13.7,
+        "rollDeg": 0.0,
+        "yawDeg": 19.8,
+        "altitudeM": 106.2,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.51,
+        "sweepAngleDeg": 168.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.96,
+        "hazardZoneOpacity": 0.96,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9735,
+        "longitude": 72.9004,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 105,
+      "fileName": "frame_105.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.483
+      },
+      "narrative": "Optimized fishing corridors radiate emerald clarity; hazard zones clearly bounded.",
+      "wavePhysics": {
+        "waveHeightM": 1.37,
+        "periodSec": 7.9,
+        "foamCoverage": 0.11,
+        "turbulence": 0.14
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 6.8,
+        "colorTempK": 5124,
+        "exposure": 0.83
+      },
+      "camera": {
+        "pitchDeg": -13.6,
+        "rollDeg": 0.0,
+        "yawDeg": 19.9,
+        "altitudeM": 107.1,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.5,
+        "sweepAngleDeg": 180.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.95,
+        "hazardZoneOpacity": 0.95,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.974,
+        "longitude": 72.9012,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 106,
+      "fileName": "frame_106.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.517
+      },
+      "narrative": "Atmospheric clarity reaches maximum; spatial telemetry harmonizes with sea.",
+      "wavePhysics": {
+        "waveHeightM": 1.38,
+        "periodSec": 7.9,
+        "foamCoverage": 0.11,
+        "turbulence": 0.14
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 7.2,
+        "colorTempK": 5076,
+        "exposure": 0.84
+      },
+      "camera": {
+        "pitchDeg": -13.4,
+        "rollDeg": 0.0,
+        "yawDeg": 20.1,
+        "altitudeM": 107.9,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.5,
+        "sweepAngleDeg": 192.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.95,
+        "hazardZoneOpacity": 0.95,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9745,
+        "longitude": 72.902,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 107,
+      "fileName": "frame_107.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.552
+      },
+      "narrative": "Atmospheric clarity reaches maximum; spatial telemetry harmonizes with sea.",
+      "wavePhysics": {
+        "waveHeightM": 1.39,
+        "periodSec": 7.9,
+        "foamCoverage": 0.11,
+        "turbulence": 0.13
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 7.5,
+        "colorTempK": 5028,
+        "exposure": 0.85
+      },
+      "camera": {
+        "pitchDeg": -13.3,
+        "rollDeg": 0.0,
+        "yawDeg": 20.2,
+        "altitudeM": 108.8,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.49,
+        "sweepAngleDeg": 204.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.94,
+        "hazardZoneOpacity": 0.94,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.975,
+        "longitude": 72.9028,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 108,
+      "fileName": "frame_108.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.586
+      },
+      "narrative": "Atmospheric clarity reaches maximum; spatial telemetry harmonizes with sea.",
+      "wavePhysics": {
+        "waveHeightM": 1.39,
+        "periodSec": 7.8,
+        "foamCoverage": 0.1,
+        "turbulence": 0.13
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 7.9,
+        "colorTempK": 4979,
+        "exposure": 0.85
+      },
+      "camera": {
+        "pitchDeg": -13.2,
+        "rollDeg": 0.0,
+        "yawDeg": 20.3,
+        "altitudeM": 109.7,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.48,
+        "sweepAngleDeg": 216.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.94,
+        "hazardZoneOpacity": 0.94,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9755,
+        "longitude": 72.9036,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 109,
+      "fileName": "frame_109.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.621
+      },
+      "narrative": "Atmospheric clarity reaches maximum; spatial telemetry harmonizes with sea.",
+      "wavePhysics": {
+        "waveHeightM": 1.39,
+        "periodSec": 7.8,
+        "foamCoverage": 0.1,
+        "turbulence": 0.13
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 8.2,
+        "colorTempK": 4931,
+        "exposure": 0.86
+      },
+      "camera": {
+        "pitchDeg": -13.1,
+        "rollDeg": 0.0,
+        "yawDeg": 20.5,
+        "altitudeM": 110.5,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.48,
+        "sweepAngleDeg": 228.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.94,
+        "hazardZoneOpacity": 0.94,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.976,
+        "longitude": 72.9044,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 110,
+      "fileName": "frame_110.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.655
+      },
+      "narrative": "Atmospheric clarity reaches maximum; spatial telemetry harmonizes with sea.",
+      "wavePhysics": {
+        "waveHeightM": 1.37,
+        "periodSec": 7.8,
+        "foamCoverage": 0.1,
+        "turbulence": 0.12
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 8.6,
+        "colorTempK": 4883,
+        "exposure": 0.87
+      },
+      "camera": {
+        "pitchDeg": -13.0,
+        "rollDeg": 0.0,
+        "yawDeg": 20.6,
+        "altitudeM": 111.4,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.47,
+        "sweepAngleDeg": 240.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.93,
+        "hazardZoneOpacity": 0.93,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9765,
+        "longitude": 72.9052,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 111,
+      "fileName": "frame_111.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.69
+      },
+      "narrative": "Command center interface aligns into live operational status.",
+      "wavePhysics": {
+        "waveHeightM": 1.35,
+        "periodSec": 7.8,
+        "foamCoverage": 0.09,
+        "turbulence": 0.12
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 8.9,
+        "colorTempK": 4834,
+        "exposure": 0.88
+      },
+      "camera": {
+        "pitchDeg": -12.9,
+        "rollDeg": 0.0,
+        "yawDeg": 20.8,
+        "altitudeM": 112.2,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.46,
+        "sweepAngleDeg": 252.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.93,
+        "hazardZoneOpacity": 0.93,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.977,
+        "longitude": 72.906,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 112,
+      "fileName": "frame_112.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.724
+      },
+      "narrative": "Command center interface aligns into live operational status.",
+      "wavePhysics": {
+        "waveHeightM": 1.32,
+        "periodSec": 7.8,
+        "foamCoverage": 0.09,
+        "turbulence": 0.11
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 9.2,
+        "colorTempK": 4786,
+        "exposure": 0.89
+      },
+      "camera": {
+        "pitchDeg": -12.8,
+        "rollDeg": 0.0,
+        "yawDeg": 20.9,
+        "altitudeM": 113.1,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.46,
+        "sweepAngleDeg": 264.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.93,
+        "hazardZoneOpacity": 0.93,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9775,
+        "longitude": 72.9068,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 113,
+      "fileName": "frame_113.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.759
+      },
+      "narrative": "Command center interface aligns into live operational status.",
+      "wavePhysics": {
+        "waveHeightM": 1.28,
+        "periodSec": 7.7,
+        "foamCoverage": 0.09,
+        "turbulence": 0.11
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 9.6,
+        "colorTempK": 4738,
+        "exposure": 0.89
+      },
+      "camera": {
+        "pitchDeg": -12.7,
+        "rollDeg": 0.0,
+        "yawDeg": 21.0,
+        "altitudeM": 114.0,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.45,
+        "sweepAngleDeg": 276.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.92,
+        "hazardZoneOpacity": 0.92,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.978,
+        "longitude": 72.9076,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 114,
+      "fileName": "frame_114.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.793
+      },
+      "narrative": "Command center interface aligns into live operational status.",
+      "wavePhysics": {
+        "waveHeightM": 1.24,
+        "periodSec": 7.7,
+        "foamCoverage": 0.09,
+        "turbulence": 0.1
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 9.9,
+        "colorTempK": 4690,
+        "exposure": 0.9
+      },
+      "camera": {
+        "pitchDeg": -12.6,
+        "rollDeg": 0.0,
+        "yawDeg": 21.2,
+        "altitudeM": 114.8,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.44,
+        "sweepAngleDeg": 288.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.92,
+        "hazardZoneOpacity": 0.92,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9785,
+        "longitude": 72.9084,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 115,
+      "fileName": "frame_115.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.828
+      },
+      "narrative": "Command center interface aligns into live operational status.",
+      "wavePhysics": {
+        "waveHeightM": 1.19,
+        "periodSec": 7.7,
+        "foamCoverage": 0.08,
+        "turbulence": 0.1
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 10.3,
+        "colorTempK": 4641,
+        "exposure": 0.91
+      },
+      "camera": {
+        "pitchDeg": -12.5,
+        "rollDeg": 0.0,
+        "yawDeg": 21.3,
+        "altitudeM": 115.7,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.43,
+        "sweepAngleDeg": 300.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.92,
+        "hazardZoneOpacity": 0.92,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.979,
+        "longitude": 72.9092,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 116,
+      "fileName": "frame_116.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.862
+      },
+      "narrative": "Optimal operational advisory state reached. Ready to enter Marine Command Centre.",
+      "wavePhysics": {
+        "waveHeightM": 1.14,
+        "periodSec": 7.7,
+        "foamCoverage": 0.08,
+        "turbulence": 0.1
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 10.6,
+        "colorTempK": 4593,
+        "exposure": 0.92
+      },
+      "camera": {
+        "pitchDeg": -12.4,
+        "rollDeg": 0.0,
+        "yawDeg": 21.4,
+        "altitudeM": 116.6,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.43,
+        "sweepAngleDeg": 312.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.91,
+        "hazardZoneOpacity": 0.91,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9795,
+        "longitude": 72.91,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 117,
+      "fileName": "frame_117.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.897
+      },
+      "narrative": "Optimal operational advisory state reached. Ready to enter Marine Command Centre.",
+      "wavePhysics": {
+        "waveHeightM": 1.1,
+        "periodSec": 7.7,
+        "foamCoverage": 0.08,
+        "turbulence": 0.09
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 11.0,
+        "colorTempK": 4545,
+        "exposure": 0.93
+      },
+      "camera": {
+        "pitchDeg": -12.3,
+        "rollDeg": 0.0,
+        "yawDeg": 21.6,
+        "altitudeM": 117.4,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.42,
+        "sweepAngleDeg": 324.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.91,
+        "hazardZoneOpacity": 0.91,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.98,
+        "longitude": 72.9108,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 118,
+      "fileName": "frame_118.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.931
+      },
+      "narrative": "Optimal operational advisory state reached. Ready to enter Marine Command Centre.",
+      "wavePhysics": {
+        "waveHeightM": 1.06,
+        "periodSec": 7.6,
+        "foamCoverage": 0.08,
+        "turbulence": 0.09
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 11.3,
+        "colorTempK": 4497,
+        "exposure": 0.93
+      },
+      "camera": {
+        "pitchDeg": -12.2,
+        "rollDeg": 0.0,
+        "yawDeg": 21.7,
+        "altitudeM": 118.3,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.41,
+        "sweepAngleDeg": 336.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.91,
+        "hazardZoneOpacity": 0.91,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9805,
+        "longitude": 72.9116,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 119,
+      "fileName": "frame_119.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 0.966
+      },
+      "narrative": "Optimal operational advisory state reached. Ready to enter Marine Command Centre.",
+      "wavePhysics": {
+        "waveHeightM": 1.03,
+        "periodSec": 7.6,
+        "foamCoverage": 0.07,
+        "turbulence": 0.08
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 11.7,
+        "colorTempK": 4448,
+        "exposure": 0.94
+      },
+      "camera": {
+        "pitchDeg": -12.1,
+        "rollDeg": 0.0,
+        "yawDeg": 21.9,
+        "altitudeM": 119.1,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.41,
+        "sweepAngleDeg": 348.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.9,
+        "hazardZoneOpacity": 0.9,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.981,
+        "longitude": 72.9124,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    },
+    {
+      "frameIndex": 120,
+      "fileName": "frame_120.png",
+      "phase": {
+        "number": 4,
+        "name": "Optimized Advisory",
+        "progress": 1.0
+      },
+      "narrative": "Optimal operational advisory state reached. Ready to enter Marine Command Centre.",
+      "wavePhysics": {
+        "waveHeightM": 1.0,
+        "periodSec": 7.6,
+        "foamCoverage": 0.07,
+        "turbulence": 0.08
+      },
+      "lighting": {
+        "theme": "Golden Hour Advisory",
+        "ambientColor": "#0b2b3d",
+        "keyLightColor": "#ffb347",
+        "sunElevationDeg": 12.0,
+        "colorTempK": 4400,
+        "exposure": 0.95
+      },
+      "camera": {
+        "pitchDeg": -12.0,
+        "rollDeg": 0.0,
+        "yawDeg": 22.0,
+        "altitudeM": 120.0,
+        "fovDeg": 60.0
+      },
+      "radarOverlay": {
+        "active": true,
+        "opacity": 0.4,
+        "sweepAngleDeg": 0.0,
+        "gridDensity": 0.8
+      },
+      "boundaryOverlay": {
+        "active": true,
+        "safeZoneOpacity": 0.9,
+        "hazardZoneOpacity": 0.9,
+        "corridorClarity": 1.0
+      },
+      "telemetry": {
+        "latitude": 18.9815,
+        "longitude": 72.9132,
+        "riskLevel": "OPTIMIZED_ADVISORY",
+        "advisory": "Operational clarity achieved. Marine advisory active and ready for navigation."
+      }
+    }
+  ]
+}
